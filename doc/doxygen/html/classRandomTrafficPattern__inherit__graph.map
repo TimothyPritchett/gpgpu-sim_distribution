@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node5" href="$classAsymmetricTrafficPattern.html" title="AsymmetricTrafficPattern" alt="" coords="411,5,605,35"/>
+<area shape="rect" id="node7" href="$classDiagonalTrafficPattern.html" title="DiagonalTrafficPattern" alt="" coords="423,59,593,88"/>
+<area shape="rect" id="node9" href="$classTaper64TrafficPattern.html" title="Taper64TrafficPattern" alt="" coords="425,112,591,141"/>
+<area shape="rect" id="node11" href="$classUniformBackgroundTrafficPattern.html" title="UniformBackgroundTrafficPattern" alt="" coords="387,165,629,195"/>
+<area shape="rect" id="node13" href="$classUniformRandomTrafficPattern.html" title="UniformRandomTrafficPattern" alt="" coords="399,219,617,248"/>
+<area shape="rect" id="node2" href="$classTrafficPattern.html" title="TrafficPattern" alt="" coords="5,112,120,141"/>
+</map>

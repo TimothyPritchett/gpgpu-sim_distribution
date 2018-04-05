@@ -1,0 +1,9 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$classRouter.html" title="Router" alt="" coords="1032,380,1099,410"/>
+<area shape="rect" id="node4" href="$classTimedModule.html" title="TimedModule" alt="" coords="481,159,591,188"/>
+<area shape="rect" id="node6" href="$classModule.html" title="Module" alt="" coords="279,950,348,979"/>
+<area shape="rect" id="node28" href="$classPipelineFIFO.html" title="PipelineFIFO\&lt; Credit \&gt;" alt="" coords="977,830,1153,859"/>
+<area shape="rect" id="node38" href="$classPipelineFIFO.html" title="PipelineFIFO\&lt; tArrivalEvent \&gt;" alt="" coords="953,1135,1177,1164"/>
+<area shape="rect" id="node48" href="$classPipelineFIFO.html" title="PipelineFIFO\&lt; Flit \&gt;" alt="" coords="988,1295,1143,1324"/>
+<area shape="rect" id="node18" href="$classint.html" title="int" alt="" coords="516,974,556,1003"/>
+</map>

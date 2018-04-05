@@ -1,0 +1,16 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$structmem__power__stats__pod.html" title="mem_power_stats_pod" alt="" coords="1216,112,1395,141"/>
+<area shape="rect" id="node4" href="$classcache__stats.html" title="cache_stats" alt="" coords="613,147,720,176"/>
+<area shape="rect" id="node75" href="$classshader__core__stats.html" title="shader_core_stats" alt="" coords="2115,561,2261,591"/>
+<area shape="rect" id="node13" href="$structshader__core__config.html" title="shader_core_config" alt="" coords="1628,1568,1777,1597"/>
+<area shape="rect" id="node15" href="$structcore__config.html" title="core_config" alt="" coords="617,1252,716,1281"/>
+<area shape="rect" id="node24" href="$classcache__config.html" title="cache_config" alt="" coords="612,1847,721,1876"/>
+<area shape="rect" id="node57" href="$structmemory__config.html" title="memory_config" alt="" coords="1640,2151,1765,2180"/>
+<area shape="rect" id="node77" href="$structshader__core__stats__pod.html" title="shader_core_stats_pod" alt="" coords="577,456,756,485"/>
+<area shape="rect" id="node96" href="$classmemory__stats__t.html" title="memory_stats_t" alt="" coords="2121,1512,2255,1541"/>
+<area shape="rect" id="node17" href="$classint.html" title="int" alt="" coords="117,1312,157,1341"/>
+<area shape="rect" id="node64" href="$classlinear__to__raw__address__translation.html" title="linear_to_raw_address_translation" alt="" coords="543,2196,791,2225"/>
+<area shape="rect" id="node22" href="$classl1d__cache__config.html" title="l1d_cache_config" alt="" coords="1237,1784,1373,1813"/>
+<area shape="rect" id="node71" href="$classl2__cache__config.html" title="l2_cache_config" alt="" coords="1241,2083,1369,2112"/>
+<area shape="rect" id="node86" href="$classtraffic__breakdown.html" title="traffic_breakdown" alt="" coords="1632,481,1773,511"/>
+</map>

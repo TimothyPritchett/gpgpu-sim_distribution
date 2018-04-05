@@ -1,0 +1,31 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$classL2interface.html" title="L2interface" alt="" coords="3345,1525,3444,1555"/>
+<area shape="rect" id="node4" href="$classmem__fetch__interface.html" title="mem_fetch_interface" alt="" coords="1179,1095,1349,1124"/>
+<area shape="rect" id="node43" href="$classbaseline__cache.html" title="baseline_cache" alt="" coords="1675,1740,1800,1769"/>
+<area shape="rect" id="node7" href="$classpartition__mf__allocator.html" title="partition_mf_allocator" alt="" coords="2020,1336,2188,1365"/>
+<area shape="rect" id="node9" href="$classmem__fetch__allocator.html" title="mem_fetch_allocator" alt="" coords="1655,1420,1820,1449"/>
+<area shape="rect" id="node41" href="$classdata__cache.html" title="Data cache &#45; Implements common functions for L1 and L2 data cache." alt="" coords="2053,1675,2155,1704"/>
+<area shape="rect" id="node11" href="$structmemory__config.html" title="memory_config" alt="" coords="1675,385,1800,415"/>
+<area shape="rect" id="node79" href="$classmemory__stats__t.html" title="memory_stats_t" alt="" coords="2037,1487,2171,1516"/>
+<area shape="rect" id="node102" href="$classmem__fetch.html" title="mem_fetch" alt="" coords="2053,2320,2155,2349"/>
+<area shape="rect" id="node21" href="$classlinear__to__raw__address__translation.html" title="linear_to_raw_address_translation" alt="" coords="477,184,725,213"/>
+<area shape="rect" id="node31" href="$classcache__config.html" title="cache_config" alt="" coords="547,464,656,493"/>
+<area shape="rect" id="node81" href="$structshader__core__config.html" title="shader_core_config" alt="" coords="1663,989,1812,1019"/>
+<area shape="rect" id="node137" href="$classfifo__pipeline.html" title="fifo_pipeline\&lt; mem_fetch \&gt;" alt="" coords="2635,1804,2845,1833"/>
+<area shape="rect" id="node50" href="$classmshr__table.html" title="mshr_table" alt="" coords="553,1740,649,1769"/>
+<area shape="rect" id="node83" href="$structcore__config.html" title="core_config" alt="" coords="552,1312,651,1341"/>
+<area shape="rect" id="node107" href="$classwarp__inst__t.html" title="warp_inst_t" alt="" coords="1215,1968,1313,1997"/>
+<area shape="rect" id="node109" href="$classinst__t.html" title="inst_t" alt="" coords="571,1365,632,1395"/>
+<area shape="rect" id="node127" href="$classmem__access__t.html" title="mem_access_t" alt="" coords="1201,2429,1327,2459"/>
+<area shape="rect" id="node47" href="$classcache__stats.html" title="cache_stats" alt="" coords="876,2177,983,2207"/>
+<area shape="rect" id="node66" href="$classtag__array.html" title="tag_array" alt="" coords="1221,1148,1307,1177"/>
+<area shape="rect" id="node124" href="$structaddrdec__t.html" title="addrdec_t" alt="" coords="884,2748,975,2777"/>
+<area shape="rect" id="node29" href="$classl2__cache__config.html" title="l2_cache_config" alt="" coords="1200,185,1328,215"/>
+<area shape="rect" id="node26" href="$classint.html" title="int" alt="" coords="75,663,115,692"/>
+<area shape="rect" id="node55" href="$classbaseline__cache_1_1bandwidth__management.html" title="Sub&#45;class containing all metadata for port bandwidth management." alt="" coords="1113,612,1415,641"/>
+<area shape="rect" id="node88" href="$classl1d__cache__config.html" title="l1d_cache_config" alt="" coords="1196,493,1332,523"/>
+<area shape="rect" id="node39" href="$classl2__cache.html" title="l2_cache" alt="" coords="2519,1632,2599,1661"/>
+<area shape="rect" id="node45" href="$classcache__t.html" title="cache_t" alt="" coords="1225,1861,1303,1891"/>
+<area shape="rect" id="node139" href="$structfifo__data.html" title="fifo_data\&lt; mem_fetch \&gt;" alt="" coords="2292,2320,2481,2349"/>
+<area shape="rect" id="node141" href="$structfifo__data.html" title="fifo_data\&lt; T \&gt;" alt="" coords="2045,2415,2163,2444"/>
+</map>

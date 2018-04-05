@@ -1,0 +1,14 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$classdata__cache.html" title="Data cache &#45; Implements common functions for L1 and L2 data cache." alt="" coords="1976,596,2077,625"/>
+<area shape="rect" id="node4" href="$classbaseline__cache.html" title="baseline_cache" alt="" coords="1632,492,1757,521"/>
+<area shape="rect" id="node6" href="$classcache__t.html" title="cache_t" alt="" coords="1183,191,1260,220"/>
+<area shape="rect" id="node8" href="$classcache__stats.html" title="cache_stats" alt="" coords="661,89,768,119"/>
+<area shape="rect" id="node14" href="$classmshr__table.html" title="mshr_table" alt="" coords="667,185,763,215"/>
+<area shape="rect" id="node29" href="$classcache__config.html" title="cache_config" alt="" coords="660,952,769,981"/>
+<area shape="rect" id="node62" href="$classtag__array.html" title="tag_array" alt="" coords="1179,439,1264,468"/>
+<area shape="rect" id="node65" href="$structcache__block__t.html" title="cache_block_t" alt="" coords="656,449,773,479"/>
+<area shape="rect" id="node23" href="$classmem__fetch__interface.html" title="mem_fetch_interface" alt="" coords="1136,385,1307,415"/>
+<area shape="rect" id="node25" href="$classbaseline__cache_1_1bandwidth__management.html" title="Sub&#45;class containing all metadata for port bandwidth management." alt="" coords="1071,492,1372,521"/>
+<area shape="rect" id="node27" href="$classint.html" title="int" alt="" coords="695,512,735,541"/>
+<area shape="rect" id="node74" href="$classmem__fetch__allocator.html" title="mem_fetch_allocator" alt="" coords="1612,545,1777,575"/>
+</map>

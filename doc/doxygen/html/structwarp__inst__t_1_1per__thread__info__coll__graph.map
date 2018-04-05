@@ -1,0 +1,20 @@
+<map id="G" name="G">
+<area shape="rect" id="node8" href="$classinst__t.html" title="inst_t" alt="" coords="1424,1885,1485,1915"/>
+<area shape="rect" id="node22" href="$classmemory__space__t.html" title="memory_space_t" alt="" coords="967,1469,1105,1499"/>
+<area shape="rect" id="node40" href="$classptx__thread__info.html" title="ptx_thread_info" alt="" coords="2431,1161,2559,1191"/>
+<area shape="rect" id="node46" href="$classsymbol__table.html" title="symbol_table" alt="" coords="981,1005,1091,1035"/>
+<area shape="rect" id="node55" href="$classptx__version.html" title="ptx_version" alt="" coords="433,496,532,525"/>
+<area shape="rect" id="node69" href="$classcore__t.html" title="core_t" alt="" coords="2717,1161,2784,1191"/>
+<area shape="rect" id="node71" href="$classsimt__stack.html" title="simt_stack" alt="" coords="764,2635,860,2664"/>
+<area shape="rect" id="node74" href="$classgpgpu__sim.html" title="gpgpu_sim" alt="" coords="2449,473,2540,503"/>
+<area shape="rect" id="node76" href="$classgpgpu__t.html" title="gpgpu_t" alt="" coords="1891,819,1965,848"/>
+<area shape="rect" id="node86" href="$classkernel__info__t.html" title="kernel_info_t" alt="" coords="1875,567,1981,596"/>
+<area shape="rect" id="node88" href="$classfunction__info.html" title="function_info" alt="" coords="1401,657,1508,687"/>
+<area shape="rect" id="node99" href="$structdim3.html" title="dim3" alt="" coords="1428,891,1481,920"/>
+<area shape="rect" id="node106" href="$classptx__warp__info.html" title="ptx_warp_info" alt="" coords="1211,1557,1325,1587"/>
+<area shape="rect" id="node109" href="$unionptx__reg__t.html" title="ptx_reg_t" alt="" coords="1411,1296,1499,1325"/>
+<area shape="rect" id="node136" href="$classptx__cta__info.html" title="ptx_cta_info" alt="" coords="1567,1636,1673,1665"/>
+<area shape="rect" id="node4" href="$structdram__callback__t.html" title="dram_callback_t" alt="" coords="1863,1768,1993,1797"/>
+<area shape="rect" id="node27" href="$classint.html" title="int" alt="" coords="1016,1059,1056,1088"/>
+<area shape="rect" id="node79" href="$classmemory__space.html" title="memory_space" alt="" coords="1392,837,1517,867"/>
+</map>

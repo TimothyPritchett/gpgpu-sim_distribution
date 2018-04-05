@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node7" href="$classBitCompTrafficPattern.html" title="BitCompTrafficPattern" alt="" coords="687,5,860,35"/>
+<area shape="rect" id="node9" href="$classBitRevTrafficPattern.html" title="BitRevTrafficPattern" alt="" coords="693,59,853,88"/>
+<area shape="rect" id="node11" href="$classShuffleTrafficPattern.html" title="ShuffleTrafficPattern" alt="" coords="693,112,853,141"/>
+<area shape="rect" id="node13" href="$classTransposeTrafficPattern.html" title="TransposeTrafficPattern" alt="" coords="684,165,863,195"/>
+<area shape="rect" id="node2" href="$classPermutationTrafficPattern.html" title="PermutationTrafficPattern" alt="" coords="169,85,367,115"/>
+<area shape="rect" id="node4" href="$classTrafficPattern.html" title="TrafficPattern" alt="" coords="5,85,120,115"/>
+</map>

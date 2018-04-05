@@ -1,0 +1,13 @@
+<map id="G" name="G">
+<area shape="rect" id="node5" href="$classBitPermutationTrafficPattern.html" title="BitPermutationTrafficPattern" alt="" coords="423,112,641,141"/>
+<area shape="rect" id="node15" href="$classDigitPermutationTrafficPattern.html" title="DigitPermutationTrafficPattern" alt="" coords="417,272,647,301"/>
+<area shape="rect" id="node2" href="$classTrafficPattern.html" title="TrafficPattern" alt="" coords="5,192,120,221"/>
+<area shape="rect" id="node7" href="$classBitCompTrafficPattern.html" title="BitCompTrafficPattern" alt="" coords="713,5,887,35"/>
+<area shape="rect" id="node9" href="$classBitRevTrafficPattern.html" title="BitRevTrafficPattern" alt="" coords="720,59,880,88"/>
+<area shape="rect" id="node11" href="$classShuffleTrafficPattern.html" title="ShuffleTrafficPattern" alt="" coords="720,112,880,141"/>
+<area shape="rect" id="node13" href="$classTransposeTrafficPattern.html" title="TransposeTrafficPattern" alt="" coords="711,165,889,195"/>
+<area shape="rect" id="node17" href="$classBadPermDFlyTrafficPattern.html" title="BadPermDFlyTrafficPattern" alt="" coords="697,219,903,248"/>
+<area shape="rect" id="node19" href="$classBadPermYarcTrafficPattern.html" title="BadPermYarcTrafficPattern" alt="" coords="699,272,901,301"/>
+<area shape="rect" id="node21" href="$classNeighborTrafficPattern.html" title="NeighborTrafficPattern" alt="" coords="713,325,887,355"/>
+<area shape="rect" id="node23" href="$classTornadoTrafficPattern.html" title="TornadoTrafficPattern" alt="" coords="717,379,883,408"/>
+</map>

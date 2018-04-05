@@ -1,0 +1,10 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$classChannel.html" title="Channel\&lt; Flit \&gt;" alt="" coords="1007,516,1132,545"/>
+<area shape="rect" id="node4" href="$classTimedModule.html" title="TimedModule" alt="" coords="633,652,743,681"/>
+<area shape="rect" id="node33" href="$classRouter.html" title="Router" alt="" coords="1036,903,1103,932"/>
+<area shape="rect" id="node6" href="$classModule.html" title="Module" alt="" coords="333,1075,403,1104"/>
+<area shape="rect" id="node12" href="$classqueue_3_01pair_3_01int_00_01Flit_01_5_01_4_01_4.html" title="queue\&lt; pair\&lt; int, Flit * \&gt; \&gt;" alt="" coords="585,196,791,225"/>
+<area shape="rect" id="node14" href="$classint.html" title="int" alt="" coords="348,564,388,593"/>
+<area shape="rect" id="node16" href="$classFlit.html" title="Flit" alt="" coords="667,249,709,279"/>
+<area shape="rect" id="node20" href="$classOutputSet.html" title="OutputSet" alt="" coords="321,131,415,160"/>
+</map>

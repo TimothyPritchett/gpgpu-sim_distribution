@@ -1,0 +1,14 @@
+<map id="G" name="G">
+<area shape="rect" id="node8" href="$structmemory__config.html" title="memory_config" alt="" coords="1541,933,1667,963"/>
+<area shape="rect" id="node17" href="$classlinear__to__raw__address__translation.html" title="linear_to_raw_address_translation" alt="" coords="564,799,812,828"/>
+<area shape="rect" id="node27" href="$classcache__config.html" title="cache_config" alt="" coords="633,373,743,403"/>
+<area shape="rect" id="node53" href="$classwarp__inst__t.html" title="warp_inst_t" alt="" coords="1555,1844,1653,1873"/>
+<area shape="rect" id="node55" href="$classinst__t.html" title="inst_t" alt="" coords="1185,2405,1247,2435"/>
+<area shape="rect" id="node90" href="$structcore__config.html" title="core_config" alt="" coords="639,1900,737,1929"/>
+<area shape="rect" id="node102" href="$classmem__access__t.html" title="mem_access_t" alt="" coords="625,1365,751,1395"/>
+<area shape="rect" id="node4" href="$classmem__fetch.html" title="mem_fetch" alt="" coords="1853,1512,1955,1541"/>
+<area shape="rect" id="node69" href="$classmemory__space__t.html" title="memory_space_t" alt="" coords="619,2776,757,2805"/>
+<area shape="rect" id="node99" href="$structaddrdec__t.html" title="addrdec_t" alt="" coords="919,1823,1009,1852"/>
+<area shape="rect" id="node25" href="$classl2__cache__config.html" title="l2_cache_config" alt="" coords="1152,829,1280,859"/>
+<area shape="rect" id="node22" href="$classint.html" title="int" alt="" coords="131,2767,171,2796"/>
+</map>

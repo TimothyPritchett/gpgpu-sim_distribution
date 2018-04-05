@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$classbaseline__cache.html" title="baseline_cache" alt="" coords="105,83,231,112"/>
+<area shape="rect" id="node13" href="$classtex__cache.html" title="tex_cache" alt="" coords="255,83,348,112"/>
+<area shape="rect" id="node5" href="$classdata__cache.html" title="Data cache &#45; Implements common functions for L1 and L2 data cache." alt="" coords="47,160,148,189"/>
+<area shape="rect" id="node11" href="$classread__only__cache.html" title="Read only cache." alt="" coords="172,160,305,189"/>
+<area shape="rect" id="node7" href="$classl1__cache.html" title="l1_cache" alt="" coords="5,237,85,267"/>
+<area shape="rect" id="node9" href="$classl2__cache.html" title="l2_cache" alt="" coords="109,237,189,267"/>
+</map>

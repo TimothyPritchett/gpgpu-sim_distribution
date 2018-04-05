@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node6" href="$structXMLNode_1_1XMLNodeDataTag.html" title="XMLNode::XMLNodeDataTag" alt="" coords="297,323,513,352"/>
+<area shape="rect" id="node11" href="$structXMLAttribute.html" title="Structure for XML attribute." alt="" coords="100,139,215,168"/>
+<area shape="rect" id="node14" href="$structXMLClear.html" title="Structure for XML clear (unformatted) node (usually comments)." alt="" coords="568,139,653,168"/>
+<area shape="rect" id="node4" href="$structXMLNode.html" title="Main Class representing a XML node." alt="" coords="363,419,448,448"/>
+<area shape="rect" id="node19" href="$classint.html" title="int" alt="" coords="263,139,303,168"/>
+</map>

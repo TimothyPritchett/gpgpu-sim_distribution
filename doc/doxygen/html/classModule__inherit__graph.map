@@ -1,0 +1,50 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$classAllocator.html" title="Allocator" alt="" coords="197,245,277,275"/>
+<area shape="rect" id="node23" href="$classArbiter.html" title="Arbiter" alt="" coords="204,325,271,355"/>
+<area shape="rect" id="node31" href="$classBuffer.html" title="Buffer" alt="" coords="205,379,269,408"/>
+<area shape="rect" id="node33" href="$classBufferState.html" title="BufferState" alt="" coords="187,432,288,461"/>
+<area shape="rect" id="node35" href="$classBufferState_1_1BufferPolicy.html" title="BufferState::BufferPolicy" alt="" coords="140,485,335,515"/>
+<area shape="rect" id="node45" href="$classEventNextVCState.html" title="EventNextVCState" alt="" coords="160,539,315,568"/>
+<area shape="rect" id="node47" href="$classPipelineFIFO.html" title="PipelineFIFO\&lt; T \&gt;" alt="" coords="167,592,308,621"/>
+<area shape="rect" id="node49" href="$classPipelineFIFO.html" title="PipelineFIFO\&lt; Credit \&gt;" alt="" coords="149,645,325,675"/>
+<area shape="rect" id="node51" href="$classPipelineFIFO.html" title="PipelineFIFO\&lt; Flit \&gt;" alt="" coords="160,699,315,728"/>
+<area shape="rect" id="node53" href="$classPipelineFIFO.html" title="PipelineFIFO\&lt; tArrivalEvent \&gt;" alt="" coords="125,752,349,781"/>
+<area shape="rect" id="node55" href="$classPower__Module.html" title="Power_Module" alt="" coords="179,805,296,835"/>
+<area shape="rect" id="node57" href="$classPriorityArbiter.html" title="PriorityArbiter" alt="" coords="180,859,295,888"/>
+<area shape="rect" id="node59" href="$classStats.html" title="Stats" alt="" coords="208,912,267,941"/>
+<area shape="rect" id="node61" href="$classTimedModule.html" title="TimedModule" alt="" coords="183,965,292,995"/>
+<area shape="rect" id="node91" href="$classTrafficManager.html" title="TrafficManager" alt="" coords="177,1045,297,1075"/>
+<area shape="rect" id="node97" href="$classVC.html" title="VC" alt="" coords="217,1099,257,1128"/>
+<area shape="rect" id="node5" href="$classDenseAllocator.html" title="DenseAllocator" alt="" coords="456,112,581,141"/>
+<area shape="rect" id="node15" href="$classSparseAllocator.html" title="SparseAllocator" alt="" coords="456,245,581,275"/>
+<area shape="rect" id="node7" href="$classLOA.html" title="LOA" alt="" coords="815,5,865,35"/>
+<area shape="rect" id="node9" href="$classMaxSizeMatch.html" title="MaxSizeMatch" alt="" coords="780,59,900,88"/>
+<area shape="rect" id="node11" href="$classPIM.html" title="PIM" alt="" coords="817,112,863,141"/>
+<area shape="rect" id="node13" href="$classWavefront.html" title="Wavefront" alt="" coords="795,165,885,195"/>
+<area shape="rect" id="node17" href="$classiSLIP__Sparse.html" title="iSLIP_Sparse" alt="" coords="787,219,893,248"/>
+<area shape="rect" id="node19" href="$classSelAlloc.html" title="SelAlloc" alt="" coords="804,272,876,301"/>
+<area shape="rect" id="node21" href="$classSeparableAllocator.html" title="SeparableAllocator" alt="" coords="767,325,913,355"/>
+<area shape="rect" id="node25" href="$classMatrixArbiter.html" title="MatrixArbiter" alt="" coords="464,299,573,328"/>
+<area shape="rect" id="node27" href="$classRoundRobinArbiter.html" title="RoundRobinArbiter" alt="" coords="447,352,591,381"/>
+<area shape="rect" id="node29" href="$classTreeArbiter.html" title="TreeArbiter" alt="" coords="471,405,567,435"/>
+<area shape="rect" id="node37" href="$classBufferState_1_1PrivateBufferPolicy.html" title="BufferState::PrivateBufferPolicy" alt="" coords="397,472,640,501"/>
+<area shape="rect" id="node39" href="$classBufferState_1_1SharedBufferPolicy.html" title="BufferState::SharedBufferPolicy" alt="" coords="399,525,639,555"/>
+<area shape="rect" id="node41" href="$classBufferState_1_1FeedbackSharedBufferPolicy.html" title="BufferState::FeedbackSharedBufferPolicy" alt="" coords="688,499,992,528"/>
+<area shape="rect" id="node43" href="$classBufferState_1_1LimitedSharedBufferPolicy.html" title="BufferState::LimitedSharedBufferPolicy" alt="" coords="695,552,985,581"/>
+<area shape="rect" id="node63" href="$classChannel.html" title="Channel\&lt; T \&gt;" alt="" coords="461,845,576,875"/>
+<area shape="rect" id="node65" href="$classChannel.html" title="Channel\&lt; Flit \&gt;" alt="" coords="456,899,581,928"/>
+<area shape="rect" id="node69" href="$classNetwork.html" title="Network" alt="" coords="480,952,557,981"/>
+<area shape="rect" id="node89" href="$classRouter.html" title="Router" alt="" coords="485,1005,552,1035"/>
+<area shape="rect" id="node67" href="$classFlitChannel.html" title="FlitChannel" alt="" coords="792,712,888,741"/>
+<area shape="rect" id="node71" href="$classAnyNet.html" title="AnyNet" alt="" coords="804,765,876,795"/>
+<area shape="rect" id="node73" href="$classCMesh.html" title="CMesh" alt="" coords="807,819,873,848"/>
+<area shape="rect" id="node75" href="$classDragonFlyNew.html" title="DragonFlyNew" alt="" coords="781,872,899,901"/>
+<area shape="rect" id="node77" href="$classFatTree.html" title="FatTree" alt="" coords="804,925,876,955"/>
+<area shape="rect" id="node79" href="$classFlatFlyOnChip.html" title="FlatFlyOnChip" alt="" coords="783,979,897,1008"/>
+<area shape="rect" id="node81" href="$classKNCube.html" title="KNCube" alt="" coords="803,1032,877,1061"/>
+<area shape="rect" id="node83" href="$classKNFly.html" title="KNFly" alt="" coords="811,1085,869,1115"/>
+<area shape="rect" id="node85" href="$classQTree.html" title="QTree" alt="" coords="809,1139,871,1168"/>
+<area shape="rect" id="node87" href="$classTree4.html" title="Tree4" alt="" coords="811,1192,869,1221"/>
+<area shape="rect" id="node93" href="$classBatchTrafficManager.html" title="BatchTrafficManager" alt="" coords="439,1059,599,1088"/>
+<area shape="rect" id="node95" href="$classGPUTrafficManager.html" title="GPUTrafficManager" alt="" coords="445,1112,592,1141"/>
+</map>
