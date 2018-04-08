@@ -3055,7 +3055,7 @@ bool opndcoll_rfu_t::writeback( const warp_inst_t &inst )
             // Need to check for if we are going to have to stall the writeback
             // If lookup is done first -> bloated write stats
             unsigned evictee_reg;
-            warp_inst_t *evictee_inst;
+            const warp_inst_t *evictee_inst;
             if(m_rfc->check_for_eviction(inst.warp_id(), reg, &evictee_reg, &evictee_inst)){// An eviction will be needed
                 // Try to handle eviction write back
                 // Get the bank it would go to
@@ -3105,9 +3105,9 @@ bool opndcoll_rfu_t::writeback( const warp_inst_t &inst )
     // Handle any RFC updates now that we know the writeback hasn't stalled
     // FIFO behaves the same regardless of hit/miss for writes
     // Handle Lookup (for stats purposes)
-    m_rfc->lookup_write(inst.warp_id(), reg))
+    m_rfc->lookup_write(inst.warp_id(), rfc_reg);
     // Handle insertion of current reg (and eviction of value if needed)
-    m_rfc->insert(rfc_reg, inst);
+    m_rfc->insert(rfc_reg, &inst);
 
     // Done with writeback (no stalls this time)
     return true;

@@ -27,7 +27,7 @@
  *	Custom Classes and Types
  *
  ******************************************************************************/
-typedef std::pair<unsigned,warp_inst_t*> RFCRegEntry;
+typedef std::pair<unsigned,const warp_inst_t*> RFCRegEntry;
 typedef std::list<RFCRegEntry> RFCRegList;
 
 // Need to put stats in structs since we can add across them to get totals for all SMs
@@ -97,7 +97,7 @@ class RegisterFileCache {
 
   // Define any/all protected members and methods
   protected:
-  int m_num_reg_slots;
+  unsigned m_num_reg_slots;
   // Keep tag and 'instruction info together' in the array
   std::map<unsigned,RFCRegList> m_internal_array; // Tag array is organized <warp id, array of reg tags/slots>
   
@@ -108,7 +108,7 @@ class RegisterFileCache {
   public:
 
   // Define the constructor
-  RegisterFileCache(int num_reg_slots){
+  RegisterFileCache(unsigned num_reg_slots){
     m_num_reg_slots     = num_reg_slots;
     m_stats.clear();
   }
@@ -195,7 +195,7 @@ class RegisterFileCache {
   // Returns True if eviction is required
   // Populates the supplied evictee ptr with the reg number (if needed)
   // Populates the supplied instruciton ptr with the reg's most recent instruction (if needed)
-  bool check_for_eviction(unsigned warp_id, unsigned register_number, unsigned *evictee_reg, warp_inst_t **evictee_inst){
+  bool check_for_eviction(unsigned warp_id, unsigned register_number, unsigned *evictee_reg, const warp_inst_t **evictee_inst){
     // Declare local variables
     std::map<unsigned,RFCRegList>::iterator  tmp_map_iter;
     RFCRegList::iterator                     tmp_list_iter;
@@ -227,11 +227,17 @@ class RegisterFileCache {
   // Method to handle the insertion of a new register to the cache
   // Will remove 'evictee' if needed but does not handle write-back
   // Note: will pull warp id value from 'inst'
-  void insert(unsigned register_number, warp_inst_t *inst_ptr){
+  void insert(unsigned register_number, const warp_inst_t *inst_ptr){
     // Declare local variables
     std::map<unsigned,RFCRegList>::iterator tmp_map_iter;
     RFCRegList::iterator                    tmp_list_iter;
     unsigned                                tmp_warp_id = inst_ptr->warp_id();
+
+    if(0 == m_num_reg_slots){// Zero entry RFC -> never try to insert
+      //std::cout >> "Error: RFC was initialized to have 0 entries per warp\n";
+      return;
+    }
+
 
     // Get the list for the warp if there is one
     tmp_map_iter = m_internal_array.find(tmp_warp_id);
@@ -245,6 +251,7 @@ class RegisterFileCache {
 
     // This warp has to have a list now -> Retrieve it
     RFCRegList &tmp_warp_list = m_internal_array[tmp_warp_id];
+
     
     // Handle eviction if needed
     if(m_num_reg_slots <= tmp_warp_list.size()){// List is full -> need to evict one
