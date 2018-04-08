@@ -221,7 +221,6 @@ class RegisterFileCache {
     // Debug print
     if(RFC_DEBUG_PRINTS){
       printf("RFC Class: Check for Eviction Method invoked\n");
-      pritnf("")
     }
 
 
