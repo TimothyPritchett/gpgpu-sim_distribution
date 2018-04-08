@@ -551,6 +551,11 @@ public:
 
    shader_core_ctx *shader_core() { return m_shader; }
 
+    void get_rfc_stats(RFCStats &rfc_stats){
+        // Add the stats from this operand collector instance's RFC
+        m_rfc->get_stats(rfc_stats);
+    }
+
 private:
 
    void process_banks()
@@ -1655,6 +1660,10 @@ public:
     void get_L1C_sub_stats(struct cache_sub_stats &css) const;
     void get_L1T_sub_stats(struct cache_sub_stats &css) const;
 
+    void get_rfc_sub_stats(struct RFCStats &rfc_stats){
+        m_operand_collector.get_rfc_stats(rfc_stats);
+    }
+
     void get_icnt_power_stats(long &n_simt_to_mem, long &n_mem_to_simt) const;
 
 // debug:
@@ -1921,6 +1930,19 @@ public:
     void get_L1D_sub_stats(struct cache_sub_stats &css) const;
     void get_L1C_sub_stats(struct cache_sub_stats &css) const;
     void get_L1T_sub_stats(struct cache_sub_stats &css) const;
+
+    void get_rfc_sub_stats(struct RFCStats &rfc_stats){
+        struct RFCStats temp_stats;
+        struct RFCStats total_stats;
+
+        temp_stats.clear();
+        total_stats.clear();
+        for ( unsigned i = 0; i < m_config->n_simt_cores_per_cluster; ++i ) {
+            m_core[i]->get_rfc_sub_stats(temp_css);
+            total_css += temp_css;
+        }
+        css = total_css;
+    }
 
     void get_icnt_stats(long &n_simt_to_mem, long &n_mem_to_simt) const;
 

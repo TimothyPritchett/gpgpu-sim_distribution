@@ -30,6 +30,68 @@
 typedef std::pair<unsigned,warp_inst_t*> RFCRegEntry;
 typedef std::list<RFCRegEntry> RFCRegList;
 
+// Need to put stats in structs since we can add across them to get totals for all SMs
+struct RFCStats{
+  long long num_hits;
+  long long num_read_hits;
+  long long num_write_hits;
+  long long num_misses;
+  long long num_read_misses;
+  long long num_write_misses;
+  long long num_evictions;
+
+  RFCStats(){
+    clear();
+  }
+
+  void clear(){
+    num_hits          = 0LL;
+    num_read_hits     = 0LL;
+    num_write_hits    = 0LL;
+    num_misses        = 0LL;
+    num_read_misses   = 0LL;
+    num_write_misses  = 0LL;
+    num_evictions     = 0LL;
+  }
+
+  RFCStats &operator+=(const RFCStats &rfc_stats){
+    ///
+    /// Overloading += operator to easily accumulate stats
+    ///
+    num_hits          += rfc_stats.num_hits;
+    num_read_hits     += rfc_stats.num_read_hits;
+    num_write_hits    += rfc_stats.num_write_hits;
+    num_misses        += rfc_stats.num_misses;
+    num_read_misses   += rfc_stats.num_read_misses;
+    num_write_misses  += rfc_stats.num_write_misses;
+    num_evictions     += rfc_stats.num_evictions;
+    return *this;
+  }
+
+  RFCStats operator+(const RFCStats &rfc_stats){
+    ///
+    /// Overloading + operator to easily accumulate stats
+    ///
+    struct RFCStats result;
+    result.num_hits          = num_hits         + rfc_stats.num_hits;
+    result.num_read_hits     = num_read_hits    + rfc_stats.num_read_hits;
+    result.num_write_hits    = num_write_hits   + rfc_stats.num_write_hits;
+    result.num_misses        = num_misses       + rfc_stats.num_misses;
+    result.num_read_misses   = num_read_misses  + rfc_stats.num_read_misses;
+    result.num_write_misses  = num_write_misses + rfc_stats.num_write_misses;
+    result.num_evictions     = num_evictions    + rfc_stats.num_evictions;
+    return result;
+  }
+
+  void print_stats(FILE *fout){
+    fprintf(fout, "\tTotal RFC Accesses     = %lld\n", (num_hits + num_misses));
+    fprintf(fout, "\tTotal RFC Misses       = %lld\n", num_misses);
+    fprintf(fout, "\tTotal RFC Read Misses  = %lld\n", num_read_misses);
+    fprintf(fout, "\tTotal RFC Write Misses = %lld\n", num_write_misses);
+    fprintf(fout, "\tTotal RFC Evictions    = %lld\n", num_evictions);
+  }
+}
+
 class RegisterFileCache {
   // Define any/all private members and methods
 
@@ -39,34 +101,28 @@ class RegisterFileCache {
   // Keep tag and 'instruction info together' in the array
   std::map<unsigned,RFCRegList> m_internal_array; // Tag array is organized <warp id, array of reg tags/slots>
   
-  // Stats fields
-  long long m_num_hits;
-  long long m_num_read_hits;
-  long long m_num_write_hits;
-  long long m_num_misses;
-  long long m_num_read_misses;
-  long long m_num_write_misses;
-  long long m_num_evictions;
-
+  // Stats field
+  struct RFCStats m_stats;
+  
   // Define any/all public members and methods
   public:
 
   // Define the constructor
-  register_file_cache(int num_reg_slots){
+  RegisterFileCache(int num_reg_slots){
     m_num_reg_slots     = num_reg_slots;
-    m_num_hits          = 0LL;
-    m_num_read_hits     = 0LL;
-    m_num_write_hits    = 0LL;
-    m_num_misses        = 0LL;
-    m_num_read_misses   = 0LL;
-    m_num_write_misses  = 0LL;
-    m_num_evictions     = 0LL;
+    m_stats.clear();
   }
 
   // Define the destructor
-  ~register_file_cache(){
+  ~RegisterFileCache(){
     // Clear the tag array
     m_internal_array.clear();
+  }
+
+  // Define an accessor method to get this units stats
+  void get_stats(struct RFCStats &ext_stats){
+    // Add this instances stats to the external 'collector'
+    ext_stats += m_stats;
   }
 
   // Method to check if a register currently exists in the cache
@@ -99,15 +155,15 @@ class RegisterFileCache {
   bool lookup_read(unsigned warp_id, unsigned register_number){
     if(this.exists(warp_id, register_number)){// Found it!
       // Update the stats
-      m_num_hits      += 1LL;
-      m_num_read_hits += 1LL;
+      m_stats.num_hits      += 1LL;
+      m_stats.num_read_hits += 1LL;
 
       // Done
       return true;
     }else{// Not here!
       // Update the stats
-      m_num_misses      += 1LL;
-      m_num_read_misses += 1LL;
+      m_stats.num_misses      += 1LL;
+      m_stats.num_read_misses += 1LL;
 
       // Done
       return false;
@@ -119,15 +175,15 @@ class RegisterFileCache {
   bool lookup_write(unsigned warp_id, unsigned register_number){
     if(this.exists(warp_id, register_number)){// Found it!
       // Update the stats
-      m_num_hits      += 1LL;
-      m_num_write_hits += 1LL;
+      m_stats.num_hits      += 1LL;
+      m_stats.num_write_hits += 1LL;
 
       // Done
       return true;
     }else{// Not here!
       // Update the stats
-      m_num_misses        += 1LL;
-      m_num_write_misses  += 1LL;
+      m_stats.num_misses        += 1LL;
+      m_stats.num_write_misses  += 1LL;
 
       // Done
       return false;
@@ -196,7 +252,7 @@ class RegisterFileCache {
       tmp_warp_list.pop_back();
 
       // Update the stats
-      m_num_evictions += 1LL;
+      m_stats.num_evictions += 1LL;
     }
     
     // Handle insertion of the new reg

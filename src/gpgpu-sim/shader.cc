@@ -2066,6 +2066,19 @@ void gpgpu_sim::shader_print_scheduler_stat( FILE* fout, bool print_dynamic_info
 
 void gpgpu_sim::shader_print_cache_stats( FILE *fout ) const{
 
+    // Handle RFC stats (can't be disabled)
+    struct RFCStats total_rfc_stats;
+    struct RFCStats rfc_stats;
+
+    fprintf(fout, "\n========= Core RFC stats =========\n");
+    total_rfc_stats.clear();
+    rfc_stats.clear();
+    for ( unsigned i = 0; i < m_shader_config->n_simt_clusters; ++i ) {
+        m_cluster[i]->get_rfc_sub_stats(rfc_stats);
+        total_rfc_stats += rfc_stats;
+    }
+    total_rfc_stats.print_stats(fout);
+
     // L1I
     struct cache_sub_stats total_css;
     struct cache_sub_stats css;
