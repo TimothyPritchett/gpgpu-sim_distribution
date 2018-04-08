@@ -22,6 +22,8 @@
  *
  ******************************************************************************/
 
+#define RFC_DEBUG_PRINTS (true)
+
 /*******************************************************************************
  *
  *	Custom Classes and Types
@@ -132,6 +134,11 @@ class RegisterFileCache {
     std::map<unsigned,RFCRegList>::iterator  tmp_map_iter;
     RFCRegList::iterator                     tmp_list_iter;
 
+    // Debug print
+    if(RFC_DEBUG_PRINTS){
+      printf("RFC Class: Exisits Method invoked\n");
+    }
+
     // Search the map
     tmp_map_iter = m_internal_array.find(warp_id);
     if(m_internal_array.end() == tmp_map_iter){// No entries for this warp
@@ -153,6 +160,12 @@ class RegisterFileCache {
   // Method to handle read based lookups
   // Updates stats
   bool lookup_read(unsigned warp_id, unsigned register_number){
+
+    // Debug print
+    if(RFC_DEBUG_PRINTS){
+      printf("RFC Class: Lookup Read Method invoked\n");
+    }
+
     if(exists(warp_id, register_number)){// Found it!
       // Update the stats
       m_stats.num_hits      += 1LL;
@@ -173,6 +186,11 @@ class RegisterFileCache {
   // Method to handle read based lookups
   // Updates stats
   bool lookup_write(unsigned warp_id, unsigned register_number){
+    // Debug print
+    if(RFC_DEBUG_PRINTS){
+      printf("RFC Class: Lookup Write Method invoked\n");
+    }
+   
     if(exists(warp_id, register_number)){// Found it!
       // Update the stats
       m_stats.num_hits      += 1LL;
@@ -199,6 +217,12 @@ class RegisterFileCache {
     // Declare local variables
     std::map<unsigned,RFCRegList>::iterator  tmp_map_iter;
     RFCRegList::iterator                     tmp_list_iter;
+
+    // Debug print
+    if(RFC_DEBUG_PRINTS){
+      printf("RFC Class: Check for Eviction Method invoked\n");
+    }
+
 
     // Get the list for the warp if there is one
     tmp_map_iter = m_internal_array.find(warp_id);
@@ -232,6 +256,11 @@ class RegisterFileCache {
     std::map<unsigned,RFCRegList>::iterator tmp_map_iter;
     RFCRegList::iterator                    tmp_list_iter;
     unsigned                                tmp_warp_id = inst_ptr->warp_id();
+
+    // Debug print
+    if(RFC_DEBUG_PRINTS){
+      printf("RFC Class: Insert Method invoked\n");
+    }
 
     if(0 == m_num_reg_slots){// Zero entry RFC -> never try to insert
       //std::cout >> "Error: RFC was initialized to have 0 entries per warp\n";
