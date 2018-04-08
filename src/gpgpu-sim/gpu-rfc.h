@@ -258,7 +258,7 @@ class RegisterFileCache {
         // Update the value at the supplied pointer for the instruction
         *evictee_inst = tmp_evictee.second;
         if(RFC_DEBUG_PRINTS){
-          printf("RFC Class: Check for Eviction: Evictee Inst %h \n", *evictee_inst);
+          printf("RFC Class: Check for Eviction: Evictee Inst %x \n", *evictee_inst);
         }
         // Done with populating evictee info items
         return true;
@@ -283,6 +283,15 @@ class RegisterFileCache {
 
     if(0 == m_num_reg_slots){// Zero entry RFC -> never try to insert
       //std::cout >> "Error: RFC was initialized to have 0 entries per warp\n";
+      return;
+    }
+
+    // Argument checking
+    if(NULL == inst_ptr){// Error null instruction pointer passed
+      // Debug print
+      if(RFC_DEBUG_PRINTS){
+        printf("RFC Class Error: Insert method passed an NULL inst pointer\n");
+      }
       return;
     }
 
