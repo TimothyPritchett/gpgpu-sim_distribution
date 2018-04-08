@@ -53,6 +53,7 @@
 #include "stats.h"
 #include "gpu-cache.h"
 #include "traffic_breakdown.h"
+#include "gpu-rfc.h"
 
 
 
@@ -517,6 +518,7 @@ public:
       m_num_banks=0;
       m_shader=NULL;
       m_initialized=false;
+      m_rfc = NULL;
    }
    void add_cu_set(unsigned cu_set, unsigned num_cu, unsigned num_dispatch);
    typedef std::vector<register_set*> port_vector_t;
@@ -564,87 +566,86 @@ private:
 
    class collector_unit_t;
 
-   class op_t {
-   public:
+    class op_t {
+    public:
+        op_t() { m_valid = false; }
+        op_t( collector_unit_t *cu, unsigned op, unsigned reg, unsigned num_banks, unsigned bank_warp_shift )
+        {
+            m_valid = true;
+            m_warp=NULL;
+            m_cu = cu;
+            m_operand = op;
+            m_register = reg;
+            m_bank = register_bank(reg,cu->get_warp_id(),num_banks,bank_warp_shift);
+        }
+        op_t( const warp_inst_t *warp, unsigned reg, unsigned num_banks, unsigned bank_warp_shift )
+        {
+            m_valid=true;
+            m_warp=warp;
+            m_register=reg;
+            m_cu=NULL;
+            m_operand = -1;
+            m_bank = register_bank(reg,warp->warp_id(),num_banks,bank_warp_shift);
+        }
 
-      op_t() { m_valid = false; }
-      op_t( collector_unit_t *cu, unsigned op, unsigned reg, unsigned num_banks, unsigned bank_warp_shift )
-      {
-         m_valid = true;
-         m_warp=NULL;
-         m_cu = cu;
-         m_operand = op;
-         m_register = reg;
-         m_bank = register_bank(reg,cu->get_warp_id(),num_banks,bank_warp_shift);
-      }
-      op_t( const warp_inst_t *warp, unsigned reg, unsigned num_banks, unsigned bank_warp_shift )
-      {
-         m_valid=true;
-         m_warp=warp;
-         m_register=reg;
-         m_cu=NULL;
-         m_operand = -1;
-         m_bank = register_bank(reg,warp->warp_id(),num_banks,bank_warp_shift);
-      }
+        // accessors
+        bool valid() const { return m_valid; }
+        unsigned get_reg() const
+        {
+            assert( m_valid );
+            return m_register;
+        }
+        unsigned get_wid() const
+        {
+            if( m_warp ) return m_warp->warp_id();
+            else if( m_cu ) return m_cu->get_warp_id();
+            else abort();
+        }
+        unsigned get_active_count() const
+        {
+            if( m_warp ) return m_warp->active_count();
+            else if( m_cu ) return m_cu->get_active_count();
+            else abort();
+        }
+        const active_mask_t & get_active_mask()
+        {
+            if( m_warp ) return m_warp->get_active_mask();
+            else if( m_cu ) return m_cu->get_active_mask();
+            else abort();
+        }
+        unsigned get_sp_op() const
+        {
+            if( m_warp ) return m_warp->sp_op;
+            else if( m_cu ) return m_cu->get_sp_op();
+            else abort();
+        }
+        unsigned get_oc_id() const { return m_cu->get_id(); }
+        unsigned get_bank() const { return m_bank; }
+        unsigned get_operand() const { return m_operand; }
+        void dump(FILE *fp) const 
+        {
+            if(m_cu) 
+                fprintf(fp," <R%u, CU:%u, w:%02u> ", m_register,m_cu->get_id(),m_cu->get_warp_id());
+            else if( !m_warp->empty() )
+                fprintf(fp," <R%u, wid:%02u> ", m_register,m_warp->warp_id() );
+        }
+        std::string get_reg_string() const
+        {
+            char buffer[64];
+            snprintf(buffer,64,"R%u", m_register);
+            return std::string(buffer);
+        }
 
-      // accessors
-      bool valid() const { return m_valid; }
-      unsigned get_reg() const
-      {
-         assert( m_valid );
-         return m_register;
-      }
-      unsigned get_wid() const
-      {
-          if( m_warp ) return m_warp->warp_id();
-          else if( m_cu ) return m_cu->get_warp_id();
-          else abort();
-      }
-      unsigned get_active_count() const
-      {
-          if( m_warp ) return m_warp->active_count();
-          else if( m_cu ) return m_cu->get_active_count();
-          else abort();
-      }
-      const active_mask_t & get_active_mask()
-      {
-          if( m_warp ) return m_warp->get_active_mask();
-          else if( m_cu ) return m_cu->get_active_mask();
-          else abort();
-      }
-      unsigned get_sp_op() const
-      {
-          if( m_warp ) return m_warp->sp_op;
-          else if( m_cu ) return m_cu->get_sp_op();
-          else abort();
-      }
-      unsigned get_oc_id() const { return m_cu->get_id(); }
-      unsigned get_bank() const { return m_bank; }
-      unsigned get_operand() const { return m_operand; }
-      void dump(FILE *fp) const 
-      {
-         if(m_cu) 
-            fprintf(fp," <R%u, CU:%u, w:%02u> ", m_register,m_cu->get_id(),m_cu->get_warp_id());
-         else if( !m_warp->empty() )
-            fprintf(fp," <R%u, wid:%02u> ", m_register,m_warp->warp_id() );
-      }
-      std::string get_reg_string() const
-      {
-         char buffer[64];
-         snprintf(buffer,64,"R%u", m_register);
-         return std::string(buffer);
-      }
-
-      // modifiers
-      void reset() { m_valid = false; }
-   private:
-      bool m_valid;
-      collector_unit_t  *m_cu; 
-      const warp_inst_t *m_warp;
-      unsigned  m_operand; // operand offset in instruction. e.g., add r1,r2,r3; r2 is oprd 0, r3 is 1 (r1 is dst)
-      unsigned  m_register;
-      unsigned  m_bank;
-   };
+        // modifiers
+        void reset() { m_valid = false; }
+    private:
+        bool m_valid;
+        collector_unit_t  *m_cu; 
+        const warp_inst_t *m_warp;
+        unsigned  m_operand; // operand offset in instruction. e.g., add r1,r2,r3; r2 is oprd 0, r3 is 1 (r1 is dst)
+        unsigned  m_register;
+        unsigned  m_bank;
+    };
 
    enum alloc_t {
       NO_ALLOC,
@@ -672,108 +673,114 @@ private:
       op_t m_op;
    };
 
-   class arbiter_t {
-   public:
-      // constructors
-      arbiter_t()
-      {
-         m_queue=NULL;
-         m_allocated_bank=NULL;
-         m_allocator_rr_head=NULL;
-         _inmatch=NULL;
-         _outmatch=NULL;
-         _request=NULL;
-         m_last_cu=0;
-      }
-      void init( unsigned num_cu, unsigned num_banks ) 
-      { 
-         assert(num_cu > 0);
-         assert(num_banks > 0);
-         m_num_collectors = num_cu;
-         m_num_banks = num_banks;
-         _inmatch = new int[ m_num_banks ];
-         _outmatch = new int[ m_num_collectors ];
-         _request = new int*[ m_num_banks ];
-         for(unsigned i=0; i<m_num_banks;i++) 
-             _request[i] = new int[m_num_collectors];
-         m_queue = new std::list<op_t>[num_banks];
-         m_allocated_bank = new allocation_t[num_banks];
-         m_allocator_rr_head = new unsigned[num_cu];
-         for( unsigned n=0; n<num_cu;n++ ) 
-            m_allocator_rr_head[n] = n%num_banks;
-         reset_alloction();
-      }
+    class arbiter_t {
+    public:
+        // constructors
+        arbiter_t()
+        {
+            m_queue=NULL;
+            m_allocated_bank=NULL;
+            m_allocator_rr_head=NULL;
+            _inmatch=NULL;
+            _outmatch=NULL;
+            _request=NULL;
+            m_last_cu=0;
+        }
+        void init( unsigned num_cu, unsigned num_banks ) 
+        { 
+            assert(num_cu > 0);
+            assert(num_banks > 0);
+            m_num_collectors = num_cu;
+            m_num_banks = num_banks;
+            _inmatch = new int[ m_num_banks ];
+            _outmatch = new int[ m_num_collectors ];
+            _request = new int*[ m_num_banks ];
+            for(unsigned i=0; i<m_num_banks;i++) 
+                _request[i] = new int[m_num_collectors];
+            m_queue = new std::list<op_t>[num_banks];
+            m_allocated_bank = new allocation_t[num_banks];
+            m_allocator_rr_head = new unsigned[num_cu];
+            for( unsigned n=0; n<num_cu;n++ ) 
+                m_allocator_rr_head[n] = n%num_banks;
+            reset_alloction();
+        }
 
-      // accessors
-      void dump(FILE *fp) const
-      {
-         fprintf(fp,"\n");
-         fprintf(fp,"  Arbiter State:\n");
-         fprintf(fp,"  requests:\n");
-         for( unsigned b=0; b<m_num_banks; b++ ) {
-            fprintf(fp,"    bank %u : ", b );
-            std::list<op_t>::const_iterator o = m_queue[b].begin();
-            for(; o != m_queue[b].end(); o++ ) {
-               o->dump(fp);
+        // accessors
+        void dump(FILE *fp) const
+        {
+            fprintf(fp,"\n");
+            fprintf(fp,"  Arbiter State:\n");
+            fprintf(fp,"  requests:\n");
+            for( unsigned b=0; b<m_num_banks; b++ ) {
+                fprintf(fp,"    bank %u : ", b );
+                std::list<op_t>::const_iterator o = m_queue[b].begin();
+                for(; o != m_queue[b].end(); o++ ) {
+                o->dump(fp);
+                }
+                fprintf(fp,"\n");
+            }
+            fprintf(fp,"  grants:\n");
+            for(unsigned b=0;b<m_num_banks;b++) {
+                fprintf(fp,"    bank %u : ", b );
+                m_allocated_bank[b].dump(fp);
             }
             fprintf(fp,"\n");
-         }
-         fprintf(fp,"  grants:\n");
-         for(unsigned b=0;b<m_num_banks;b++) {
-            fprintf(fp,"    bank %u : ", b );
-            m_allocated_bank[b].dump(fp);
-         }
-         fprintf(fp,"\n");
-      }
+        }
 
-      // modifiers
-      std::list<op_t> allocate_reads(); 
+        // modifiers
+        std::list<op_t> allocate_reads(); 
 
-      void add_read_requests( collector_unit_t *cu ) 
-      {
-         const op_t *src = cu->get_operands();
-         for( unsigned i=0; i<MAX_REG_OPERANDS*2; i++) {
-            const op_t &op = src[i];
-            if( op.valid() ) {
-               unsigned bank = op.get_bank();
-               m_queue[bank].push_back(op);
+        void add_read_requests( collector_unit_t *cu, RegisterFileCache *rfc) 
+        {// This method is queuing up all of this collector's reads to the MRF
+            const op_t *src = cu->get_operands();
+            for( unsigned i=0; i<MAX_REG_OPERANDS*2; i++) {
+                const op_t &op = src[i];
+                if( op.valid() ) {
+                    // Check if it's in the RFC first -> RFC read hits filter MRF reads
+                    if(rfc->lookup_read(op.get_wid(), op.get_reg())){// Hit in RFC
+                        // Load into CU directly (mark as ready)
+                        cu->collect_operand(op);
+                    }else{// Missed in RFC -> Schedule a MRF read like normal
+                        unsigned bank = op.get_bank();
+                        m_queue[bank].push_back(op);
+                    }
+                }
             }
-         }
-      }
-      bool bank_idle( unsigned bank ) const
-      {
-          return m_allocated_bank[bank].is_free();
-      }
-      void allocate_bank_for_write( unsigned bank, const op_t &op )
-      {
-         assert( bank < m_num_banks );
-         m_allocated_bank[bank].alloc_write(op);
-      }
-      void allocate_for_read( unsigned bank, const op_t &op )
-      {
-         assert( bank < m_num_banks );
-         m_allocated_bank[bank].alloc_read(op);
-      }
-      void reset_alloction()
-      {
-         for( unsigned b=0; b < m_num_banks; b++ ) 
-            m_allocated_bank[b].reset();
-      }
+        }
+        bool bank_idle( unsigned bank ) const
+        {
+            return m_allocated_bank[bank].is_free();
+        }
+        void allocate_bank_for_write( unsigned bank, const op_t &op )
+        {
+            assert( bank < m_num_banks );
+            m_allocated_bank[bank].alloc_write(op);
+        }
+        void allocate_for_read( unsigned bank, const op_t &op )
+        {
+            assert( bank < m_num_banks );
+            m_allocated_bank[bank].alloc_read(op);
+        }
+        void reset_alloction()
+        {
+            for( unsigned b=0; b < m_num_banks; b++ ) 
+                m_allocated_bank[b].reset();
+        }
 
-   private:
-      unsigned m_num_banks;
-      unsigned m_num_collectors;
+    private:
+        unsigned m_num_banks;
+        unsigned m_num_collectors;
 
-      allocation_t *m_allocated_bank; // bank # -> register that wins
-      std::list<op_t> *m_queue;
+        allocation_t *m_allocated_bank; // bank # -> register that wins
+        std::list<op_t> *m_queue;
 
-      unsigned *m_allocator_rr_head; // cu # -> next bank to check for request (rr-arb)
-      unsigned  m_last_cu; // first cu to check while arb-ing banks (rr)
+        unsigned *m_allocator_rr_head; // cu # -> next bank to check for request (rr-arb)
+        unsigned  m_last_cu; // first cu to check while arb-ing banks (rr)
 
-      int *_inmatch;
-      int *_outmatch;
-      int **_request;
-   };
+        int *_inmatch;
+        int *_outmatch;
+        int **_request;
+    };
 
    class input_port_t {
    public:
@@ -788,53 +795,53 @@ private:
        uint_vector_t m_cu_sets;
    };
 
-   class collector_unit_t {
-   public:
-      // constructors
-      collector_unit_t()
-      { 
-         m_free = true;
-         m_warp = NULL;
-         m_output_register = NULL;
-         m_src_op = new op_t[MAX_REG_OPERANDS*2];
-         m_not_ready.reset();
-         m_warp_id = -1;
-         m_num_banks = 0;
-         m_bank_warp_shift = 0;
-      }
-      // accessors
-      bool ready() const;
-      const op_t *get_operands() const { return m_src_op; }
-      void dump(FILE *fp, const shader_core_ctx *shader ) const;
+    class collector_unit_t {
+    public:
+        // constructors
+        collector_unit_t()
+        { 
+            m_free = true;
+            m_warp = NULL;
+            m_output_register = NULL;
+            m_src_op = new op_t[MAX_REG_OPERANDS*2];
+            m_not_ready.reset();
+            m_warp_id = -1;
+            m_num_banks = 0;
+            m_bank_warp_shift = 0;
+        }
+        // accessors
+        bool ready() const;
+        const op_t *get_operands() const { return m_src_op; }
+        void dump(FILE *fp, const shader_core_ctx *shader ) const;
 
-      unsigned get_warp_id() const { return m_warp_id; }
-      unsigned get_active_count() const { return m_warp->active_count(); }
-      const active_mask_t & get_active_mask() const { return m_warp->get_active_mask(); }
-      unsigned get_sp_op() const { return m_warp->sp_op; }
-      unsigned get_id() const { return m_cuid; } // returns CU hw id
+        unsigned get_warp_id() const { return m_warp_id; }
+        unsigned get_active_count() const { return m_warp->active_count(); }
+        const active_mask_t & get_active_mask() const { return m_warp->get_active_mask(); }
+        unsigned get_sp_op() const { return m_warp->sp_op; }
+        unsigned get_id() const { return m_cuid; } // returns CU hw id
 
-      // modifiers
-      void init(unsigned n, 
-                unsigned num_banks, 
-                unsigned log2_warp_size,
-                const core_config *config,
-                opndcoll_rfu_t *rfu ); 
-      bool allocate( register_set* pipeline_reg, register_set* output_reg );
+        // modifiers
+        void init(unsigned n, 
+                    unsigned num_banks, 
+                    unsigned log2_warp_size,
+                    const core_config *config,
+                    opndcoll_rfu_t *rfu ); 
+        bool allocate( register_set* pipeline_reg, register_set* output_reg );
 
-      void collect_operand( unsigned op )
-      {
-         m_not_ready.reset(op);
-      }
-      unsigned get_num_operands() const{
-    	  return m_warp->get_num_operands();
-      }
-      unsigned get_num_regs() const{
-    	  return m_warp->get_num_regs();
-      }
-      void dispatch();
-      bool is_free(){return m_free;}
+        void collect_operand( unsigned op )
+        {
+            m_not_ready.reset(op);
+        }
+        unsigned get_num_operands() const{
+            return m_warp->get_num_operands();
+        }
+        unsigned get_num_regs() const{
+            return m_warp->get_num_regs();
+        }
+        void dispatch();
+        bool is_free(){return m_free;}
 
-   private:
+    private:
       bool m_free;
       unsigned m_cuid; // collector unit hw id
       unsigned m_warp_id;
@@ -846,7 +853,7 @@ private:
       unsigned m_bank_warp_shift;
       opndcoll_rfu_t *m_rfu;
 
-   };
+    };
 
    class dispatch_unit_t {
    public:
@@ -887,6 +894,8 @@ private:
    unsigned m_warp_size;
    std::vector<collector_unit_t *> m_cu;
    arbiter_t m_arbiter;
+   RegisterFileCache *m_rfc;
+
 
    //unsigned m_num_ports;
    //std::vector<warp_inst_t**> m_input;
@@ -1234,7 +1243,7 @@ struct shader_core_config : public core_config
         if(ntok != 2) {
            printf("GPGPU-Sim uArch: error while parsing configuration string gpgpu_shader_core_pipeline_opt\n");
            abort();
-	}
+	    }
 
 	char* toks = new char[100];
 	char* tokd = toks;
@@ -1316,6 +1325,9 @@ struct shader_core_config : public core_config
     unsigned int gpgpu_operand_collector_num_out_ports_sfu;
     unsigned int gpgpu_operand_collector_num_out_ports_mem;
     unsigned int gpgpu_operand_collector_num_out_ports_gen;
+
+    // RFC settings
+    int gpgpu_rfc_num_slots;
 
     int gpgpu_num_sp_units;
     int gpgpu_num_sfu_units;

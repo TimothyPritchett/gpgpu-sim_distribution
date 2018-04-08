@@ -372,6 +372,11 @@ void shader_core_config::reg_options(class OptionParser * opp)
     option_parser_register(opp, "-gpgpu_concurrent_kernel_sm", OPT_BOOL, &gpgpu_concurrent_kernel_sm, 
                 "Support concurrent kernels on a SM (default = disabled)", 
                 "0");
+
+    // My RFC additions
+    option_parser_register(opp, "-gpgpu_rfc_slots", OPT_INT32, &gpgpu_rfc_num_slots, 
+                            "Shader Register File Cache per-warp register capacity (default=6)",
+                            "6");
 }
 
 void gpgpu_sim_config::reg_options(option_parser_t opp)

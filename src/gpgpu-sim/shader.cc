@@ -46,6 +46,7 @@
 #include <limits.h>
 #include "traffic_breakdown.h"
 #include "shader_trace.h"
+#include "gpu-rfc.h"
 
 #define PRIORITIZE_MSHR_OVER_WB 1
 #define MAX(a,b) (((a)>(b))?(a):(b))
@@ -3013,6 +3014,8 @@ void opndcoll_rfu_t::init( unsigned num_banks, shader_core_ctx *shader )
        m_cu[j]->init(j,num_banks,m_bank_warp_shift,shader->get_config(),this);
    }
    m_initialized=true;
+
+   m_rfc = new RegisterFileCache(shader->get_config()->gpgpu_rfc_num_slots);
 }
 
 int register_bank(int regnum, int wid, unsigned num_banks, unsigned bank_warp_shift)
@@ -3025,36 +3028,76 @@ int register_bank(int regnum, int wid, unsigned num_banks, unsigned bank_warp_sh
 
 bool opndcoll_rfu_t::writeback( const warp_inst_t &inst )
 {
-   assert( !inst.empty() );
-   std::list<unsigned> regs = m_shader->get_regs_written(inst);
-   std::list<unsigned>::iterator r;
-   unsigned n=0;
-   for( r=regs.begin(); r!=regs.end();r++,n++ ) {
-      unsigned reg = *r;
-      unsigned bank = register_bank(reg,inst.warp_id(),m_num_banks,m_bank_warp_shift);
-      if( m_arbiter.bank_idle(bank) ) {
-          m_arbiter.allocate_bank_for_write(bank,op_t(&inst,reg,m_num_banks,m_bank_warp_shift));
-      } else {
-          return false;
-      }
-   }
-   for(unsigned i=0;i<(unsigned)regs.size();i++){
-	      if(m_shader->get_config()->gpgpu_clock_gated_reg_file){
-	    	  unsigned active_count=0;
-	    	  for(unsigned i=0;i<m_shader->get_config()->warp_size;i=i+m_shader->get_config()->n_regfile_gating_group){
-	    		  for(unsigned j=0;j<m_shader->get_config()->n_regfile_gating_group;j++){
-	    			  if(inst.get_active_mask().test(i+j)){
-	    				  active_count+=m_shader->get_config()->n_regfile_gating_group;
-	    				  break;
-	    			  }
-	    		  }
-	    	  }
-	    	  m_shader->incregfile_writes(active_count);
-	      }else{
-	    	  m_shader->incregfile_writes(m_shader->get_config()->warp_size);//inst.active_count());
-	      }
-   }
-   return true;
+    assert( !inst.empty() );
+    std::list<unsigned> regs = m_shader->get_regs_written(inst);
+    std::list<unsigned>::iterator r;
+    unsigned n=0;
+    unsigned rfc_reg;
+    for( r=regs.begin(); r!=regs.end();r++,n++ ) {
+        unsigned reg = *r;
+        unsigned bank = register_bank(reg,inst.warp_id(),m_num_banks,m_bank_warp_shift);
+        // Need to add RFC update/insertion code here (only handle the first reg in the list)
+        if(regs.begin() == r){// First reg in the list of regs to writeback
+            // FIFO doesn't filter downstream writes (no replacement/update on hits)
+            // Need to check for if we are going to have to stall the writeback
+            // If lookup is done first -> bloated write stats
+            unsigned evictee_reg;
+            warp_inst_t *evictee_inst;
+            if(m_rfc->check_for_eviction(inst.warp_id(), reg, &evictee_reg, &evictee_inst)){// An eviction will be needed
+                // Try to handle eviction write back
+                // Get the bank it would go to
+                unsigned evictee_bank = register_bank(evictee_reg,evictee_inst->warp_id(),m_num_banks,m_bank_warp_shift);
+                // Try to schedule the writeback (Mimic normal reg writeback code)
+                if( m_arbiter.bank_idle(evictee_bank) ) {// Bank is free schedule eviction and proceed
+                    // Schedule eviction writeback
+                    m_arbiter.allocate_bank_for_write(evictee_bank,op_t(evictee_inst,evictee_reg,m_num_banks,m_bank_warp_shift));
+                    // Need to allow the loop to potentially write back for other regs (only other reason this could stall)
+                    rfc_reg = reg;
+                    continue;
+                } else {// Need to stall
+                    return false;
+                }
+            }else{// No eviction needed
+                // Need to allow the loop to potentially write back for other regs (only other reason this could stall)
+                rfc_reg = reg;
+                continue;
+            }
+        }else{// Normal writeback operation
+            if( m_arbiter.bank_idle(bank) ) {
+                m_arbiter.allocate_bank_for_write(bank,op_t(&inst,reg,m_num_banks,m_bank_warp_shift));
+            } else {
+                return false;
+            }
+        }
+    }
+
+    // Regfile writes actually happen here?
+    for(unsigned i=0;i<(unsigned)regs.size();i++){
+        if(m_shader->get_config()->gpgpu_clock_gated_reg_file){
+            unsigned active_count=0;
+            for(unsigned i=0;i<m_shader->get_config()->warp_size;i=i+m_shader->get_config()->n_regfile_gating_group){
+                for(unsigned j=0;j<m_shader->get_config()->n_regfile_gating_group;j++){
+                    if(inst.get_active_mask().test(i+j)){
+                        active_count+=m_shader->get_config()->n_regfile_gating_group;
+                        break;
+                    }
+                }
+            }
+            m_shader->incregfile_writes(active_count);
+        }else{
+            m_shader->incregfile_writes(m_shader->get_config()->warp_size);//inst.active_count());
+        }
+    }
+
+    // Handle any RFC updates now that we know the writeback hasn't stalled
+    // FIFO behaves the same regardless of hit/miss for writes
+    // Handle Lookup (for stats purposes)
+    m_rfc->lookup_write(inst.warp_id(), reg))
+    // Handle insertion of current reg (and eviction of value if needed)
+    m_rfc->insert(rfc_reg, inst);
+
+    // Done with writeback (no stalls this time)
+    return true;
 }
 
 void opndcoll_rfu_t::dispatch_ready_cu()
@@ -3086,62 +3129,70 @@ void opndcoll_rfu_t::dispatch_ready_cu()
 
 void opndcoll_rfu_t::allocate_cu( unsigned port_num )
 {
-   input_port_t& inp = m_in_ports[port_num];
-   for (unsigned i = 0; i < inp.m_in.size(); i++) {
-       if( (*inp.m_in[i]).has_ready() ) {
-          //find a free cu 
-          for (unsigned j = 0; j < inp.m_cu_sets.size(); j++) {
-              std::vector<collector_unit_t> & cu_set = m_cus[inp.m_cu_sets[j]];
-	      bool allocated = false;
-              for (unsigned k = 0; k < cu_set.size(); k++) {
-                  if(cu_set[k].is_free()) {
-                     collector_unit_t *cu = &cu_set[k];
-                     allocated = cu->allocate(inp.m_in[i],inp.m_out[i]);
-                     m_arbiter.add_read_requests(cu);
-                     break;
-                  }
-              }
-              if (allocated) break; //cu has been allocated, no need to search more.
-          }
-          break; // can only service a single input, if it failed it will fail for others.
-       }
-   }
+    input_port_t& inp = m_in_ports[port_num];
+    for (unsigned i = 0; i < inp.m_in.size(); i++) {
+        if( (*inp.m_in[i]).has_ready() ) {
+            //find a free cu 
+            for (unsigned j = 0; j < inp.m_cu_sets.size(); j++) {
+                std::vector<collector_unit_t> & cu_set = m_cus[inp.m_cu_sets[j]];
+            bool allocated = false;
+                for (unsigned k = 0; k < cu_set.size(); k++) {
+                    if(cu_set[k].is_free()) {
+                        collector_unit_t *cu = &cu_set[k];
+                        // Allocate/Populate the CU instance
+                        allocated = cu->allocate(inp.m_in[i],inp.m_out[i]);
+                        // Schedule MRF reads for this CU (let it access the RFC)
+                        m_arbiter.add_read_requests(cu, m_rfc);
+                        break;
+                    }
+                }
+                if (allocated) break; //cu has been allocated, no need to search more.
+            }
+            break; // can only service a single input, if it failed it will fail for others.
+        }
+    }
 }
 
 void opndcoll_rfu_t::allocate_reads()
 {
-   // process read requests that do not have conflicts
-   std::list<op_t> allocated = m_arbiter.allocate_reads();
-   std::map<unsigned,op_t> read_ops;
-   for( std::list<op_t>::iterator r=allocated.begin(); r!=allocated.end(); r++ ) {
-      const op_t &rr = *r;
-      unsigned reg = rr.get_reg();
-      unsigned wid = rr.get_wid();
-      unsigned bank = register_bank(reg,wid,m_num_banks,m_bank_warp_shift);
-      m_arbiter.allocate_for_read(bank,rr);
-      read_ops[bank] = rr;
-   }
-   std::map<unsigned,op_t>::iterator r;
-   for(r=read_ops.begin();r!=read_ops.end();++r ) {
-      op_t &op = r->second;
-      unsigned cu = op.get_oc_id();
-      unsigned operand = op.get_operand();
-      m_cu[cu]->collect_operand(operand);
-      if(m_shader->get_config()->gpgpu_clock_gated_reg_file){
-    	  unsigned active_count=0;
-    	  for(unsigned i=0;i<m_shader->get_config()->warp_size;i=i+m_shader->get_config()->n_regfile_gating_group){
-    		  for(unsigned j=0;j<m_shader->get_config()->n_regfile_gating_group;j++){
-    			  if(op.get_active_mask().test(i+j)){
-    				  active_count+=m_shader->get_config()->n_regfile_gating_group;
-    				  break;
-    			  }
-    		  }
-    	  }
-    	  m_shader->incregfile_reads(active_count);
-      }else{
-    	  m_shader->incregfile_reads(m_shader->get_config()->warp_size);//op.get_active_count());
-      }
-  }
+    // process read requests that do not have conflicts
+    std::list<op_t> allocated = m_arbiter.allocate_reads();
+    std::map<unsigned,op_t> read_ops;
+    for( std::list<op_t>::iterator r=allocated.begin(); r!=allocated.end(); r++ ) {
+        const op_t &rr = *r;
+        // Get the register number for the operand
+        unsigned reg = rr.get_reg();
+        // Get the warp id for the operand
+        unsigned wid = rr.get_wid();
+        // Get the register file bank for the operand's reg
+        unsigned bank = register_bank(reg,wid,m_num_banks,m_bank_warp_shift);
+        // Allocate a read of this reg value/operand
+        m_arbiter.allocate_for_read(bank,rr);
+        read_ops[bank] = rr;
+    }
+    std::map<unsigned,op_t>::iterator r;
+    for(r=read_ops.begin();r!=read_ops.end();++r ) {
+        op_t &op = r->second;
+        unsigned cu = op.get_oc_id();
+        unsigned operand = op.get_operand();
+
+        // Sets the ready bit for this operand in the CU
+        m_cu[cu]->collect_operand(operand);
+        if(m_shader->get_config()->gpgpu_clock_gated_reg_file){
+            unsigned active_count=0;
+            for(unsigned i=0;i<m_shader->get_config()->warp_size;i=i+m_shader->get_config()->n_regfile_gating_group){
+                for(unsigned j=0;j<m_shader->get_config()->n_regfile_gating_group;j++){
+                    if(op.get_active_mask().test(i+j)){
+                        active_count+=m_shader->get_config()->n_regfile_gating_group;
+                        break;
+                    }
+                }
+            }
+            m_shader->incregfile_reads(active_count);
+        }else{
+            m_shader->incregfile_reads(m_shader->get_config()->warp_size);//op.get_active_count());
+        }
+    }
 } 
 
 bool opndcoll_rfu_t::collector_unit_t::ready() const 
