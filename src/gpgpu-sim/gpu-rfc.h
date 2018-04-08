@@ -221,6 +221,7 @@ class RegisterFileCache {
     // Debug print
     if(RFC_DEBUG_PRINTS){
       printf("RFC Class: Check for Eviction Method invoked\n");
+      pritnf("")
     }
 
 
@@ -228,15 +229,28 @@ class RegisterFileCache {
     tmp_map_iter = m_internal_array.find(warp_id);
     if(m_internal_array.end() == tmp_map_iter){// No current list for this warp
       // Plenty of space for this warp's new reg
+      if(RFC_DEBUG_PRINTS){
+        printf("RFC Class: Check for Eviction: Plenty of space\n");
+      }
       return false;
     }else{// This warp has a list -> need to check for space
       RFCRegList &tmp_warp_list = tmp_map_iter->second;
       if(m_num_reg_slots > tmp_warp_list.size()){// Not all of the slots are used
         // Should be enough space for this new reg
+        if(RFC_DEBUG_PRINTS){
+          printf("RFC Class: Check for Eviction: Enough space\n");
+        }
         return false;
       }else{// All spaces are currently in use -> need to evict one
+        if(RFC_DEBUG_PRINTS){
+          printf("RFC Class: Check for Eviction: Need to Evict\n");
+        }
+
         // We are only following FIFO policy currently (push front, pop back)
         RFCRegEntry &tmp_evictee = *(tmp_warp_list.end());
+        if(RFC_DEBUG_PRINTS){
+          printf("RFC Class: Check for Eviction: Updating Evictee Info\n");
+        }
         // Update the value at the supplied pointer for the register number
         *evictee_reg = tmp_evictee.first;
         // Update the value at the supplied pointer for the instruction
