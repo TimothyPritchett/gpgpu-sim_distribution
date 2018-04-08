@@ -90,7 +90,7 @@ struct RFCStats{
     fprintf(fout, "\tTotal RFC Write Misses = %lld\n", num_write_misses);
     fprintf(fout, "\tTotal RFC Evictions    = %lld\n", num_evictions);
   }
-}
+};
 
 class RegisterFileCache {
   // Define any/all private members and methods
@@ -153,7 +153,7 @@ class RegisterFileCache {
   // Method to handle read based lookups
   // Updates stats
   bool lookup_read(unsigned warp_id, unsigned register_number){
-    if(this.exists(warp_id, register_number)){// Found it!
+    if(exists(warp_id, register_number)){// Found it!
       // Update the stats
       m_stats.num_hits      += 1LL;
       m_stats.num_read_hits += 1LL;
@@ -173,7 +173,7 @@ class RegisterFileCache {
   // Method to handle read based lookups
   // Updates stats
   bool lookup_write(unsigned warp_id, unsigned register_number){
-    if(this.exists(warp_id, register_number)){// Found it!
+    if(exists(warp_id, register_number)){// Found it!
       // Update the stats
       m_stats.num_hits      += 1LL;
       m_stats.num_write_hits += 1LL;
@@ -207,12 +207,12 @@ class RegisterFileCache {
       return false;
     }else{// This warp has a list -> need to check for space
       RFCRegList &tmp_warp_list = tmp_map_iter->second;
-      if(m_num_reg_slots > tmp_warp_list.size){// Not all of the slots are used
+      if(m_num_reg_slots > tmp_warp_list.size()){// Not all of the slots are used
         // Should be enough space for this new reg
         return false;
       }else{// All spaces are currently in use -> need to evict one
         // We are only following FIFO policy currently (push front, pop back)
-        RFCRegEntry &tmp_evictee = *(tmp_warp_list->end());
+        RFCRegEntry &tmp_evictee = *(tmp_warp_list.end());
         // Update the value at the supplied pointer for the register number
         *evictee_reg = tmp_evictee.first;
         // Update the value at the supplied pointer for the instruction
@@ -247,7 +247,7 @@ class RegisterFileCache {
     RFCRegList &tmp_warp_list = m_internal_array[tmp_warp_id];
     
     // Handle eviction if needed
-    if(m_num_reg_slots <= tmp_warp_list.size){// List is full -> need to evict one
+    if(m_num_reg_slots <= tmp_warp_list.size()){// List is full -> need to evict one
       // We are only following FIFO policy currently (push front, pop back)
       tmp_warp_list.pop_back();
 
@@ -269,7 +269,7 @@ class RegisterFileCache {
 
   // Method to print the stats to a file
   // TODO
-}
+};
 
 /*******************************************************************************
  *

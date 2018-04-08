@@ -103,6 +103,7 @@ Collaboration diagram for shader_core_ctx:</div>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classshader__core__ctx.html#ab1522e0e0fee39d41965575832b3a7a9">get_L1D_sub_stats</a> (struct <a class="el" href="structcache__sub__stats.html">cache_sub_stats</a> &amp;css) const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classshader__core__ctx.html#a86161c0c629a3981dd801386871c45f1">get_L1C_sub_stats</a> (struct <a class="el" href="structcache__sub__stats.html">cache_sub_stats</a> &amp;css) const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classshader__core__ctx.html#ab05a3859164ed38e61b8cfdf48e4a4bd">get_L1T_sub_stats</a> (struct <a class="el" href="structcache__sub__stats.html">cache_sub_stats</a> &amp;css) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classshader__core__ctx.html#a3eb21cda37d034edd4884ae6d12b947a">get_rfc_sub_stats</a> (struct <a class="el" href="structRFCStats.html">RFCStats</a> &amp;rfc_stats)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classshader__core__ctx.html#a4c1c2b2fa01fbd013aab0a64e9da0962">get_icnt_power_stats</a> (long &amp;n_simt_to_mem, long &amp;n_mem_to_simt) const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classshader__core__ctx.html#aa93b5f4f123a61ebce0f07a8d3c5fc1d">display_simt_state</a> (FILE *fout, <a class="el" href="classint.html">int</a> mask) const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classshader__core__ctx.html#a8e58be74671cfdc92a493fcdd84ab5e3">display_pipeline</a> (FILE *fout, <a class="el" href="classint.html">int</a> print_mem, <a class="el" href="classint.html">int</a> mask3bit) const </td></tr>
@@ -208,7 +209,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01577">1577</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01594">1594</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="ae0135cd740eab18089bdf5cf5e92702c"></a><!-- doxytag: member="shader_core_ctx::shader_core_ctx" ref="ae0135cd740eab18089bdf5cf5e92702c" args="(class gpgpu_sim *gpu, class simt_core_cluster *cluster, unsigned shader_id, unsigned tpc_id, const struct shader_core_config *config, const struct memory_config *mem_config, shader_core_stats *stats)" -->
 <div class="memitem">
@@ -265,7 +266,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8cc_source.html#l00068">68</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
+<p>Definition at line <a class="el" href="shader_8cc_source.html#l00069">69</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
 
 </div>
 </div>
@@ -286,7 +287,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8cc_source.html#l02848">2848</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
+<p>Definition at line <a class="el" href="shader_8cc_source.html#l02862">2862</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
 
 </div>
 </div>
@@ -306,7 +307,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8cc_source.html#l02859">2859</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
+<p>Definition at line <a class="el" href="shader_8cc_source.html#l02873">2873</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
 
 </div>
 </div>
@@ -341,7 +342,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8cc_source.html#l02833">2833</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
+<p>Definition at line <a class="el" href="shader_8cc_source.html#l02847">2847</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
 
 </div>
 </div>
@@ -360,7 +361,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8cc_source.html#l02517">2517</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
+<p>Definition at line <a class="el" href="shader_8cc_source.html#l02531">2531</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
 
 </div>
 </div>
@@ -380,7 +381,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="gpu-sim_8cc_source.html#l01106">1106</a> of file <a class="el" href="gpu-sim_8cc_source.html">gpu-sim.cc</a>.</p>
+<p>Definition at line <a class="el" href="gpu-sim_8cc_source.html#l01111">1111</a> of file <a class="el" href="gpu-sim_8cc_source.html">gpu-sim.cc</a>.</p>
 
 </div>
 </div>
@@ -400,7 +401,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8cc_source.html#l02789">2789</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
+<p>Definition at line <a class="el" href="shader_8cc_source.html#l02803">2803</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
 
 </div>
 </div>
@@ -437,7 +438,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 
 <p>Implements <a class="el" href="classcore__t.html#a338a44c2fa7c425e3277daffe791844b">core_t</a>.</p>
 
-<p>Definition at line <a class="el" href="shader_8cc_source.html#l03508">3508</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
+<p>Definition at line <a class="el" href="shader_8cc_source.html#l03572">3572</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
 
 </div>
 </div>
@@ -456,7 +457,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8cc_source.html#l02504">2504</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
+<p>Definition at line <a class="el" href="shader_8cc_source.html#l02518">2518</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
 
 </div>
 </div>
@@ -476,7 +477,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01629">1629</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01646">1646</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -495,7 +496,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8cc_source.html#l00582">582</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
+<p>Definition at line <a class="el" href="shader_8cc_source.html#l00583">583</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
 
 </div>
 </div>
@@ -524,7 +525,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8cc_source.html#l02827">2827</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
+<p>Definition at line <a class="el" href="shader_8cc_source.html#l02841">2841</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
 
 </div>
 </div>
@@ -559,7 +560,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8cc_source.html#l02358">2358</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
+<p>Definition at line <a class="el" href="shader_8cc_source.html#l02372">2372</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
 
 </div>
 </div>
@@ -588,7 +589,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8cc_source.html#l02284">2284</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
+<p>Definition at line <a class="el" href="shader_8cc_source.html#l02298">2298</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
 
 </div>
 </div>
@@ -608,7 +609,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="gpu-sim_8cc_source.html#l01549">1549</a> of file <a class="el" href="gpu-sim_8cc_source.html">gpu-sim.cc</a>.</p>
+<p>Definition at line <a class="el" href="gpu-sim_8cc_source.html#l01554">1554</a> of file <a class="el" href="gpu-sim_8cc_source.html">gpu-sim.cc</a>.</p>
 
 </div>
 </div>
@@ -627,7 +628,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8cc_source.html#l01195">1195</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
+<p>Definition at line <a class="el" href="shader_8cc_source.html#l01196">1196</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
 
 </div>
 </div>
@@ -646,7 +647,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8cc_source.html#l00613">613</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
+<p>Definition at line <a class="el" href="shader_8cc_source.html#l00614">614</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
 
 </div>
 </div>
@@ -665,7 +666,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8cc_source.html#l02843">2843</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
+<p>Definition at line <a class="el" href="shader_8cc_source.html#l02857">2857</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
 
 </div>
 </div>
@@ -694,7 +695,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="gpu-sim_8cc_source.html#l01120">1120</a> of file <a class="el" href="gpu-sim_8cc_source.html">gpu-sim.cc</a>.</p>
+<p>Definition at line <a class="el" href="gpu-sim_8cc_source.html#l01125">1125</a> of file <a class="el" href="gpu-sim_8cc_source.html">gpu-sim.cc</a>.</p>
 
 </div>
 </div>
@@ -714,7 +715,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8cc_source.html#l00695">695</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
+<p>Definition at line <a class="el" href="shader_8cc_source.html#l00696">696</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
 
 </div>
 </div>
@@ -734,7 +735,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8cc_source.html#l02875">2875</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
+<p>Definition at line <a class="el" href="shader_8cc_source.html#l02889">2889</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
 
 </div>
 </div>
@@ -753,7 +754,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01637">1637</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01654">1654</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -782,7 +783,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8cc_source.html#l02895">2895</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
+<p>Definition at line <a class="el" href="shader_8cc_source.html#l02909">2909</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
 
 </div>
 </div>
@@ -801,7 +802,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01613">1613</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01630">1630</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -821,7 +822,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8cc_source.html#l02888">2888</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
+<p>Definition at line <a class="el" href="shader_8cc_source.html#l02902">2902</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
 
 </div>
 </div>
@@ -841,7 +842,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8cc_source.html#l02885">2885</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
+<p>Definition at line <a class="el" href="shader_8cc_source.html#l02899">2899</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
 
 </div>
 </div>
@@ -861,7 +862,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8cc_source.html#l02881">2881</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
+<p>Definition at line <a class="el" href="shader_8cc_source.html#l02895">2895</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
 
 </div>
 </div>
@@ -881,7 +882,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8cc_source.html#l02891">2891</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
+<p>Definition at line <a class="el" href="shader_8cc_source.html#l02905">2905</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
 
 </div>
 </div>
@@ -900,7 +901,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01611">1611</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01628">1628</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -919,7 +920,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01610">1610</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01627">1627</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -956,7 +957,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 
 <p>Reimplemented from <a class="el" href="classcore__t.html#af4559dc19ac00b8e3dfb014e94c361e8">core_t</a>.</p>
 
-<p>Definition at line <a class="el" href="shader_8cc_source.html#l00377">377</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
+<p>Definition at line <a class="el" href="shader_8cc_source.html#l00378">378</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
 
 </div>
 </div>
@@ -976,7 +977,27 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8cc_source.html#l00057">57</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
+<p>Definition at line <a class="el" href="shader_8cc_source.html#l00058">58</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3eb21cda37d034edd4884ae6d12b947a"></a><!-- doxytag: member="shader_core_ctx::get_rfc_sub_stats" ref="a3eb21cda37d034edd4884ae6d12b947a" args="(struct RFCStats &amp;rfc_stats)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void shader_core_ctx::get_rfc_sub_stats </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="structRFCStats.html">RFCStats</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>rfc_stats</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01663">1663</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -995,7 +1016,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01614">1614</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01631">1631</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -1024,7 +1045,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01760">1760</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01781">1781</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -1053,7 +1074,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01757">1757</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01778">1778</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -1073,7 +1094,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01753">1753</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01774">1774</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -1093,7 +1114,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01628">1628</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01645">1645</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -1113,7 +1134,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8cc_source.html#l02228">2228</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
+<p>Definition at line <a class="el" href="shader_8cc_source.html#l02242">2242</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
 
 </div>
 </div>
@@ -1142,7 +1163,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01698">1698</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01719">1719</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -1171,7 +1192,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01715">1715</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01736">1736</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -1200,7 +1221,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01706">1706</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01727">1727</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -1220,7 +1241,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01750">1750</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01771">1771</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -1240,7 +1261,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01751">1751</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01772">1772</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -1269,7 +1290,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01654">1654</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01675">1675</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -1298,7 +1319,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01690">1690</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01711">1711</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -1327,7 +1348,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01673">1673</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01694">1694</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -1356,7 +1377,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01681">1681</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01702">1702</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -1385,7 +1406,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01665">1665</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01686">1686</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -1404,7 +1425,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01652">1652</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01673">1673</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -1433,7 +1454,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01734">1734</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01755">1755</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -1453,7 +1474,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01746">1746</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01767">1767</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -1473,7 +1494,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01744">1744</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01765">1765</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -1493,7 +1514,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01745">1745</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01766">1766</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -1522,7 +1543,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01732">1732</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01753">1753</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -1542,7 +1563,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01749">1749</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01770">1770</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -1571,7 +1592,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01733">1733</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01754">1754</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -1591,7 +1612,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01748">1748</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01769">1769</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -1610,7 +1631,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01653">1653</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01674">1674</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -1639,7 +1660,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01662">1662</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01683">1683</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -1668,7 +1689,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01723">1723</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01744">1744</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -1703,7 +1724,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8cc_source.html#l00334">334</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
+<p>Definition at line <a class="el" href="shader_8cc_source.html#l00335">335</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
 
 </div>
 </div>
@@ -1722,7 +1743,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01612">1612</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01629">1629</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -1741,7 +1762,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8cc_source.html#l00726">726</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
+<p>Definition at line <a class="el" href="shader_8cc_source.html#l00727">727</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
 
 </div>
 </div>
@@ -1768,7 +1789,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="gpu-sim_8cc_source.html#l01229">1229</a> of file <a class="el" href="gpu-sim_8cc_source.html">gpu-sim.cc</a>.</p>
+<p>Definition at line <a class="el" href="gpu-sim_8cc_source.html#l01234">1234</a> of file <a class="el" href="gpu-sim_8cc_source.html">gpu-sim.cc</a>.</p>
 
 </div>
 </div>
@@ -1809,7 +1830,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8cc_source.html#l00702">702</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
+<p>Definition at line <a class="el" href="shader_8cc_source.html#l00703">703</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
 
 </div>
 </div>
@@ -1828,7 +1849,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8cc_source.html#l02854">2854</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
+<p>Definition at line <a class="el" href="shader_8cc_source.html#l02868">2868</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
 
 </div>
 </div>
@@ -1848,7 +1869,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="gpu-sim_8cc_source.html#l01074">1074</a> of file <a class="el" href="gpu-sim_8cc_source.html">gpu-sim.cc</a>.</p>
+<p>Definition at line <a class="el" href="gpu-sim_8cc_source.html#l01079">1079</a> of file <a class="el" href="gpu-sim_8cc_source.html">gpu-sim.cc</a>.</p>
 
 </div>
 </div>
@@ -1868,7 +1889,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8cc_source.html#l00361">361</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
+<p>Definition at line <a class="el" href="shader_8cc_source.html#l00362">362</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
 
 </div>
 </div>
@@ -1897,7 +1918,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="gpu-sim_8cc_source.html#l01147">1147</a> of file <a class="el" href="gpu-sim_8cc_source.html">gpu-sim.cc</a>.</p>
+<p>Definition at line <a class="el" href="gpu-sim_8cc_source.html#l01152">1152</a> of file <a class="el" href="gpu-sim_8cc_source.html">gpu-sim.cc</a>.</p>
 
 </div>
 </div>
@@ -1932,7 +1953,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8cc_source.html#l02871">2871</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
+<p>Definition at line <a class="el" href="shader_8cc_source.html#l02885">2885</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
 
 </div>
 </div>
@@ -1961,7 +1982,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8cc_source.html#l02278">2278</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
+<p>Definition at line <a class="el" href="shader_8cc_source.html#l02292">2292</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
 
 </div>
 </div>
@@ -1980,7 +2001,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8cc_source.html#l01118">1118</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
+<p>Definition at line <a class="el" href="shader_8cc_source.html#l01119">1119</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
 
 </div>
 </div>
@@ -2009,7 +2030,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8cc_source.html#l01963">1963</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
+<p>Definition at line <a class="el" href="shader_8cc_source.html#l01964">1964</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
 
 </div>
 </div>
@@ -2044,7 +2065,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8cc_source.html#l00309">309</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
+<p>Definition at line <a class="el" href="shader_8cc_source.html#l00310">310</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
 
 </div>
 </div>
@@ -2073,7 +2094,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="gpu-sim_8cc_source.html#l01186">1186</a> of file <a class="el" href="gpu-sim_8cc_source.html">gpu-sim.cc</a>.</p>
+<p>Definition at line <a class="el" href="gpu-sim_8cc_source.html#l01191">1191</a> of file <a class="el" href="gpu-sim_8cc_source.html">gpu-sim.cc</a>.</p>
 
 </div>
 </div>
@@ -2093,7 +2114,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01598">1598</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01615">1615</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -2113,7 +2134,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8cc_source.html#l02817">2817</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
+<p>Definition at line <a class="el" href="shader_8cc_source.html#l02831">2831</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
 
 </div>
 </div>
@@ -2133,7 +2154,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8cc_source.html#l02864">2864</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
+<p>Definition at line <a class="el" href="shader_8cc_source.html#l02878">2878</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
 
 </div>
 </div>
@@ -2153,7 +2174,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8cc_source.html#l01188">1188</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
+<p>Definition at line <a class="el" href="shader_8cc_source.html#l01189">1189</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
 
 </div>
 </div>
@@ -2200,7 +2221,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8cc_source.html#l01128">1128</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
+<p>Definition at line <a class="el" href="shader_8cc_source.html#l01129">1129</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
 
 </div>
 </div>
@@ -2222,7 +2243,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 
 <p>Implements <a class="el" href="classcore__t.html#a92ab216a0345b3134688560a58f8df7f">core_t</a>.</p>
 
-<p>Definition at line <a class="el" href="shader_8cc_source.html#l02769">2769</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
+<p>Definition at line <a class="el" href="shader_8cc_source.html#l02783">2783</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
 
 </div>
 </div>
@@ -2242,7 +2263,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8cc_source.html#l01254">1254</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
+<p>Definition at line <a class="el" href="shader_8cc_source.html#l01255">1255</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
 
 </div>
 </div>
@@ -2264,7 +2285,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 
 <p>Implements <a class="el" href="classcore__t.html#a28af3be792182e1c7c7438103935a41c">core_t</a>.</p>
 
-<p>Definition at line <a class="el" href="shader_8cc_source.html#l02801">2801</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
+<p>Definition at line <a class="el" href="shader_8cc_source.html#l02815">2815</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
 
 </div>
 </div>
@@ -2284,7 +2305,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8cc_source.html#l02806">2806</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
+<p>Definition at line <a class="el" href="shader_8cc_source.html#l02820">2820</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
 
 </div>
 </div>
@@ -2303,7 +2324,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8cc_source.html#l01277">1277</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
+<p>Definition at line <a class="el" href="shader_8cc_source.html#l01278">1278</a> of file <a class="el" href="shader_8cc_source.html">shader.cc</a>.</p>
 
 </div>
 </div>
@@ -2319,7 +2340,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01776">1776</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01797">1797</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -2334,7 +2355,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01774">1774</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01795">1795</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -2349,7 +2370,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01775">1775</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01796">1796</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -2365,7 +2386,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01844">1844</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01865">1865</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -2380,7 +2401,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01845">1845</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01866">1866</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -2395,7 +2416,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01809">1809</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01830">1830</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -2410,7 +2431,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01824">1824</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01845">1845</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -2425,7 +2446,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01800">1800</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01821">1821</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -2440,7 +2461,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01798">1798</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01819">1819</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -2455,7 +2476,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01807">1807</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01828">1828</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -2470,7 +2491,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01835">1835</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01856">1856</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -2485,7 +2506,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01850">1850</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01871">1871</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -2500,7 +2521,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01837">1837</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01858">1858</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -2515,7 +2536,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01815">1815</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01836">1836</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -2530,7 +2551,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01825">1825</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01846">1846</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -2545,7 +2566,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01836">1836</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01857">1857</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -2560,7 +2581,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01819">1819</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01840">1840</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -2575,7 +2596,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01792">1792</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01813">1813</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -2590,7 +2611,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01793">1793</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01814">1814</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -2605,7 +2626,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01820">1820</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01841">1841</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -2620,7 +2641,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01838">1838</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01859">1859</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -2635,7 +2656,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01816">1816</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01837">1837</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -2650,7 +2671,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01799">1799</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01820">1820</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -2665,7 +2686,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01806">1806</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01827">1827</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -2680,7 +2701,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01808">1808</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01829">1829</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -2695,7 +2716,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01834">1834</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01855">1855</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -2710,7 +2731,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01864">1864</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01885">1885</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -2725,7 +2746,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01862">1862</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01883">1883</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -2740,7 +2761,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01863">1863</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01884">1884</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -2755,7 +2776,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01859">1859</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01880">1880</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -2770,7 +2791,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01861">1861</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01882">1882</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -2785,7 +2806,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01860">1860</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01881">1881</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -2800,7 +2821,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01828">1828</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01849">1849</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -2815,7 +2836,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01826">1826</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01847">1847</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -2830,7 +2851,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01841">1841</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01862">1862</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -2845,7 +2866,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01827">1827</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01848">1848</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -2860,7 +2881,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01796">1796</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01817">1817</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -2875,7 +2896,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01803">1803</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01824">1824</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -2890,7 +2911,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01812">1812</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01833">1833</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -2905,7 +2926,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01797">1797</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01818">1818</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -2920,7 +2941,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01823">1823</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01844">1844</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -2935,7 +2956,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01839">1839</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01860">1860</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -2950,7 +2971,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01840">1840</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01861">1861</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -2965,7 +2986,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="shader_8h_source.html#l01831">1831</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
+<p>Definition at line <a class="el" href="shader_8h_source.html#l01852">1852</a> of file <a class="el" href="shader_8h_source.html">shader.h</a>.</p>
 
 </div>
 </div>
@@ -2989,7 +3010,7 @@ unsigned <a class="el" href="classint.html">int</a> &gt;&nbsp;</td><td class="me
 </iframe>
 </div>
 
-<hr size="1"/><address style="text-align: right;"><small>Generated on 4 Apr 2018 for GPGPU-Sim by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 8 Apr 2018 for GPGPU-Sim by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

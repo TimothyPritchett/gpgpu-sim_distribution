@@ -2072,8 +2072,8 @@ void gpgpu_sim::shader_print_cache_stats( FILE *fout ) const{
 
     fprintf(fout, "\n========= Core RFC stats =========\n");
     total_rfc_stats.clear();
-    rfc_stats.clear();
     for ( unsigned i = 0; i < m_shader_config->n_simt_clusters; ++i ) {
+        rfc_stats.clear();
         m_cluster[i]->get_rfc_sub_stats(rfc_stats);
         total_rfc_stats += rfc_stats;
     }

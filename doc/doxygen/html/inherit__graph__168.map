@@ -1,4 +1,7 @@
 <map id="G" name="G">
-<area shape="rect" id="node1" href="$structshader__core__power__stats__pod.html" title="shader_core_power_stats_pod" alt="" coords="5,5,232,35"/>
-<area shape="rect" id="node3" href="$classpower__core__stat__t.html" title="power_core_stat_t" alt="" coords="281,5,431,35"/>
+<area shape="rect" id="node1" href="$classscheduler__unit.html" title="scheduler_unit" alt="" coords="5,85,125,115"/>
+<area shape="rect" id="node3" href="$classgto__scheduler.html" title="gto_scheduler" alt="" coords="220,5,337,35"/>
+<area shape="rect" id="node5" href="$classlrr__scheduler.html" title="lrr_scheduler" alt="" coords="225,59,332,88"/>
+<area shape="rect" id="node7" href="$classswl__scheduler.html" title="swl_scheduler" alt="" coords="221,112,336,141"/>
+<area shape="rect" id="node9" href="$classtwo__level__active__scheduler.html" title="two_level_active_scheduler" alt="" coords="175,165,383,195"/>
 </map>

@@ -744,7 +744,7 @@ private:
                     // Check if it's in the RFC first -> RFC read hits filter MRF reads
                     if(rfc->lookup_read(op.get_wid(), op.get_reg())){// Hit in RFC
                         // Load into CU directly (mark as ready)
-                        cu->collect_operand(op);
+                        cu->collect_operand(op.get_operand());
                     }else{// Missed in RFC -> Schedule a MRF read like normal
                         unsigned bank = op.get_bank();
                         m_queue[bank].push_back(op);
@@ -1935,13 +1935,13 @@ public:
         struct RFCStats temp_stats;
         struct RFCStats total_stats;
 
-        temp_stats.clear();
         total_stats.clear();
         for ( unsigned i = 0; i < m_config->n_simt_cores_per_cluster; ++i ) {
-            m_core[i]->get_rfc_sub_stats(temp_css);
-            total_css += temp_css;
+	    temp_stats.clear();
+            m_core[i]->get_rfc_sub_stats(temp_stats);
+            total_stats += temp_stats;
         }
-        css = total_css;
+        rfc_stats = total_stats;
     }
 
     void get_icnt_stats(long &n_simt_to_mem, long &n_mem_to_simt) const;

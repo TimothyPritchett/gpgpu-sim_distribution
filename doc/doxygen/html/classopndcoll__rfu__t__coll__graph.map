@@ -1,29 +1,30 @@
 <map id="G" name="G">
-<area shape="rect" id="node6" href="$classshader__core__ctx.html" title="shader_core_ctx" alt="" coords="2727,1491,2860,1520"/>
-<area shape="rect" id="node117" href="$classldst__unit.html" title="ldst_unit" alt="" coords="3080,1935,3160,1964"/>
-<area shape="rect" id="node14" href="$classgpgpu__sim.html" title="gpgpu_sim" alt="" coords="3407,1312,3497,1341"/>
-<area shape="rect" id="node16" href="$structshader__core__config.html" title="shader_core_config" alt="" coords="1585,664,1735,693"/>
-<area shape="rect" id="node18" href="$structcore__config.html" title="core_config" alt="" coords="1033,641,1132,671"/>
-<area shape="rect" id="node26" href="$classcache__config.html" title="cache_config" alt="" coords="372,389,481,419"/>
-<area shape="rect" id="node58" href="$structmemory__config.html" title="memory_config" alt="" coords="1597,2193,1723,2223"/>
-<area shape="rect" id="node85" href="$classptx__thread__info.html" title="ptx_thread_info" alt="" coords="3789,2608,3917,2637"/>
-<area shape="rect" id="node95" href="$structifetch__buffer__t.html" title="ifetch_buffer_t" alt="" coords="365,1321,488,1351"/>
-<area shape="rect" id="node136" href="$classthread__ctx__t.html" title="thread_ctx_t" alt="" coords="372,1268,481,1297"/>
-<area shape="rect" id="node39" href="$classsimt__core__cluster.html" title="simt_core_cluster" alt="" coords="3049,873,3191,903"/>
-<area shape="rect" id="node142" href="$classbarrier__set__t.html" title="barrier_set_t" alt="" coords="3065,1587,3175,1616"/>
-<area shape="rect" id="node8" href="$classcore__t.html" title="core_t" alt="" coords="3608,2608,3675,2637"/>
-<area shape="rect" id="node10" href="$classsimt__stack.html" title="simt_stack" alt="" coords="671,2627,767,2656"/>
-<area shape="rect" id="node44" href="$structshader__core__stats__pod.html" title="shader_core_stats_pod" alt="" coords="993,1936,1172,1965"/>
-<area shape="rect" id="node55" href="$classmemory__stats__t.html" title="memory_stats_t" alt="" coords="2229,865,2363,895"/>
-<area shape="rect" id="node80" href="$classkernel__info__t.html" title="kernel_info_t" alt="" coords="3067,2813,3173,2843"/>
-<area shape="rect" id="node107" href="$classScoreboard.html" title="Scoreboard" alt="" coords="2248,2132,2344,2161"/>
-<area shape="rect" id="node124" href="$classshader__core__mem__fetch__allocator.html" title="shader_core_mem_fetch_allocator" alt="" coords="2169,2240,2423,2269"/>
-<area shape="rect" id="node158" href="$classopndcoll__rfu__t_1_1arbiter__t.html" title="opndcoll_rfu_t::arbiter_t" alt="" coords="991,1639,1175,1668"/>
-<area shape="rect" id="node42" href="$classshader__core__stats.html" title="shader_core_stats" alt="" coords="2223,1848,2369,1877"/>
-<area shape="rect" id="node20" href="$classint.html" title="int" alt="" coords="407,901,447,931"/>
-<area shape="rect" id="node24" href="$classl1d__cache__config.html" title="l1d_cache_config" alt="" coords="1015,333,1151,363"/>
-<area shape="rect" id="node48" href="$classtraffic__breakdown.html" title="traffic_breakdown" alt="" coords="1589,1829,1731,1859"/>
-<area shape="rect" id="node103" href="$classmem__fetch__interface.html" title="mem_fetch_interface" alt="" coords="2211,1744,2381,1773"/>
-<area shape="rect" id="node115" href="$classread__only__cache.html" title="Read only cache." alt="" coords="2229,2044,2363,2073"/>
-<area shape="rect" id="node163" href="$classopndcoll__rfu__t_1_1allocation__t.html" title="opndcoll_rfu_t::allocation_t" alt="" coords="325,1425,528,1455"/>
+<area shape="rect" id="node16" href="$classshader__core__ctx.html" title="shader_core_ctx" alt="" coords="2593,1693,2727,1723"/>
+<area shape="rect" id="node117" href="$classldst__unit.html" title="ldst_unit" alt="" coords="2944,2117,3024,2147"/>
+<area shape="rect" id="node2" href="$classRegisterFileCache.html" title="RegisterFileCache" alt="" coords="1019,2124,1163,2153"/>
+<area shape="rect" id="node4" href="$structRFCStats.html" title="RFCStats" alt="" coords="388,2017,473,2047"/>
+<area shape="rect" id="node10" href="$classint.html" title="int" alt="" coords="411,1139,451,1168"/>
+<area shape="rect" id="node26" href="$structshader__core__config.html" title="shader_core_config" alt="" coords="1567,813,1716,843"/>
+<area shape="rect" id="node28" href="$structcore__config.html" title="core_config" alt="" coords="1041,813,1140,843"/>
+<area shape="rect" id="node53" href="$structshader__core__stats__pod.html" title="shader_core_stats_pod" alt="" coords="1001,1212,1180,1241"/>
+<area shape="rect" id="node85" href="$classptx__thread__info.html" title="ptx_thread_info" alt="" coords="3653,2743,3781,2772"/>
+<area shape="rect" id="node158" href="$classopndcoll__rfu__t_1_1arbiter__t.html" title="opndcoll_rfu_t::arbiter_t" alt="" coords="999,2281,1183,2311"/>
+<area shape="rect" id="node24" href="$classgpgpu__sim.html" title="gpgpu_sim" alt="" coords="3271,1063,3361,1092"/>
+<area shape="rect" id="node35" href="$classcache__config.html" title="cache_config" alt="" coords="376,607,485,636"/>
+<area shape="rect" id="node61" href="$structmemory__config.html" title="memory_config" alt="" coords="1579,1424,1704,1453"/>
+<area shape="rect" id="node95" href="$structifetch__buffer__t.html" title="ifetch_buffer_t" alt="" coords="369,1756,492,1785"/>
+<area shape="rect" id="node136" href="$classthread__ctx__t.html" title="thread_ctx_t" alt="" coords="376,1809,485,1839"/>
+<area shape="rect" id="node48" href="$classsimt__core__cluster.html" title="simt_core_cluster" alt="" coords="2913,1111,3055,1140"/>
+<area shape="rect" id="node142" href="$classbarrier__set__t.html" title="barrier_set_t" alt="" coords="2929,1693,3039,1723"/>
+<area shape="rect" id="node18" href="$classcore__t.html" title="core_t" alt="" coords="3472,2743,3539,2772"/>
+<area shape="rect" id="node20" href="$classsimt__stack.html" title="simt_stack" alt="" coords="679,2768,775,2797"/>
+<area shape="rect" id="node58" href="$classmemory__stats__t.html" title="memory_stats_t" alt="" coords="2099,785,2232,815"/>
+<area shape="rect" id="node80" href="$classkernel__info__t.html" title="kernel_info_t" alt="" coords="2931,2949,3037,2979"/>
+<area shape="rect" id="node107" href="$classScoreboard.html" title="Scoreboard" alt="" coords="2117,2576,2213,2605"/>
+<area shape="rect" id="node124" href="$classshader__core__mem__fetch__allocator.html" title="shader_core_mem_fetch_allocator" alt="" coords="2039,2125,2292,2155"/>
+<area shape="rect" id="node51" href="$classshader__core__stats.html" title="shader_core_stats" alt="" coords="2092,1079,2239,1108"/>
+<area shape="rect" id="node33" href="$classl1d__cache__config.html" title="l1d_cache_config" alt="" coords="1023,607,1159,636"/>
+<area shape="rect" id="node103" href="$classmem__fetch__interface.html" title="mem_fetch_interface" alt="" coords="2080,2265,2251,2295"/>
+<area shape="rect" id="node115" href="$classread__only__cache.html" title="Read only cache." alt="" coords="2099,2319,2232,2348"/>
+<area shape="rect" id="node163" href="$classopndcoll__rfu__t_1_1allocation__t.html" title="opndcoll_rfu_t::allocation_t" alt="" coords="329,2313,532,2343"/>
 </map>

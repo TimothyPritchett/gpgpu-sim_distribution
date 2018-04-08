@@ -1,6 +1,3 @@
 <map id="G" name="G">
-<area shape="rect" id="node1" href="$classsnap__shot__trigger.html" title="snap_shot_trigger" alt="" coords="7,5,148,35"/>
-<area shape="rect" id="node3" href="$classlinear__histogram__logger.html" title="linear_histogram_logger" alt="" coords="199,5,377,35"/>
-<area shape="rect" id="node5" href="$classthread__CFlocality.html" title="thread_CFlocality" alt="" coords="219,59,357,88"/>
-<area shape="rect" id="node6" href="$classspill__log__interface.html" title="spill_log_interface" alt="" coords="7,59,148,88"/>
+<area shape="rect" id="node1" href="$structsimt__stack_1_1simt__stack__entry.html" title="simt_stack::simt_stack_entry" alt="" coords="5,5,229,35"/>
 </map>

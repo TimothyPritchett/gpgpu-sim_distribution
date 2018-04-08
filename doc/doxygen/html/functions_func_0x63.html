@@ -210,6 +210,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>check_finished_kernel()
 : <a class="el" href="classstream__manager.html#a4f557c9b63497b1448a3aae0dbdd998f">stream_manager</a>
 </li>
+<li>check_for_eviction()
+: <a class="el" href="classRegisterFileCache.html#a9a26889d99e5ad196679cba67fcf13cd">RegisterFileCache</a>
+</li>
 <li>check_if_non_released_reduction_barrier()
 : <a class="el" href="classshader__core__ctx.html#ae736c3e30b79efd44d8fdb89ec2e16b0">shader_core_ctx</a>
 </li>
@@ -271,6 +274,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="classwarp__inst__t.html#a4ec50b2b803104315d11fb6eb8ad926f">warp_inst_t</a>
 , <a class="el" href="structcache__sub__stats.html#a4d2c836830777dc9daa30e14609d1e06">cache_sub_stats</a>
 , <a class="el" href="classcache__stats.html#a55a554e14d70bac0582bcffdcb9a6a23">cache_stats</a>
+, <a class="el" href="structRFCStats.html#ac9dd681f9e61f10ed37933d875264744">RFCStats</a>
 </li>
 <li>clear_active()
 : <a class="el" href="classwarp__inst__t.html#a26a7ed83a4b4902d1b3648ee8a0ffe13">warp_inst_t</a>
@@ -375,13 +379,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="classDriver.html#a8265b6a829e994270176c41aed86bbc2">Driver</a>
 </li>
 <li>compute_delays()
-: <a class="el" href="classPredec.html#ae822c19809b29f520cdd7a1af1290a8e">Predec</a>
+: <a class="el" href="classUCA.html#a02168f60e82e2654de9d7fa79db6e48d">UCA</a>
+, <a class="el" href="classPredecBlk.html#a92b90ae95af2eeab472a857a53d74269">PredecBlk</a>
 , <a class="el" href="classBank.html#a6dbb50913a026acfab9d5f3a1900ec5b">Bank</a>
 , <a class="el" href="classDecoder.html#a30f953f8648b65c03b70afd0c33d893f">Decoder</a>
-, <a class="el" href="classPredecBlk.html#a92b90ae95af2eeab472a857a53d74269">PredecBlk</a>
 , <a class="el" href="classPredecBlkDrv.html#a9f9903ccf1adb3ea1fc7e41369bc0cc9">PredecBlkDrv</a>
+, <a class="el" href="classPredec.html#ae822c19809b29f520cdd7a1af1290a8e">Predec</a>
 , <a class="el" href="classMat.html#a8eef0f7990a92b82dee8672f69dcae5b">Mat</a>
-, <a class="el" href="classUCA.html#a02168f60e82e2654de9d7fa79db6e48d">UCA</a>
 </li>
 <li>compute_DFF_cell()
 : <a class="el" href="classDFFCell.html#adb52c8cdab03eff83406db2c29fd0742">DFFCell</a>
@@ -399,8 +403,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>compute_power_energy()
 : <a class="el" href="classBank.html#a567bbe2d4a1227a79ca05b7dd28df6d6">Bank</a>
-, <a class="el" href="classMat.html#ab7976e2598d0fda67b4d5987ced3574e">Mat</a>
 , <a class="el" href="classUCA.html#a69c92f313dc6a57f5366d224b6371a9b">UCA</a>
+, <a class="el" href="classMat.html#ab7976e2598d0fda67b4d5987ced3574e">Mat</a>
 </li>
 <li>compute_sa_delay()
 : <a class="el" href="classMat.html#a1cc917256a3094a8d02caa43b930d140">Mat</a>
@@ -415,32 +419,32 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="classComponent.html#a2e5763a24805a1eb8058a142f769a06f">Component</a>
 </li>
 <li>compute_widths()
-: <a class="el" href="classPredecBlk.html#ab1448cd6d45c9bdcac72ccbf0946b87e">PredecBlk</a>
-, <a class="el" href="classPredecBlkDrv.html#acbd74b32f80d566b8424cc1553b63914">PredecBlkDrv</a>
+: <a class="el" href="classDecoder.html#a5cf422a9fc0fe1d91facb8515c62d95e">Decoder</a>
+, <a class="el" href="classPredecBlk.html#ab1448cd6d45c9bdcac72ccbf0946b87e">PredecBlk</a>
 , <a class="el" href="classDriver.html#adbfba8fb63dd89c0bea849badbe90f6a">Driver</a>
-, <a class="el" href="classDecoder.html#a5cf422a9fc0fe1d91facb8515c62d95e">Decoder</a>
+, <a class="el" href="classPredecBlkDrv.html#acbd74b32f80d566b8424cc1553b63914">PredecBlkDrv</a>
 </li>
 <li>computeEnergy()
-: <a class="el" href="classLoadStoreU.html#ad6a70eee30a70db4aadb8b0d08c00a89">LoadStoreU</a>
-, <a class="el" href="classMCPHY.html#ad404f1f7a53e68293e1cb4b3591baa00">MCPHY</a>
-, <a class="el" href="classBranchPredictor.html#a221e91c189ed9a4139e096b9d6df3f0f">BranchPredictor</a>
+: <a class="el" href="classMCPHY.html#ad404f1f7a53e68293e1cb4b3591baa00">MCPHY</a>
+, <a class="el" href="classNIUController.html#a675d54a28c39c695194a7d08161d342f">NIUController</a>
+, <a class="el" href="classEXECU.html#aad96e9f7ada7dae493d79690fc94b36a">EXECU</a>
 , <a class="el" href="classCore.html#a0915c3b23c497f095e6f6b679eef5830">Core</a>
-, <a class="el" href="classMemManU.html#a71cbec5e9b6de5f9277421c99a85ee36">MemManU</a>
+, <a class="el" href="classLoadStoreU.html#ad6a70eee30a70db4aadb8b0d08c00a89">LoadStoreU</a>
 , <a class="el" href="classPCIeController.html#a8c41fd24bd0d2604e881b4b27d2ccbc6">PCIeController</a>
 , <a class="el" href="classRegFU.html#a22263e7d79fb193e3052ef6667cece80">RegFU</a>
+, <a class="el" href="classBranchPredictor.html#a221e91c189ed9a4139e096b9d6df3f0f">BranchPredictor</a>
 , <a class="el" href="classInstFetchU.html#ad0c23ccf1fb1b25517477de4afda308e">InstFetchU</a>
-, <a class="el" href="classSchedulerU.html#abe2d35f35a1e6c04a6c8302b9af5c585">SchedulerU</a>
 , <a class="el" href="classRENAMINGU.html#aa736d892249b0b0c61e199521e3f042f">RENAMINGU</a>
-, <a class="el" href="classEXECU.html#aad96e9f7ada7dae493d79690fc94b36a">EXECU</a>
-, <a class="el" href="classNIUController.html#a675d54a28c39c695194a7d08161d342f">NIUController</a>
+, <a class="el" href="classSchedulerU.html#abe2d35f35a1e6c04a6c8302b9af5c585">SchedulerU</a>
+, <a class="el" href="classMemManU.html#a71cbec5e9b6de5f9277421c99a85ee36">MemManU</a>
 , <a class="el" href="classFlashController.html#ae2d0b97ea9d7d49eb767dc503354bc62">FlashController</a>
-, <a class="el" href="classMCBackend.html#a43598e02e6d6bb751e4b26ee530b08c8">MCBackend</a>
-, <a class="el" href="classMemoryController.html#a97617f73a8065c68bd42bebd6d4ef09c">MemoryController</a>
-, <a class="el" href="classNoC.html#a060f2236bbc5f3f3be61bf3b7d049ad3">NoC</a>
-, <a class="el" href="classSharedCache.html#afb2df9b81abc48374db08ee7765c69d6">SharedCache</a>
-, <a class="el" href="classFunctionalUnit.html#a6fef44e1982ae1bdc7df9ba48673d33d">FunctionalUnit</a>
 , <a class="el" href="classMCFrontEnd.html#afb70458ce5c15436c13167c577a5dab7">MCFrontEnd</a>
 , <a class="el" href="classDRAM.html#a1cb560495cbabf0a361e1703723e27f2">DRAM</a>
+, <a class="el" href="classMemoryController.html#a97617f73a8065c68bd42bebd6d4ef09c">MemoryController</a>
+, <a class="el" href="classSharedCache.html#afb2df9b81abc48374db08ee7765c69d6">SharedCache</a>
+, <a class="el" href="classFunctionalUnit.html#a6fef44e1982ae1bdc7df9ba48673d33d">FunctionalUnit</a>
+, <a class="el" href="classMCBackend.html#a43598e02e6d6bb751e4b26ee530b08c8">MCBackend</a>
+, <a class="el" href="classNoC.html#a060f2236bbc5f3f3be61bf3b7d049ad3">NoC</a>
 , <a class="el" href="classCCdir.html#a33b41652f0241c7371a77442a7c6ccc8">CCdir</a>
 </li>
 <li>computeEnergy_link_bus()
@@ -486,7 +490,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="classcore__t.html#aed2096c530d60475e9509ba4b85896dd">core_t</a>
 </li>
 <li>CoreDynParam()
-: <a class="el" href="classCoreDynParam.html#a0e83347b96abd84af7ebaf201d96c1ce">CoreDynParam</a>
+: <a class="el" href="classCoreDynParam.html#a052f16756e8e59cccc12afacb60cc459">CoreDynParam</a>
 </li>
 <li>cpy_tid_to_reg()
 : <a class="el" href="classptx__thread__info.html#a0beb0f49e2e7613e15ac4e7b7a0651b0">ptx_thread_info</a>
@@ -528,8 +532,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="classCrossbar.html#ab0cc733b4355f8d16fe5678d6e8f4aad">Crossbar</a>
 </li>
 <li>crossbar_ctrline()
-: <a class="el" href="classMCPAT__Arbiter.html#a3580cd56090f42fea082068feabc8df8">MCPAT_Arbiter</a>
-, <a class="el" href="classMCPAT__Router.html#ae70ba684a82bd5fb54535805aaffab28">MCPAT_Router</a>
+: <a class="el" href="classMCPAT__Router.html#ae70ba684a82bd5fb54535805aaffab28">MCPAT_Router</a>
+, <a class="el" href="classMCPAT__Arbiter.html#a3580cd56090f42fea082068feabc8df8">MCPAT_Arbiter</a>
 </li>
 <li>crossbar_inpline()
 : <a class="el" href="classMCPAT__Router.html#a64491437986a720ddce870109e92a4dd">MCPAT_Router</a>
@@ -569,17 +573,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 , <a class="el" href="classMCPAT__Router.html#a189aaf5c375da8744933617a25c4c510">MCPAT_Router</a>
 </li>
 <li>cycle()
-: <a class="el" href="classshader__core__ctx.html#aa890a6df3b96a815cb62448fd28409c6">shader_core_ctx</a>
-, <a class="el" href="classgpgpu__sim.html#a36c4ad6499b1a5212a88c17be524085b">gpgpu_sim</a>
-, <a class="el" href="classscheduler__unit.html#a47c4325ef60af799b123f1cca0bba904">scheduler_unit</a>
-, <a class="el" href="classldst__unit.html#a2dba217d5edf6c9c4eb0b5d40dba666f">ldst_unit</a>
-, <a class="el" href="classdram__t.html#ae0d873cc168b834f9629947bd20841fd">dram_t</a>
-, <a class="el" href="classSwitchMonitor.html#a93d942492f6165f88c353fa2d3ce4b24">SwitchMonitor</a>
-, <a class="el" href="classBufferMonitor.html#aa421469fac16df80cc08fc6ab08373be">BufferMonitor</a>
-, <a class="el" href="classpipelined__simd__unit.html#a0e6897044874cd5829fac60b040c07af">pipelined_simd_unit</a>
-, <a class="el" href="classbaseline__cache.html#a0622c3b477d40f97b694dd5d76de23cd">baseline_cache</a>
-, <a class="el" href="classtex__cache.html#a1aefd101ea71dc38a053d80087b93e13">tex_cache</a>
+: <a class="el" href="classscheduler__unit.html#a47c4325ef60af799b123f1cca0bba904">scheduler_unit</a>
 , <a class="el" href="classsimd__function__unit.html#a5e9faa36aa5cf9c025e6f89143de5b59">simd_function_unit</a>
+, <a class="el" href="classBufferMonitor.html#aa421469fac16df80cc08fc6ab08373be">BufferMonitor</a>
+, <a class="el" href="classtex__cache.html#a1aefd101ea71dc38a053d80087b93e13">tex_cache</a>
+, <a class="el" href="classbaseline__cache.html#a0622c3b477d40f97b694dd5d76de23cd">baseline_cache</a>
+, <a class="el" href="classgpgpu__sim.html#a36c4ad6499b1a5212a88c17be524085b">gpgpu_sim</a>
+, <a class="el" href="classldst__unit.html#a2dba217d5edf6c9c4eb0b5d40dba666f">ldst_unit</a>
+, <a class="el" href="classSwitchMonitor.html#a93d942492f6165f88c353fa2d3ce4b24">SwitchMonitor</a>
+, <a class="el" href="classdram__t.html#ae0d873cc168b834f9629947bd20841fd">dram_t</a>
+, <a class="el" href="classshader__core__ctx.html#aa890a6df3b96a815cb62448fd28409c6">shader_core_ctx</a>
+, <a class="el" href="classpipelined__simd__unit.html#a0e6897044874cd5829fac60b040c07af">pipelined_simd_unit</a>
 </li>
 <li>cycle_insn_cta_max_hit()
 : <a class="el" href="classgpgpu__sim.html#a3444f2b04c8671a68b6d9247dee6d5ad">gpgpu_sim</a>
@@ -600,7 +604,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr size="1"/><address style="text-align: right;"><small>Generated on 4 Apr 2018 for GPGPU-Sim by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 8 Apr 2018 for GPGPU-Sim by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
