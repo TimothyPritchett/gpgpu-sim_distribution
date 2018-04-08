@@ -252,8 +252,14 @@ class RegisterFileCache {
         }
         // Update the value at the supplied pointer for the register number
         *evictee_reg = tmp_evictee.first;
+        if(RFC_DEBUG_PRINTS){
+          printf("RFC Class: Check for Eviction: Evictee Reg %d \n", *evictee_reg);
+        }
         // Update the value at the supplied pointer for the instruction
         *evictee_inst = tmp_evictee.second;
+        if(RFC_DEBUG_PRINTS){
+          printf("RFC Class: Check for Eviction: Evictee Inst %h \n", *evictee_inst);
+        }
         // Done with populating evictee info items
         return true;
       }
