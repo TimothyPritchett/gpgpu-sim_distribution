@@ -220,7 +220,7 @@ class RegisterFileCache {
 
     // Debug print
     if(RFC_DEBUG_PRINTS){
-      printf("RFC Class: Check for Eviction Method invoked\n");
+      printf("RFC Class: Check for Eviction Method invoked for warp (%u) reg (%u)\n", warp_id, register_number);
     }
 
 
@@ -243,10 +243,11 @@ class RegisterFileCache {
       }else{// All spaces are currently in use -> need to evict one
         if(RFC_DEBUG_PRINTS){
           printf("RFC Class: Check for Eviction: Need to Evict\n");
+	  printf("RFC Class: Current warp's list size = %u\n", tmp_warp_list.size());
         }
 
         // We are only following FIFO policy currently (push front, pop back)
-        RFCRegEntry &tmp_evictee = *(tmp_warp_list.end());
+        RFCRegEntry &tmp_evictee = tmp_warp_list.back();
         if(RFC_DEBUG_PRINTS){
           printf("RFC Class: Check for Eviction: Updating Evictee Info\n");
         }
