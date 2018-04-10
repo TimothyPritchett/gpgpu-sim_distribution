@@ -1,7 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node7" href="$classChaosRouter.html" title="ChaosRouter" alt="" coords="5,237,115,267"/>
-<area shape="rect" id="node9" href="$classEventRouter.html" title="EventRouter" alt="" coords="139,237,248,267"/>
-<area shape="rect" id="node11" href="$classIQRouter.html" title="IQRouter" alt="" coords="272,237,355,267"/>
-<area shape="rect" id="node2" href="$classTimedModule.html" title="TimedModule" alt="" coords="139,83,248,112"/>
-<area shape="rect" id="node4" href="$classModule.html" title="Module" alt="" coords="159,5,228,35"/>
-</map>

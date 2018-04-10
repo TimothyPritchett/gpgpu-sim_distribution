@@ -1,9 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node8" href="$classTrafficManager.html" title="TrafficManager" alt="" coords="1025,1272,1145,1301"/>
-<area shape="rect" id="node6" href="$classGPUTrafficManager.html" title="GPUTrafficManager" alt="" coords="1541,2340,1688,2369"/>
-<area shape="rect" id="node10" href="$classModule.html" title="Module" alt="" coords="452,1072,521,1101"/>
-<area shape="rect" id="node71" href="$classConfiguration.html" title="Configuration" alt="" coords="432,2491,541,2520"/>
-<area shape="rect" id="node49" href="$classint.html" title="int" alt="" coords="467,2387,507,2416"/>
-<area shape="rect" id="node67" href="$classIntersimConfig.html" title="IntersimConfig" alt="" coords="1555,2509,1675,2539"/>
-<area shape="rect" id="node69" href="$classBookSimConfig.html" title="BookSimConfig" alt="" coords="1025,2509,1145,2539"/>
-</map>

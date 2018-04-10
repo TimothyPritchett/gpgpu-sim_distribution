@@ -1,8 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node7" href="$classBadPermDFlyTrafficPattern.html" title="BadPermDFlyTrafficPattern" alt="" coords="697,5,903,35"/>
-<area shape="rect" id="node9" href="$classBadPermYarcTrafficPattern.html" title="BadPermYarcTrafficPattern" alt="" coords="699,59,901,88"/>
-<area shape="rect" id="node11" href="$classNeighborTrafficPattern.html" title="NeighborTrafficPattern" alt="" coords="713,112,887,141"/>
-<area shape="rect" id="node13" href="$classTornadoTrafficPattern.html" title="TornadoTrafficPattern" alt="" coords="717,165,883,195"/>
-<area shape="rect" id="node2" href="$classPermutationTrafficPattern.html" title="PermutationTrafficPattern" alt="" coords="169,85,367,115"/>
-<area shape="rect" id="node4" href="$classTrafficPattern.html" title="TrafficPattern" alt="" coords="5,85,120,115"/>
-</map>

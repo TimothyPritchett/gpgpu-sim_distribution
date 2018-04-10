@@ -1,6 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node5" href="$classMatrixArbiter.html" title="MatrixArbiter" alt="" coords="5,160,115,189"/>
-<area shape="rect" id="node7" href="$classRoundRobinArbiter.html" title="RoundRobinArbiter" alt="" coords="139,160,283,189"/>
-<area shape="rect" id="node9" href="$classTreeArbiter.html" title="TreeArbiter" alt="" coords="307,160,403,189"/>
-<area shape="rect" id="node2" href="$classModule.html" title="Module" alt="" coords="176,5,245,35"/>
-</map>

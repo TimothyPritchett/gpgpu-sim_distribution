@@ -1,9 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node2" href="$structpredictor__systemcore.html" title="predictor_systemcore" alt="" coords="319,156,489,185"/>
-<area shape="rect" id="node10" href="$structBTB__systemcore.html" title="BTB_systemcore" alt="" coords="335,889,473,919"/>
-<area shape="rect" id="node15" href="$structitlb__systemcore.html" title="itlb_systemcore" alt="" coords="339,1091,469,1120"/>
-<area shape="rect" id="node19" href="$structicache__systemcore.html" title="icache_systemcore" alt="" coords="327,1276,481,1305"/>
-<area shape="rect" id="node25" href="$structdcache__systemcore.html" title="dcache_systemcore" alt="" coords="325,1037,483,1067"/>
-<area shape="rect" id="node31" href="$structdtlb__systemcore.html" title="dtlb_systemcore" alt="" coords="336,1425,472,1455"/>
-<area shape="rect" id="node8" href="$classint.html" title="int" alt="" coords="19,1341,59,1371"/>
-</map>

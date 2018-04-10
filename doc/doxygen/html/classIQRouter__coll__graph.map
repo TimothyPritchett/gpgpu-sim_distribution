@@ -1,9 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node2" href="$classRouter.html" title="Router" alt="" coords="1004,344,1071,373"/>
-<area shape="rect" id="node4" href="$classTimedModule.html" title="TimedModule" alt="" coords="448,353,557,383"/>
-<area shape="rect" id="node6" href="$classModule.html" title="Module" alt="" coords="279,1232,348,1261"/>
-<area shape="rect" id="node57" href="$classAllocator.html" title="Allocator" alt="" coords="997,1535,1077,1564"/>
-<area shape="rect" id="node18" href="$classint.html" title="int" alt="" coords="483,736,523,765"/>
-<area shape="rect" id="node35" href="$classSwitchMonitor.html" title="SwitchMonitor" alt="" coords="979,973,1096,1003"/>
-<area shape="rect" id="node63" href="$classBufferMonitor.html" title="BufferMonitor" alt="" coords="980,707,1095,736"/>
-</map>

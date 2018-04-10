@@ -1,6 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node1" href="$classmem__fetch__interface.html" title="mem_fetch_interface" alt="" coords="5,59,176,88"/>
-<area shape="rect" id="node3" href="$classL2interface.html" title="L2interface" alt="" coords="277,5,376,35"/>
-<area shape="rect" id="node5" href="$classperfect__memory__interface.html" title="perfect_memory_interface" alt="" coords="224,59,429,88"/>
-<area shape="rect" id="node7" href="$classshader__memory__interface.html" title="shader_memory_interface" alt="" coords="228,112,425,141"/>
-</map>

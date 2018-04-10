@@ -1,8 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node7" href="$classLOA.html" title="LOA" alt="" coords="5,237,56,267"/>
-<area shape="rect" id="node9" href="$classMaxSizeMatch.html" title="MaxSizeMatch" alt="" coords="80,237,200,267"/>
-<area shape="rect" id="node11" href="$classPIM.html" title="PIM" alt="" coords="224,237,269,267"/>
-<area shape="rect" id="node13" href="$classWavefront.html" title="Wavefront" alt="" coords="293,237,384,267"/>
-<area shape="rect" id="node2" href="$classAllocator.html" title="Allocator" alt="" coords="153,83,233,112"/>
-<area shape="rect" id="node4" href="$classModule.html" title="Module" alt="" coords="159,5,228,35"/>
-</map>

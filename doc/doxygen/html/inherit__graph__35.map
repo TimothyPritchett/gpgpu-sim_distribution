@@ -1,6 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node1" href="$classConfiguration.html" title="Configuration" alt="" coords="7,32,116,61"/>
-<area shape="rect" id="node3" href="$classBookSimConfig.html" title="BookSimConfig" alt="" coords="167,5,287,35"/>
-<area shape="rect" id="node7" href="$classPowerConfig.html" title="PowerConfig" alt="" coords="173,59,280,88"/>
-<area shape="rect" id="node5" href="$classIntersimConfig.html" title="IntersimConfig" alt="" coords="336,5,456,35"/>
-</map>

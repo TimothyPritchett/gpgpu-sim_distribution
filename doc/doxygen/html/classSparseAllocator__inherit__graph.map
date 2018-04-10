@@ -1,9 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node7" href="$classiSLIP__Sparse.html" title="iSLIP_Sparse" alt="" coords="5,237,112,267"/>
-<area shape="rect" id="node9" href="$classSelAlloc.html" title="SelAlloc" alt="" coords="136,237,208,267"/>
-<area shape="rect" id="node11" href="$classSeparableAllocator.html" title="SeparableAllocator" alt="" coords="232,237,379,267"/>
-<area shape="rect" id="node2" href="$classAllocator.html" title="Allocator" alt="" coords="132,83,212,112"/>
-<area shape="rect" id="node4" href="$classModule.html" title="Module" alt="" coords="137,5,207,35"/>
-<area shape="rect" id="node13" href="$classSeparableInputFirstAllocator.html" title="SeparableInputFirstAllocator" alt="" coords="79,315,289,344"/>
-<area shape="rect" id="node15" href="$classSeparableOutputFirstAllocator.html" title="SeparableOutputFirstAllocator" alt="" coords="313,315,537,344"/>
-</map>
