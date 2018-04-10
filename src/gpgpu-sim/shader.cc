@@ -3050,7 +3050,7 @@ bool opndcoll_rfu_t::writeback( const warp_inst_t &inst )
         unsigned reg = *r;
         unsigned bank = register_bank(reg,inst.warp_id(),m_num_banks,m_bank_warp_shift);
         // Need to add RFC update/insertion code here (only handle the first reg in the list)
-        if(regs.begin() == r){// First reg in the list of regs to writeback
+        if(regs.size() == 1){// Only use RFC with instructions with 1 result
             // FIFO doesn't filter downstream writes (no replacement/update on hits)
             // Need to check for if we are going to have to stall the writeback
             // If lookup is done first -> bloated write stats
@@ -3103,11 +3103,13 @@ bool opndcoll_rfu_t::writeback( const warp_inst_t &inst )
     }
 
     // Handle any RFC updates now that we know the writeback hasn't stalled
-    // FIFO behaves the same regardless of hit/miss for writes
-    // Handle Lookup (for stats purposes)
-    m_rfc->lookup_write(inst.warp_id(), rfc_reg);
-    // Handle insertion of current reg (and eviction of value if needed)
-    m_rfc->insert(rfc_reg, &inst);
+    if(regs.size() == 1){// Only use RFC with instructions with 1 result
+        // FIFO behaves the same regardless of hit/miss for writes
+        // Handle Lookup (for stats purposes)
+        m_rfc->lookup_write(inst.warp_id(), rfc_reg);
+        // Handle insertion of current reg (and eviction of value if needed)
+        m_rfc->insert(rfc_reg, &inst);
+    }
 
     // Done with writeback (no stalls this time)
     return true;
