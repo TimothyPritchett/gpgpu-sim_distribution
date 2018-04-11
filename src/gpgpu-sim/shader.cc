@@ -3060,6 +3060,7 @@ bool opndcoll_rfu_t::writeback( const warp_inst_t &inst )
                 // Try to handle eviction write back
                 unsigned evictee_reg = evictee->first;
                 const warp_inst_t &evictee_inst = evictee->second;
+                assert(!evictee_inst.empty());
             
                 // Get the bank it would go to
                 unsigned evictee_bank = register_bank(evictee_reg,evictee_inst.warp_id(),m_num_banks,m_bank_warp_shift);
@@ -3067,16 +3068,12 @@ bool opndcoll_rfu_t::writeback( const warp_inst_t &inst )
                 if( m_arbiter.bank_idle(evictee_bank) ) {// Bank is free schedule eviction and proceed
                     // Schedule eviction writeback
                     m_arbiter.allocate_bank_for_write(evictee_bank,op_t(&evictee_inst,evictee_reg,m_num_banks,m_bank_warp_shift));
-                    // Need to allow the loop to potentially write back for other regs (only other reason this could stall)
-                    rfc_reg = reg;
-                    continue;
                 } else {// Need to stall
                     return false;
                 }
-            }else{// No eviction needed
-                // Need to allow the loop to potentially write back for other regs (only other reason this could stall)
+                
+                // Update higher-level rfc reg holder to be used later
                 rfc_reg = reg;
-                continue;
             }
         }else{// Normal writeback operation
             if( m_arbiter.bank_idle(bank) ) {

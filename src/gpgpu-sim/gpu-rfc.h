@@ -285,13 +285,7 @@ class RegisterFileCache {
     }
 
     // Argument checking
-    // if(NULL == inst_ref){// Error null instruction pointer passed
-    //   // Debug print
-    //   if(RFC_DEBUG_PRINTS){
-    //     printf("RFC Class Error: Insert method passed an NULL inst pointer\n");
-    //   }
-    //   return;
-    // }
+    assert(!inst_ref.empty());
 
 
     // Get the list for the warp if there is one
