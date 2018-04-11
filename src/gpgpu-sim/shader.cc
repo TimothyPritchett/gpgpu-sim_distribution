@@ -3045,47 +3045,35 @@ bool opndcoll_rfu_t::writeback( const warp_inst_t &inst )
     std::list<unsigned> regs = m_shader->get_regs_written(inst);
     std::list<unsigned>::iterator r;
     unsigned n=0;
-    unsigned rfc_reg;
     RFCRegEntry *evictee = NULL;
-            
-    for( r=regs.begin(); r!=regs.end();r++,n++ ) {
-        unsigned reg = *r;
-        unsigned bank = register_bank(reg,inst.warp_id(),m_num_banks,m_bank_warp_shift);
-        // Need to add RFC update/insertion code here (only handle the first reg in the list)
-        if(1 == regs.size()){// Only use RFC with instructions with 1 result
-            // FIFO doesn't filter downstream writes (no replacement/update on hits)
-            // Need to check for if we are going to have to stall the writeback
-            // If lookup is done first -> bloated write stats
-            if(m_rfc->check_for_eviction(inst.warp_id(), reg, &evictee)){// An eviction will be needed
-                // Try to handle eviction write back
-                unsigned evictee_reg = evictee->first;
-                const warp_inst_t &evictee_inst = evictee->second;
-                assert(!evictee_inst.empty());
-            
-                // Get the bank it would go to
-                unsigned evictee_bank = register_bank(evictee_reg,evictee_inst.warp_id(),m_num_banks,m_bank_warp_shift);
-                // Try to schedule the writeback (Mimic normal reg writeback code)
-                if( m_arbiter.bank_idle(evictee_bank) ) {// Bank is free schedule eviction and proceed
-                    // Schedule eviction writeback
-                    m_arbiter.allocate_bank_for_write(evictee_bank,op_t(&evictee_inst,evictee_reg,m_num_banks,m_bank_warp_shift));
-                } else {// Need to stall
-                    return false;
-                }
-                
-                // Update higher-level rfc reg holder to be used later
-                rfc_reg = reg;
-            }
-        }else{// Normal writeback operation
-            if( m_arbiter.bank_idle(bank) ) {
-                m_arbiter.allocate_bank_for_write(bank,op_t(&inst,reg,m_num_banks,m_bank_warp_shift));
-            } else {
+
+    if(1 == regs.size()){// Only use RFC with instructions with 1 result
+        // Get Important Info from Instruction
+        unsigned rfc_reg = regs.front();
+        unsigned bank = register_bank(rfc_reg,inst.warp_id(),m_num_banks,m_bank_warp_shift);
+        
+        // Handle scheduling of potential eviction based writeback
+        // FIFO doesn't filter downstream writes (no replacement/update on hits)
+        // Need to check for if we are going to have to stall the writeback
+        // If lookup is done first -> bloated write stats
+        if(m_rfc->check_for_eviction(inst.warp_id(), reg, &evictee)){// An eviction will be needed
+            // Try to handle eviction write back
+            unsigned evictee_reg = evictee->first;
+            const warp_inst_t &evictee_inst = evictee->second;
+            assert(!evictee_inst.empty());
+        
+            // Get the bank it would go to
+            unsigned evictee_bank = register_bank(evictee_reg,evictee_inst.warp_id(),m_num_banks,m_bank_warp_shift);
+            // Try to schedule the writeback (Mimic normal reg writeback code)
+            if( m_arbiter.bank_idle(evictee_bank) ) {// Bank is free schedule eviction and proceed
+                // Schedule eviction writeback
+                m_arbiter.allocate_bank_for_write(evictee_bank,op_t(&evictee_inst,evictee_reg,m_num_banks,m_bank_warp_shift));
+            } else {// Need to stall
                 return false;
             }
         }
-    }
 
-    // If we are doing stuff with the RFC and have an eviction -> process it, else do normal writeback code
-    if(1 == regs.size()){// The current instruction is going to write back to RFC instead of MRF
+        // Handle the potential eviction-based writeback to the MRF
         if(NULL != evictee){// Have an eviction to write back
             const warp_inst_t &evictee_inst = evictee->second;
             if(m_shader->get_config()->gpgpu_clock_gated_reg_file){
@@ -3103,7 +3091,31 @@ bool opndcoll_rfu_t::writeback( const warp_inst_t &inst )
                 m_shader->incregfile_writes(m_shader->get_config()->warp_size);//inst.active_count());
             }
         }// Else: No eviction -> no write back to MRF
-    }else{// This instruction is bypassing the RFC (multiple result instruction) -> handle MRF writeback
+
+        // Handle the current instruction's write to the RFC
+        // FIFO behaves the same regardless of hit/miss for writes
+        // Handle Lookup (for stats purposes)
+        m_rfc->lookup_write(inst.warp_id(), rfc_reg);
+        // Handle insertion of current reg (and eviction of value if needed)
+        m_rfc->insert(rfc_reg, inst);
+    }else{// Bypass the RFC and go directly to the MRF
+        // Queue up any writebacks to the MRF
+        for( r=regs.begin(); r!=regs.end();r++,n++ ) {
+            unsigned reg = *r;
+            unsigned bank = register_bank(reg,inst.warp_id(),m_num_banks,m_bank_warp_shift);
+            // Need to add RFC update/insertion code here (only handle the first reg in the list)
+            if(1 == regs.size()){// Only use RFC with instructions with 1 result
+                
+            }else{// Normal writeback operation
+                if( m_arbiter.bank_idle(bank) ) {
+                    m_arbiter.allocate_bank_for_write(bank,op_t(&inst,reg,m_num_banks,m_bank_warp_shift));
+                } else {
+                    return false;
+                }
+            }
+        }
+        
+        // handle MRF writeback
         // Original regfile writeback code
         for(unsigned i=0;i<(unsigned)regs.size();i++){
             if(m_shader->get_config()->gpgpu_clock_gated_reg_file){
@@ -3122,16 +3134,7 @@ bool opndcoll_rfu_t::writeback( const warp_inst_t &inst )
             }
         }
     }
-
-    // Handle any RFC updates now that we know the writeback hasn't stalled
-    if(regs.size() == 1){// Only use RFC with instructions with 1 result
-        // FIFO behaves the same regardless of hit/miss for writes
-        // Handle Lookup (for stats purposes)
-        m_rfc->lookup_write(inst.warp_id(), rfc_reg);
-        // Handle insertion of current reg (and eviction of value if needed)
-        m_rfc->insert(rfc_reg, inst);
-    }
-
+    
     // Done with writeback (no stalls this time)
     return true;
 }
