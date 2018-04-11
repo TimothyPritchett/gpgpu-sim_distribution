@@ -250,13 +250,14 @@ class RegisterFileCache {
         if(RFC_DEBUG_PRINTS){
           printf("RFC Class: Check for Eviction: Updating Evictee Info\n");
         }
-        *evictee_ptr = &(tmp_warp_list.back());
+        RFCRegEntry &evictee_ref = tmp_warp_list.back();
+        *evictee_ptr = &evictee_ref;
         
         if(RFC_DEBUG_PRINTS){
-          printf("RFC Class: Check for Eviction: Evictee Reg %d \n", (*evictee_ptr)->first);
+          printf("RFC Class: Check for Eviction: Evictee Reg %d \n", evictee_ref.first);
         }
         if(RFC_DEBUG_PRINTS){
-          printf("RFC Class: Check for Eviction: Evictee Inst ref %x \n", &((*evictee_ptr)->second));
+          printf("RFC Class: Check for Eviction: Evictee Inst ref %x \n", &(evictee_ref.second));
         }
         // Done with populating evictee info items
         return true;
