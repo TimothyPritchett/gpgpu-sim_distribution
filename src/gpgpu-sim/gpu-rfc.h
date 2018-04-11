@@ -277,7 +277,7 @@ class RegisterFileCache {
 
     // Debug print
     if(RFC_DEBUG_PRINTS){
-      printf("RFC Class: Insert Method invoked\n");
+      printf("RFC Class: Insert Method invoked for warp (%u) reg (%u)\n", tmp_warp_id, register_number);
     }
 
     if(0 == m_num_reg_slots){// Zero entry RFC -> never try to insert
