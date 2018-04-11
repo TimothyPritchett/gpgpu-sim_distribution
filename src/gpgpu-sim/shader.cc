@@ -3054,16 +3054,18 @@ bool opndcoll_rfu_t::writeback( const warp_inst_t &inst )
             // FIFO doesn't filter downstream writes (no replacement/update on hits)
             // Need to check for if we are going to have to stall the writeback
             // If lookup is done first -> bloated write stats
-            unsigned evictee_reg;
-            const warp_inst_t *evictee_inst;
-            if(m_rfc->check_for_eviction(inst.warp_id(), reg, &evictee_reg, &evictee_inst)){// An eviction will be needed
+            RFCRegEntry *evictee;
+            if(m_rfc->check_for_eviction(inst.warp_id(), reg, &evictee)){// An eviction will be needed
                 // Try to handle eviction write back
+                unsigned evictee_reg = evictee->first;
+                const warp_inst_t &evictee_inst = evictee->second;
+            
                 // Get the bank it would go to
-                unsigned evictee_bank = register_bank(evictee_reg,evictee_inst->warp_id(),m_num_banks,m_bank_warp_shift);
+                unsigned evictee_bank = register_bank(evictee_reg,evictee_inst.warp_id(),m_num_banks,m_bank_warp_shift);
                 // Try to schedule the writeback (Mimic normal reg writeback code)
                 if( m_arbiter.bank_idle(evictee_bank) ) {// Bank is free schedule eviction and proceed
                     // Schedule eviction writeback
-                    m_arbiter.allocate_bank_for_write(evictee_bank,op_t(evictee_inst,evictee_reg,m_num_banks,m_bank_warp_shift));
+                    m_arbiter.allocate_bank_for_write(evictee_bank,op_t(&evictee_inst,evictee_reg,m_num_banks,m_bank_warp_shift));
                     // Need to allow the loop to potentially write back for other regs (only other reason this could stall)
                     rfc_reg = reg;
                     continue;

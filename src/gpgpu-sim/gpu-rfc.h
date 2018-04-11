@@ -29,7 +29,7 @@
  *	Custom Classes and Types
  *
  ******************************************************************************/
-typedef std::pair<unsigned,const warp_inst_t*> RFCRegEntry;
+typedef std::pair<unsigned,const warp_inst_t &> RFCRegEntry;
 typedef std::list<RFCRegEntry> RFCRegList;
 
 // Need to put stats in structs since we can add across them to get totals for all SMs
@@ -190,7 +190,7 @@ class RegisterFileCache {
     if(RFC_DEBUG_PRINTS){
       printf("RFC Class: Lookup Write Method invoked\n");
     }
-   
+    
     if(exists(warp_id, register_number)){// Found it!
       // Update the stats
       m_stats.num_hits      += 1LL;
@@ -213,7 +213,7 @@ class RegisterFileCache {
   // Returns True if eviction is required
   // Populates the supplied evictee ptr with the reg number (if needed)
   // Populates the supplied instruciton ptr with the reg's most recent instruction (if needed)
-  bool check_for_eviction(unsigned warp_id, unsigned register_number, unsigned *evictee_reg, const warp_inst_t **evictee_inst){
+  bool check_for_eviction(unsigned warp_id, unsigned register_number, RFCRegEntry* *evictee_ptr){
     // Declare local variables
     std::map<unsigned,RFCRegList>::iterator  tmp_map_iter;
     RFCRegList::iterator                     tmp_list_iter;
@@ -243,23 +243,20 @@ class RegisterFileCache {
       }else{// All spaces are currently in use -> need to evict one
         if(RFC_DEBUG_PRINTS){
           printf("RFC Class: Check for Eviction: Need to Evict\n");
-	  printf("RFC Class: Current warp's list size = %u\n", tmp_warp_list.size());
+          printf("RFC Class: Current warp's list size = %u\n", tmp_warp_list.size());
         }
 
         // We are only following FIFO policy currently (push front, pop back)
-        RFCRegEntry &tmp_evictee = tmp_warp_list.back();
         if(RFC_DEBUG_PRINTS){
           printf("RFC Class: Check for Eviction: Updating Evictee Info\n");
         }
-        // Update the value at the supplied pointer for the register number
-        *evictee_reg = tmp_evictee.first;
+        *evictee_ptr = &(tmp_warp_list.back());
+        
         if(RFC_DEBUG_PRINTS){
-          printf("RFC Class: Check for Eviction: Evictee Reg %d \n", *evictee_reg);
+          printf("RFC Class: Check for Eviction: Evictee Reg %d \n", evictee_ptr->first);
         }
-        // Update the value at the supplied pointer for the instruction
-        *evictee_inst = tmp_evictee.second;
         if(RFC_DEBUG_PRINTS){
-          printf("RFC Class: Check for Eviction: Evictee Inst %x \n", *evictee_inst);
+          printf("RFC Class: Check for Eviction: Evictee Inst ref %x \n", &(evictee_ptr->second));
         }
         // Done with populating evictee info items
         return true;
