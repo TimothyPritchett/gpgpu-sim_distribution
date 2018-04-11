@@ -254,10 +254,13 @@ class RegisterFileCache {
         *evictee_ptr = &evictee_ref;
         
         if(RFC_DEBUG_PRINTS){
-          printf("RFC Class: Check for Eviction: Evictee Reg %d \n", evictee_ref.first);
-        }
-        if(RFC_DEBUG_PRINTS){
-          printf("RFC Class: Check for Eviction: Evictee Inst ref %x \n", &(evictee_ref.second));
+          // Debug print work for the evictee's reg number
+          unsigned evictee_reg = evictee_ref.first;
+          printf("RFC Class: Check for Eviction: Evictee Reg %d \n", evictee_reg);
+          // Debug print work for the evictee's instruciton reference
+          const warp_inst_t &evictee_inst_ref = evictee_ref.second;
+          assert(!evictee_inst_ref.empty());
+          printf("RFC Class: Check for Eviction: Evictee Inst ref %x \n", &(evictee_inst_ref));
         }
         // Done with populating evictee info items
         return true;
