@@ -3046,15 +3046,16 @@ bool opndcoll_rfu_t::writeback( const warp_inst_t &inst )
     std::list<unsigned>::iterator r;
     unsigned n=0;
     unsigned rfc_reg;
+    RFCRegEntry *evictee = NULL;
+            
     for( r=regs.begin(); r!=regs.end();r++,n++ ) {
         unsigned reg = *r;
         unsigned bank = register_bank(reg,inst.warp_id(),m_num_banks,m_bank_warp_shift);
         // Need to add RFC update/insertion code here (only handle the first reg in the list)
-        if(regs.size() == 1){// Only use RFC with instructions with 1 result
+        if(1 == regs.size()){// Only use RFC with instructions with 1 result
             // FIFO doesn't filter downstream writes (no replacement/update on hits)
             // Need to check for if we are going to have to stall the writeback
             // If lookup is done first -> bloated write stats
-            RFCRegEntry *evictee;
             if(m_rfc->check_for_eviction(inst.warp_id(), reg, &evictee)){// An eviction will be needed
                 // Try to handle eviction write back
                 unsigned evictee_reg = evictee->first;
@@ -3086,21 +3087,42 @@ bool opndcoll_rfu_t::writeback( const warp_inst_t &inst )
         }
     }
 
-    // Regfile writes actually happen here?
-    for(unsigned i=0;i<(unsigned)regs.size();i++){
-        if(m_shader->get_config()->gpgpu_clock_gated_reg_file){
-            unsigned active_count=0;
-            for(unsigned i=0;i<m_shader->get_config()->warp_size;i=i+m_shader->get_config()->n_regfile_gating_group){
-                for(unsigned j=0;j<m_shader->get_config()->n_regfile_gating_group;j++){
-                    if(inst.get_active_mask().test(i+j)){
-                        active_count+=m_shader->get_config()->n_regfile_gating_group;
-                        break;
+    // If we are doing stuff with the RFC and have an eviction -> process it, else do normal writeback code
+    if(1 == regs.size()){// The current instruction is going to write back to RFC instead of MRF
+        if(NULL != evictee){// Have an eviction to write back
+            const warp_inst_t &evictee_inst = evictee->second;
+            if(m_shader->get_config()->gpgpu_clock_gated_reg_file){
+                unsigned active_count=0;
+                for(unsigned i=0;i<m_shader->get_config()->warp_size;i=i+m_shader->get_config()->n_regfile_gating_group){
+                    for(unsigned j=0;j<m_shader->get_config()->n_regfile_gating_group;j++){
+                        if(evictee_inst.get_active_mask().test(i+j)){
+                            active_count+=m_shader->get_config()->n_regfile_gating_group;
+                            break;
+                        }
                     }
                 }
+                m_shader->incregfile_writes(active_count);
+            }else{
+                m_shader->incregfile_writes(m_shader->get_config()->warp_size);//inst.active_count());
             }
-            m_shader->incregfile_writes(active_count);
-        }else{
-            m_shader->incregfile_writes(m_shader->get_config()->warp_size);//inst.active_count());
+        }// Else: No eviction -> no write back to MRF
+    }else{// This instruction is bypassing the RFC (multiple result instruction) -> handle MRF writeback
+        // Original regfile writeback code
+        for(unsigned i=0;i<(unsigned)regs.size();i++){
+            if(m_shader->get_config()->gpgpu_clock_gated_reg_file){
+                unsigned active_count=0;
+                for(unsigned i=0;i<m_shader->get_config()->warp_size;i=i+m_shader->get_config()->n_regfile_gating_group){
+                    for(unsigned j=0;j<m_shader->get_config()->n_regfile_gating_group;j++){
+                        if(inst.get_active_mask().test(i+j)){
+                            active_count+=m_shader->get_config()->n_regfile_gating_group;
+                            break;
+                        }
+                    }
+                }
+                m_shader->incregfile_writes(active_count);
+            }else{
+                m_shader->incregfile_writes(m_shader->get_config()->warp_size);//inst.active_count());
+            }
         }
     }
 
