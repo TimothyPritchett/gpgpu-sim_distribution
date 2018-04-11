@@ -3071,11 +3071,9 @@ bool opndcoll_rfu_t::writeback( const warp_inst_t &inst )
             } else {// Need to stall
                 return false;
             }
-        }
 
-        // Handle the potential eviction-based writeback to the MRF
-        if(NULL != evictee){// Have an eviction to write back
-            const warp_inst_t &evictee_inst = evictee->second;
+            // Handle the eviction-based writeback to the MRF 
+            // (Modified version of orginal MRF 'clocking' code)
             if(m_shader->get_config()->gpgpu_clock_gated_reg_file){
                 unsigned active_count=0;
                 for(unsigned i=0;i<m_shader->get_config()->warp_size;i=i+m_shader->get_config()->n_regfile_gating_group){
@@ -3091,6 +3089,8 @@ bool opndcoll_rfu_t::writeback( const warp_inst_t &inst )
                 m_shader->incregfile_writes(m_shader->get_config()->warp_size);//inst.active_count());
             }
         }// Else: No eviction -> no write back to MRF
+
+        
 
         // Handle the current instruction's write to the RFC
         // FIFO behaves the same regardless of hit/miss for writes
