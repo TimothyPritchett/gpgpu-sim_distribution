@@ -253,10 +253,10 @@ class RegisterFileCache {
         *evictee_ptr = &(tmp_warp_list.back());
         
         if(RFC_DEBUG_PRINTS){
-          printf("RFC Class: Check for Eviction: Evictee Reg %d \n", evictee_ptr->first);
+          printf("RFC Class: Check for Eviction: Evictee Reg %d \n", (*evictee_ptr)->first);
         }
         if(RFC_DEBUG_PRINTS){
-          printf("RFC Class: Check for Eviction: Evictee Inst ref %x \n", &(evictee_ptr->second));
+          printf("RFC Class: Check for Eviction: Evictee Inst ref %x \n", &((*evictee_ptr)->second));
         }
         // Done with populating evictee info items
         return true;
@@ -268,11 +268,11 @@ class RegisterFileCache {
   // Method to handle the insertion of a new register to the cache
   // Will remove 'evictee' if needed but does not handle write-back
   // Note: will pull warp id value from 'inst'
-  void insert(unsigned register_number, const warp_inst_t *inst_ptr){
+  void insert(unsigned register_number, const warp_inst_t &inst_ref){
     // Declare local variables
     std::map<unsigned,RFCRegList>::iterator tmp_map_iter;
     RFCRegList::iterator                    tmp_list_iter;
-    unsigned                                tmp_warp_id = inst_ptr->warp_id();
+    unsigned                                tmp_warp_id = inst_ref.warp_id();
 
     // Debug print
     if(RFC_DEBUG_PRINTS){
@@ -285,13 +285,13 @@ class RegisterFileCache {
     }
 
     // Argument checking
-    if(NULL == inst_ptr){// Error null instruction pointer passed
-      // Debug print
-      if(RFC_DEBUG_PRINTS){
-        printf("RFC Class Error: Insert method passed an NULL inst pointer\n");
-      }
-      return;
-    }
+    // if(NULL == inst_ref){// Error null instruction pointer passed
+    //   // Debug print
+    //   if(RFC_DEBUG_PRINTS){
+    //     printf("RFC Class Error: Insert method passed an NULL inst pointer\n");
+    //   }
+    //   return;
+    // }
 
 
     // Get the list for the warp if there is one
@@ -321,7 +321,7 @@ class RegisterFileCache {
     // FIFO queue can have duplicates of same reg 
     // (but front to end scan for matches prevents any issues)
     // Handling position update/replacement of existing item is LRW
-    tmp_warp_list.push_front(RFCRegEntry(register_number,inst_ptr));
+    tmp_warp_list.push_front(RFCRegEntry(register_number,&inst_ref));
     
     // Done
   }
