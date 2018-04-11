@@ -321,7 +321,7 @@ class RegisterFileCache {
     // FIFO queue can have duplicates of same reg 
     // (but front to end scan for matches prevents any issues)
     // Handling position update/replacement of existing item is LRW
-    tmp_warp_list.push_front(RFCRegEntry(register_number,&inst_ref));
+    tmp_warp_list.push_front(RFCRegEntry(register_number,inst_ref));
     
     // Done
   }

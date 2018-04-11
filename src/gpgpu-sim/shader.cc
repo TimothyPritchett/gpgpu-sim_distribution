@@ -3110,7 +3110,7 @@ bool opndcoll_rfu_t::writeback( const warp_inst_t &inst )
         // Handle Lookup (for stats purposes)
         m_rfc->lookup_write(inst.warp_id(), rfc_reg);
         // Handle insertion of current reg (and eviction of value if needed)
-        m_rfc->insert(rfc_reg, &inst);
+        m_rfc->insert(rfc_reg, inst);
     }
 
     // Done with writeback (no stalls this time)
