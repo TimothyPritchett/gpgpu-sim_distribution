@@ -3056,7 +3056,7 @@ bool opndcoll_rfu_t::writeback( const warp_inst_t &inst )
         // FIFO doesn't filter downstream writes (no replacement/update on hits)
         // Need to check for if we are going to have to stall the writeback
         // If lookup is done first -> bloated write stats
-        if(m_rfc->check_for_eviction(inst.warp_id(), reg, &evictee)){// An eviction will be needed
+        if(m_rfc->check_for_eviction(inst.warp_id(), rfc_reg, &evictee)){// An eviction will be needed
             // Try to handle eviction write back
             unsigned evictee_reg = evictee->first;
             const warp_inst_t &evictee_inst = evictee->second;
@@ -3114,7 +3114,7 @@ bool opndcoll_rfu_t::writeback( const warp_inst_t &inst )
                 }
             }
         }
-        
+
         // handle MRF writeback
         // Original regfile writeback code
         for(unsigned i=0;i<(unsigned)regs.size();i++){
