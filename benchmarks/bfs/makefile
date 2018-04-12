@@ -88,7 +88,7 @@ veryclean:
 RFC_SIZES := 1 2 3 4 5 6 7 8
 
 run_fifo_sweep:
-	@echo "Running FIFO style RFC size sweep for $(BENCHMARK_NAME)
+	@echo "Running FIFO style RFC size sweep for $(BENCHMARK_NAME)"
 	@$(MAKE) --no-print-directory $(addprefix run_benchmark_fifo_,$(RFC_SIZES))
 	@echo "$(BENCHMARK_NAME) FIFO style RFC size sweep complete"
 
@@ -136,7 +136,7 @@ update_config_%:
 	@echo "Updating active config to '$*_gpgpusim.config'"
 	@rm -f $(ACTIVE_CONFIG_FILE)
 	@ln -s $*_gpgpusim.config $(ACTIVE_CONFIG_FILE)
-q
+
 # Rule for extracting just the RFC's stats
 %_$(RFC_RESULTS_FILE_BASE): %_$(RESULTS_FILE_BASE)
 	@echo "Creating RFC focused results file '$@'"
