@@ -97,6 +97,7 @@ run_benchmark_fifo_%:
 run_benchmark_fifo:
 	@echo "Running $(BENCHMARK_NAME) w/ $(RFC_SIZE)-slot FIFO RFC"
 	@$(MAKE) --no-print-directory update_config_fifo_$(RFC_SIZE)
+	@mkdir -p $(FIFO_RESULTS_DIR)
 	@$(BENCHMARK_CMD) >> $(FIFO_RESULTS_FILE)
 
 # Pattern rule and base rule for running LRW based RFC benchmark experiments
@@ -106,6 +107,7 @@ run_benchmark_lrw_%:
 run_benchmark_lrw:
 	@echo "Running $(BENCHMARK_NAME) w/ $(RFC_SIZE)-slot LRW RFC"
 	@$(MAKE) --no-print-directory update_config_lrw_$(RFC_SIZE)
+	@mkdir -p $(LRW_RESULTS_DIR)
 	@$(BENCHMARK_CMD) >> $(LRW_RESULTS_FILE)
 
 # Pattern rule and base rule for running LRW based RFC benchmark experiments
@@ -115,6 +117,7 @@ run_benchmark_lru_%:
 run_benchmark_lru:
 	@echo "Running $(BENCHMARK_NAME) w/ $(RFC_SIZE)-slot LRU RFC"
 	@$(MAKE) --no-print-directory update_config_lru_$(RFC_SIZE)
+	@mkdir -p $(LRU_RESULTS_DIR)
 	@$(BENCHMARK_CMD) >> $(LRU_RESULTS_FILE)
 
 # Rule for updating/swapping the active config symbolic link
