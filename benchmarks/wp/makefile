@@ -9,8 +9,8 @@
 ###############################################################################
 # Benchmark Specific Variables
 ###############################################################################
-BENCHMARK_NAME				:= BFS
-BENCHMARK_CMD 				:= ./$(BENCHMARK_NAME) graph4096.txt
+BENCHMARK_NAME				:= WP
+BENCHMARK_CMD 				:= ./$(BENCHMARK_NAME) < ./data/args
 
 ###############################################################################
 # Include the common work file (Which has the rules for the real work)
