@@ -133,4 +133,5 @@ update_config_%:
 # Rule for extracting just the RFC's stats
 %_$(RFC_RESULTS_FILE_BASE): %_$(RESULTS_FILE_BASE)
 	@echo "Creating RFC focused results file '$@'"
-	@grep -i "RFC" $^ >> $@
+	@grep "_rfc_" $^ >> $@
+	@grep " RFC " $^ > $@
