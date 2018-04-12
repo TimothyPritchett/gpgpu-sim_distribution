@@ -22,7 +22,7 @@
  *
  ******************************************************************************/
 
-#define RFC_DEBUG_PRINTS (true)
+#define RFC_DEBUG_PRINTS (false)
 
 /*******************************************************************************
  *
@@ -35,9 +35,13 @@ typedef struct RFCWriteBackInfo{
   unsigned    reg_num;
   warp_inst_t instruction;
 
+  RFCWriteBackInfo(){
+    reg_num = 424242; // Dummy non-zero value for marking during debugging
+  };
+
   RFCWriteBackInfo(unsigned reg, const warp_inst_t &inst){
-    reg_num = reg;
-    warp_inst_t = inst;
+    reg_num     = reg;
+    instruction = inst;
   }
 } RFCWB_t;
 
@@ -158,8 +162,8 @@ class RegisterFileCache {
     }else{// This warp has a list -> search it for the reg number
       RFCRegList &tmp_warp_list = tmp_map_iter->second;
       for(tmp_list_iter = tmp_warp_list.begin(); tmp_list_iter != tmp_warp_list.end(); tmp_list_iter++){
-        RFCRegEntry &tmp_pair = *tmp_list_iter;
-        if(register_number == tmp_pair.first){// Found an entry for the register
+        RFCWB_t &tmp_entry = *tmp_list_iter;
+        if(register_number == tmp_entry.reg_num){// Found an entry for the register
           return true;
         }
       }

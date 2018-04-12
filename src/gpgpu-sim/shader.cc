@@ -3058,7 +3058,7 @@ bool opndcoll_rfu_t::writeback( const warp_inst_t &inst )
         // If lookup is done first -> bloated write stats
         if(m_rfc->check_for_eviction(inst.warp_id(), rfc_reg, &evictee_info)){// An eviction will be needed
             // Try to handle eviction write back
-            unsigned evictee_reg            = evictee_info.reg;
+            unsigned evictee_reg            = evictee_info.reg_num;
             const warp_inst_t &evictee_inst = evictee_info.instruction;
             assert(!evictee_inst.empty());
         
