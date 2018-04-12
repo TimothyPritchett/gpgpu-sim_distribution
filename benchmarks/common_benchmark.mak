@@ -111,8 +111,8 @@ run_benchmark_fifo:
 	@$(MAKE) --no-print-directory update_config_fifo_$(RFC_SIZE)
 	@echo "Running $(BENCHMARK_NAME) w/ $(RFC_SIZE)-slot FIFO RFC"
 	@mkdir -p $(FIFO_RESULTS_DIR)
-	@$(BENCHMARK_CMD) >> $(FIFO_RESULTS_FILE)
-	@$(MAKE) --no-print-directory $(patsubst %_$(RESULTS_FILE_BASE),%_(RFC_RESULTS_FILE_BASE),$(FIFO_RESULTS_FILE))
+	@$(BENCHMARK_CMD) > $(FIFO_RESULTS_FILE)
+	@$(MAKE) --no-print-directory $(patsubst %_$(RESULTS_FILE_BASE),%_$(RFC_RESULTS_FILE_BASE),$(FIFO_RESULTS_FILE))
 
 # Pattern rule and base rule for running LRW based RFC benchmark experiments
 run_benchmark_lrw_%:
@@ -122,8 +122,8 @@ run_benchmark_lrw:
 	@$(MAKE) --no-print-directory update_config_lrw_$(RFC_SIZE)
 	@echo "Running $(BENCHMARK_NAME) w/ $(RFC_SIZE)-slot LRW RFC"
 	@mkdir -p $(LRW_RESULTS_DIR)
-	@$(BENCHMARK_CMD) >> $(LRW_RESULTS_FILE)
-	@$(MAKE) --no-print-directory $(patsubst %_$(RESULTS_FILE_BASE),%_(RFC_RESULTS_FILE_BASE),$(LRW_RESULTS_FILE))
+	@$(BENCHMARK_CMD) > $(LRW_RESULTS_FILE)
+	@$(MAKE) --no-print-directory $(patsubst %_$(RESULTS_FILE_BASE),%_$(RFC_RESULTS_FILE_BASE),$(LRW_RESULTS_FILE))
 
 # Pattern rule and base rule for running LRW based RFC benchmark experiments
 run_benchmark_lru_%:
@@ -133,8 +133,8 @@ run_benchmark_lru:
 	@$(MAKE) --no-print-directory update_config_lru_$(RFC_SIZE)
 	@echo "Running $(BENCHMARK_NAME) w/ $(RFC_SIZE)-slot LRU RFC"
 	@mkdir -p $(LRU_RESULTS_DIR)
-	@$(BENCHMARK_CMD) >> $(LRU_RESULTS_FILE)
-	@$(MAKE) --no-print-directory $(patsubst %_$(RESULTS_FILE_BASE),%_(RFC_RESULTS_FILE_BASE),$(LRU_RESULTS_FILE))
+	@$(BENCHMARK_CMD) > $(LRU_RESULTS_FILE)
+	@$(MAKE) --no-print-directory $(patsubst %_$(RESULTS_FILE_BASE),%_$(RFC_RESULTS_FILE_BASE),$(LRU_RESULTS_FILE))
 
 # Rule for updating/swapping the active config symbolic link
 update_config_%:
@@ -145,5 +145,5 @@ update_config_%:
 # Rule for extracting just the RFC's stats
 %_$(RFC_RESULTS_FILE_BASE): %_$(RESULTS_FILE_BASE)
 	@echo "Creating RFC focused results file '$@'"
-	@grep "_rfc_" $^ >> $@
-	@grep " RFC " $^ > $@
+	@grep "_rfc_" $^ > $@
+	@grep " RFC " $^ >> $@

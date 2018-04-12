@@ -1,4 +1,6 @@
 *.log
 *_cuobj*
+*/gpgpusim.config
+*_stats.txt
 
 
