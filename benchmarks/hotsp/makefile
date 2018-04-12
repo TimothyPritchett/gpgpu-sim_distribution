@@ -15,4 +15,4 @@ BENCHMARK_CMD 				:= ./$(BENCHMARK_NAME) 30 6 40 ./result_30_6_40.txt
 ###############################################################################
 # Include the common work file (Which has the rules for the real work)
 ###############################################################################
-include "../common_benchmark.mak"
+include ../common_benchmark.mak

@@ -15,4 +15,4 @@ BENCHMARK_CMD 				:= ./$(BENCHMARK_NAME) graph4096.txt
 ###############################################################################
 # Include the common work file (Which has the rules for the real work)
 ###############################################################################
-include "../common_benchmark.mak"
+include ../common_benchmark.mak
