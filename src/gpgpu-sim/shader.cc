@@ -3045,7 +3045,7 @@ bool opndcoll_rfu_t::writeback( const warp_inst_t &inst )
     std::list<unsigned> regs = m_shader->get_regs_written(inst);
     std::list<unsigned>::iterator r;
     unsigned n=0;
-    RFCRegEntry *evictee = NULL;
+    RFCWB_t evictee_info;
 
     if(1 == regs.size()){// Only use RFC with instructions with 1 result
         // Get Important Info from Instruction
@@ -3056,10 +3056,10 @@ bool opndcoll_rfu_t::writeback( const warp_inst_t &inst )
         // FIFO doesn't filter downstream writes (no replacement/update on hits)
         // Need to check for if we are going to have to stall the writeback
         // If lookup is done first -> bloated write stats
-        if(m_rfc->check_for_eviction(inst.warp_id(), rfc_reg, &evictee)){// An eviction will be needed
+        if(m_rfc->check_for_eviction(inst.warp_id(), rfc_reg, &evictee_info)){// An eviction will be needed
             // Try to handle eviction write back
-            unsigned evictee_reg = evictee->first;
-            const warp_inst_t &evictee_inst = evictee->second;
+            unsigned evictee_reg            = evictee_info.reg;
+            const warp_inst_t &evictee_inst = evictee_info.instruction;
             assert(!evictee_inst.empty());
         
             // Get the bank it would go to

@@ -29,8 +29,20 @@
  *	Custom Classes and Types
  *
  ******************************************************************************/
-typedef std::pair<unsigned,const warp_inst_t &> RFCRegEntry;
-typedef std::list<RFCRegEntry> RFCRegList;
+// Need a container 'type' for holding the needed writeback info, since the 'inst'
+//   can be modifed/'freed' after the 'writeback' to the RFC completed.
+typedef struct RFCWriteBackInfo{
+  unsigned    reg_num;
+  warp_inst_t instruction;
+
+  RFCWriteBackInfo(unsigned reg, const warp_inst_t &inst){
+    reg_num = reg;
+    warp_inst_t = inst;
+  }
+} RFCWB_t;
+
+// Helper type for consistently and compactly refering to RFC's per warp lists
+typedef std::list<RFCWB_t> RFCRegList;
 
 // Need to put stats in structs since we can add across them to get totals for all SMs
 struct RFCStats{
@@ -213,7 +225,7 @@ class RegisterFileCache {
   // Returns True if eviction is required
   // Populates the supplied evictee ptr with the reg number (if needed)
   // Populates the supplied instruciton ptr with the reg's most recent instruction (if needed)
-  bool check_for_eviction(unsigned warp_id, unsigned register_number, RFCRegEntry* *evictee_ptr){
+  bool check_for_eviction(unsigned warp_id, unsigned register_number, RFCWB_t *evictee_info_ptr){
     // Declare local variables
     std::map<unsigned,RFCRegList>::iterator  tmp_map_iter;
     RFCRegList::iterator                     tmp_list_iter;
@@ -250,17 +262,19 @@ class RegisterFileCache {
         if(RFC_DEBUG_PRINTS){
           printf("RFC Class: Check for Eviction: Updating Evictee Info\n");
         }
-        RFCRegEntry &evictee_ref = tmp_warp_list.back();
-        *evictee_ptr = &evictee_ref;
-        
+        RFCWB_t &evictee_ref          = tmp_warp_list.back();
+        evictee_info_ptr->reg_num     = evictee_ref.reg_num;
+        evictee_info_ptr->instruction = evictee_ref.instruction;
+
         if(RFC_DEBUG_PRINTS){
           // Debug print work for the evictee's reg number
-          unsigned evictee_reg = evictee_ref.first;
+          unsigned evictee_reg = evictee_ref.reg_num;
           printf("RFC Class: Check for Eviction: Evictee Reg %d \n", evictee_reg);
-          // Debug print work for the evictee's instruciton reference
-          const warp_inst_t &evictee_inst_ref = evictee_ref.second;
+          // Debug print work for the evictee's instruction reference
+          const warp_inst_t &evictee_inst_ref = evictee_ref.instruction;
           assert(!evictee_inst_ref.empty());
-          printf("RFC Class: Check for Eviction: Evictee Inst ref %x \n", &(evictee_inst_ref));
+          printf("RFC Class: Check for Eviction: Evictee Inst is:\n");
+          evictee_inst_ref.print_insn(stdout);
         }
         // Done with populating evictee info items
         return true;
@@ -319,7 +333,7 @@ class RegisterFileCache {
     // FIFO queue can have duplicates of same reg 
     // (but front to end scan for matches prevents any issues)
     // Handling position update/replacement of existing item is LRW
-    tmp_warp_list.push_front(RFCRegEntry(register_number,inst_ref));
+    tmp_warp_list.push_front(RFCWB_t(register_number,inst_ref));
     
     // Done
   }
