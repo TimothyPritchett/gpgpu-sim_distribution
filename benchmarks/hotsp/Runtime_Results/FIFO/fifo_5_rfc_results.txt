@@ -1,0 +1,61 @@
+-gpgpu_rfc_slots                        5 # Shader Register File Cache per-warp register capacity (default=6)
+========= Core RFC stats =========
+	Total RFC Accesses     = 0
+	Total RFC Misses       = 0
+	Total RFC Read Misses  = 0
+	Total RFC Write Misses = 0
+	Total RFC Evictions    = 0
+========= Core RFC stats =========
+	Total RFC Accesses     = 0
+	Total RFC Misses       = 0
+	Total RFC Read Misses  = 0
+	Total RFC Write Misses = 0
+	Total RFC Evictions    = 0
+========= Core RFC stats =========
+	Total RFC Accesses     = 716443
+	Total RFC Misses       = 428971
+	Total RFC Read Misses  = 154151
+	Total RFC Write Misses = 274820
+	Total RFC Evictions    = 280715
+========= Core RFC stats =========
+	Total RFC Accesses     = 1430274
+	Total RFC Misses       = 856800
+	Total RFC Read Misses  = 308709
+	Total RFC Write Misses = 548091
+	Total RFC Evictions    = 561218
+========= Core RFC stats =========
+	Total RFC Accesses     = 2144165
+	Total RFC Misses       = 1284640
+	Total RFC Read Misses  = 463196
+	Total RFC Write Misses = 821444
+	Total RFC Evictions    = 841781
+========= Core RFC stats =========
+	Total RFC Accesses     = 2857892
+	Total RFC Misses       = 1712437
+	Total RFC Read Misses  = 617805
+	Total RFC Write Misses = 1094632
+	Total RFC Evictions    = 1122180
+========= Core RFC stats =========
+	Total RFC Accesses     = 3571733
+	Total RFC Misses       = 2140179
+	Total RFC Read Misses  = 772219
+	Total RFC Write Misses = 1367960
+	Total RFC Evictions    = 1402693
+========= Core RFC stats =========
+	Total RFC Accesses     = 4285541
+	Total RFC Misses       = 2568055
+	Total RFC Read Misses  = 926858
+	Total RFC Write Misses = 1641197
+	Total RFC Evictions    = 1683173
+========= Core RFC stats =========
+	Total RFC Accesses     = 4707999
+	Total RFC Misses       = 2823888
+	Total RFC Read Misses  = 1020350
+	Total RFC Write Misses = 1803538
+	Total RFC Evictions    = 1850473
+========= Core RFC stats =========
+	Total RFC Accesses     = 4707999
+	Total RFC Misses       = 2823888
+	Total RFC Read Misses  = 1020350
+	Total RFC Write Misses = 1803538
+	Total RFC Evictions    = 1850473

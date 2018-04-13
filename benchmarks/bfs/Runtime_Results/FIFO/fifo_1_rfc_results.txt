@@ -173,9 +173,3 @@
 	Total RFC Read Misses  = 101619
 	Total RFC Write Misses = 77851
 	Total RFC Evictions    = 90600
-========= Core RFC stats =========
-	Total RFC Accesses     = 245059
-	Total RFC Misses       = 179470
-	Total RFC Read Misses  = 101619
-	Total RFC Write Misses = 77851
-	Total RFC Evictions    = 90600

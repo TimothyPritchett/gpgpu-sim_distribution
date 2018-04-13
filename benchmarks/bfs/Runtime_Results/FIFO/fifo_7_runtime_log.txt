@@ -178,7 +178,7 @@ GPGPU-Sim uArch: performance model initialization complete.
 GPGPU-Sim PTX: __cudaRegisterFatBinary, fat_cubin_handle = 1, filename=bfs.cu
 self exe links to: /home/min/a/tpritche/Courses/ECE_695_GPU/Assignments/HW2/GPGPU-Sim/benchmarks/bfs/BFS
 Running md5sum using "md5sum /home/min/a/tpritche/Courses/ECE_695_GPU/Assignments/HW2/GPGPU-Sim/benchmarks/bfs/BFS "
-Parsing file _cuobjdump_complete_output_4VUHuB
+Parsing file _cuobjdump_complete_output_uzzCd7
 ######### cuobjdump parser ########
 ## Adding new section PTX
 Adding ptx filename: _cuobjdump_1.ptx
@@ -232,11 +232,11 @@ GPGPU-Sim PTX: ... end of reconvergence points for _Z6KernelP4NodePiPbS2_S1_S2_i
 GPGPU-Sim PTX: ... done pre-decoding instructions for '_Z6KernelP4NodePiPbS2_S1_S2_i'.
 GPGPU-Sim PTX: finished parsing EMBEDDED .ptx file _1.ptx
 Adding _cuobjdump_3.ptx with cubin handle 1
-GPGPU-Sim PTX: extracting embedded .ptx to temporary file "_ptx_EqPjYf"
-Running: cat _ptx_EqPjYf | sed 's/.version 1.5/.version 1.4/' | sed 's/, texmode_independent//' | sed 's/\(\.extern \.const\[1\] .b8 \w\+\)\[\]/\1\[1\]/' | sed 's/const\[.\]/const\[0\]/g' > _ptx2_kph7tU
-GPGPU-Sim PTX: generating ptxinfo using "$CUDA_INSTALL_PATH/bin/ptxas --gpu-name=sm_20 -v _ptx2_kph7tU --output-file  /dev/null 2> _ptx_EqPjYfinfo"
+GPGPU-Sim PTX: extracting embedded .ptx to temporary file "_ptx_bdLCa2"
+Running: cat _ptx_bdLCa2 | sed 's/.version 1.5/.version 1.4/' | sed 's/, texmode_independent//' | sed 's/\(\.extern \.const\[1\] .b8 \w\+\)\[\]/\1\[1\]/' | sed 's/const\[.\]/const\[0\]/g' > _ptx2_0ey58W
+GPGPU-Sim PTX: generating ptxinfo using "$CUDA_INSTALL_PATH/bin/ptxas --gpu-name=sm_20 -v _ptx2_0ey58W --output-file  /dev/null 2> _ptx_bdLCa2info"
 GPGPU-Sim PTX: Kernel '_Z6KernelP4NodePiPbS2_S1_S2_i' : regs=15, lmem=0, smem=0, cmem=84
-GPGPU-Sim PTX: removing ptxinfo using "rm -f _ptx_EqPjYf _ptx2_kph7tU _ptx_EqPjYfinfo"
+GPGPU-Sim PTX: removing ptxinfo using "rm -f _ptx_bdLCa2 _ptx2_0ey58W _ptx_bdLCa2info"
 GPGPU-Sim PTX: loading globals with explicit initializers... 
 GPGPU-Sim PTX: finished loading globals (0 bytes total).
 GPGPU-Sim PTX: loading constants with explicit initializers...  done.
@@ -2134,9 +2134,6 @@ Injected packet size average = -nan (5 samples)
 Accepted packet size average = -nan (5 samples)
 Hops average = -nan (5 samples)
 ----------------------------END-of-Interconnect-DETAILS-------------------------
-
-GPGPU-Sim PTX: cudaLaunch for 0x0x403f40 (mode=performance simulation) on stream 0
-GPGPU-Sim PTX: pushing kernel '_Z6KernelP4NodePiPbS2_S1_S2_i' to stream 0, gridDim= (16,1,1) blockDim = (256,1,1) 
 kernel_name = 
 kernel_launch_uid = 
 gpu_sim_cycle = 0
@@ -2515,6 +2512,9 @@ Injected packet size average = -nan (6 samples)
 Accepted packet size average = -nan (6 samples)
 Hops average = -nan (6 samples)
 ----------------------------END-of-Interconnect-DETAILS-------------------------
+
+GPGPU-Sim PTX: cudaLaunch for 0x0x403f40 (mode=performance simulation) on stream 0
+GPGPU-Sim PTX: pushing kernel '_Z6KernelP4NodePiPbS2_S1_S2_i' to stream 0, gridDim= (16,1,1) blockDim = (256,1,1) 
 GPGPU-Sim uArch: Shader 1 bind to kernel 1 '_Z6KernelP4NodePiPbS2_S1_S2_i'
 GPGPU-Sim uArch: CTA/core = 6, limited by: threads
 GPGPU-Sim uArch: core:  1, cta: 0, start_tid:   0, end_tid: 256, initialized @(1,0)
@@ -2547,8 +2547,8 @@ GPGPU-Sim uArch: core: 14, cta: 0, start_tid:   0, end_tid: 256, initialized @(1
 GPGPU-Sim uArch: Shader 0 bind to kernel 1 '_Z6KernelP4NodePiPbS2_S1_S2_i'
 GPGPU-Sim uArch: core:  0, cta: 0, start_tid:   0, end_tid: 256, initialized @(1,0)
 GPGPU-Sim uArch: core:  1, cta: 1, start_tid: 256, end_tid: 512, initialized @(2,0)
-GPGPU-Sim uArch: cycles simulated: 500  inst.: 0 (ipc= 0.0) sim_rate=0 (inst/sec) elapsed = 0:0:00:01 / Thu Apr 12 15:16:45 2018
-GPGPU-Sim uArch: cycles simulated: 1000  inst.: 81920 (ipc=81.9) sim_rate=40960 (inst/sec) elapsed = 0:0:00:02 / Thu Apr 12 15:16:46 2018
+GPGPU-Sim uArch: cycles simulated: 500  inst.: 0 (ipc= 0.0) sim_rate=0 (inst/sec) elapsed = 0:0:00:01 / Thu Apr 12 15:47:50 2018
+GPGPU-Sim uArch: cycles simulated: 1000  inst.: 81920 (ipc=81.9) sim_rate=40960 (inst/sec) elapsed = 0:0:00:02 / Thu Apr 12 15:47:51 2018
 GPGPU-Sim PTX: 100000 instructions simulated : ctaid=(8,0,0) tid=(63,0,0)
 GPGPU-Sim uArch: Shader 5 finished CTA #0 (1465,0), 0 CTAs running
 GPGPU-Sim uArch: Shader 5 empty (last released kernel 1 '_Z6KernelP4NodePiPbS2_S1_S2_i').
@@ -2579,11 +2579,13 @@ GPGPU-Sim uArch: Shader 12 finished CTA #0 (1543,0), 0 CTAs running
 GPGPU-Sim uArch: Shader 12 empty (last released kernel 1 '_Z6KernelP4NodePiPbS2_S1_S2_i').
 GPGPU-Sim uArch: Shader 14 finished CTA #0 (1549,0), 0 CTAs running
 GPGPU-Sim uArch: Shader 14 empty (last released kernel 1 '_Z6KernelP4NodePiPbS2_S1_S2_i').
-GPGPU-Sim uArch: cycles simulated: 4500  inst.: 110679 (ipc=24.6) sim_rate=36893 (inst/sec) elapsed = 0:0:00:03 / Thu Apr 12 15:16:47 2018
+GPGPU-Sim uArch: cycles simulated: 6500  inst.: 110833 (ipc=17.1) sim_rate=36944 (inst/sec) elapsed = 0:0:00:03 / Thu Apr 12 15:47:52 2018
 GPGPU-Sim uArch: Shader 1 finished CTA #0 (6641,0), 0 CTAs running
 GPGPU-Sim uArch: Shader 1 empty (last released kernel 1 '_Z6KernelP4NodePiPbS2_S1_S2_i').
 GPGPU-Sim uArch: GPU detected kernel 1 '_Z6KernelP4NodePiPbS2_S1_S2_i' finished on shader 1.
 Destroy streams for kernel 1: size 0
+GPGPU-Sim: synchronize waiting for inactive GPU simulation
+GPGPU-Sim API: Stream Manager State
 kernel_name = _Z6KernelP4NodePiPbS2_S1_S2_i 
 kernel_launch_uid = 1 
 gpu_sim_cycle = 6642
@@ -2596,7 +2598,7 @@ gpu_tot_issued_cta = 16
 max_total_param_size = 0
 gpu_stall_dramfull = 361
 gpu_stall_icnt2sh    = 208
-gpu_total_sim_rate=36944
+gpu_total_sim_rate=27708
 
 ========= Core RFC stats =========
 	Total RFC Accesses     = 5674
@@ -2828,7 +2830,7 @@ MSHR contents
 
 Cache L2_bank_003:
 MSHR contents
-MSHR: tag=0xc0022300, atomic=0 1 entries : 0x7fd2487dded0 :  mf: uid=  6595, sid01:w00, part=1, addr=0xc0022300, load , size=32, unknown  status = IN_PARTITION_DRAM (6639), 
+MSHR: tag=0xc0022300, atomic=0 1 entries : 0x7f08506fcee0 :  mf: uid=  6595, sid01:w00, part=1, addr=0xc0022300, load , size=32, unknown  status = IN_PARTITION_DRAM (6639), 
 
 In Dram Latency Queue (total = 0): 
 DRAM[1]: 16 bks, busW=4 BL=8 CL=12, tRRD=2 tCCD=6, tRCD=12 tRAS=28 tRP=12 tRC=40
@@ -2999,11 +3001,9 @@ Hops average = -nan (7 samples)
 ----------------------------END-of-Interconnect-DETAILS-------------------------
 
 
-gpgpu_simulation_time = 0 days, 0 hrs, 0 min, 3 sec (3 sec)
-gpgpu_simulation_rate = 36944 (inst/sec)
-gpgpu_simulation_rate = 2214 (cycle/sec)
-GPGPU-Sim: synchronize waiting for inactive GPU simulation
-GPGPU-Sim API: Stream Manager State
+gpgpu_simulation_time = 0 days, 0 hrs, 0 min, 4 sec (4 sec)
+gpgpu_simulation_rate = 27708 (inst/sec)
+gpgpu_simulation_rate = 1660 (cycle/sec)
 GPGPU-Sim: detected inactive GPU simulation thread
 kernel_name = 
 kernel_launch_uid = 
@@ -3017,7 +3017,7 @@ gpu_tot_issued_cta = 16
 max_total_param_size = 0
 gpu_stall_dramfull = 361
 gpu_stall_icnt2sh    = 208
-gpu_total_sim_rate=36944
+gpu_total_sim_rate=27708
 
 ========= Core RFC stats =========
 	Total RFC Accesses     = 5674
@@ -3249,7 +3249,7 @@ MSHR contents
 
 Cache L2_bank_003:
 MSHR contents
-MSHR: tag=0xc0022300, atomic=0 1 entries : 0x7fd2487dded0 :  mf: uid=  6595, sid01:w00, part=1, addr=0xc0022300, load , size=32, unknown  status = IN_PARTITION_DRAM (6639), 
+MSHR: tag=0xc0022300, atomic=0 1 entries : 0x7f08506fcee0 :  mf: uid=  6595, sid01:w00, part=1, addr=0xc0022300, load , size=32, unknown  status = IN_PARTITION_DRAM (6639), 
 
 In Dram Latency Queue (total = 0): 
 DRAM[1]: 16 bks, busW=4 BL=8 CL=12, tRRD=2 tCCD=6, tRCD=12 tRAS=28 tRP=12 tRC=40
@@ -3418,9 +3418,6 @@ Injected packet size average = -nan (8 samples)
 Accepted packet size average = -nan (8 samples)
 Hops average = -nan (8 samples)
 ----------------------------END-of-Interconnect-DETAILS-------------------------
-
-GPGPU-Sim PTX: cudaLaunch for 0x0x403f40 (mode=performance simulation) on stream 0
-GPGPU-Sim PTX: pushing kernel '_Z6KernelP4NodePiPbS2_S1_S2_i' to stream 0, gridDim= (16,1,1) blockDim = (256,1,1) 
 kernel_name = 
 kernel_launch_uid = 
 gpu_sim_cycle = 0
@@ -3433,7 +3430,7 @@ gpu_tot_issued_cta = 16
 max_total_param_size = 0
 gpu_stall_dramfull = 361
 gpu_stall_icnt2sh    = 208
-gpu_total_sim_rate=36944
+gpu_total_sim_rate=27708
 
 ========= Core RFC stats =========
 	Total RFC Accesses     = 5674
@@ -3665,7 +3662,7 @@ MSHR contents
 
 Cache L2_bank_003:
 MSHR contents
-MSHR: tag=0xc0022300, atomic=0 1 entries : 0x7fd2487dded0 :  mf: uid=  6595, sid01:w00, part=1, addr=0xc0022300, load , size=32, unknown  status = IN_PARTITION_DRAM (6639), 
+MSHR: tag=0xc0022300, atomic=0 1 entries : 0x7f08506fcee0 :  mf: uid=  6595, sid01:w00, part=1, addr=0xc0022300, load , size=32, unknown  status = IN_PARTITION_DRAM (6639), 
 
 In Dram Latency Queue (total = 0): 
 DRAM[1]: 16 bks, busW=4 BL=8 CL=12, tRRD=2 tCCD=6, tRCD=12 tRAS=28 tRP=12 tRC=40
@@ -3834,6 +3831,9 @@ Injected packet size average = -nan (9 samples)
 Accepted packet size average = -nan (9 samples)
 Hops average = -nan (9 samples)
 ----------------------------END-of-Interconnect-DETAILS-------------------------
+
+GPGPU-Sim PTX: cudaLaunch for 0x0x403f40 (mode=performance simulation) on stream 0
+GPGPU-Sim PTX: pushing kernel '_Z6KernelP4NodePiPbS2_S1_S2_i' to stream 0, gridDim= (16,1,1) blockDim = (256,1,1) 
 GPGPU-Sim uArch: Shader 2 bind to kernel 2 '_Z6KernelP4NodePiPbS2_S1_S2_i'
 GPGPU-Sim uArch: core:  2, cta: 0, start_tid:   0, end_tid: 256, initialized @(1,6642)
 GPGPU-Sim uArch: Shader 3 bind to kernel 2 '_Z6KernelP4NodePiPbS2_S1_S2_i'
@@ -3880,9 +3880,10 @@ GPGPU-Sim uArch: Shader 14 finished CTA #0 (296,6642), 0 CTAs running
 GPGPU-Sim uArch: Shader 14 empty (last released kernel 2 '_Z6KernelP4NodePiPbS2_S1_S2_i').
 GPGPU-Sim uArch: Shader 0 finished CTA #0 (302,6642), 0 CTAs running
 GPGPU-Sim uArch: Shader 0 empty (last released kernel 2 '_Z6KernelP4NodePiPbS2_S1_S2_i').
-GPGPU-Sim uArch: cycles simulated: 7142  inst.: 221165 (ipc=220.7) sim_rate=55291 (inst/sec) elapsed = 0:0:00:04 / Thu Apr 12 15:16:48 2018
+GPGPU-Sim uArch: cycles simulated: 7142  inst.: 221165 (ipc=220.7) sim_rate=44233 (inst/sec) elapsed = 0:0:00:05 / Thu Apr 12 15:47:54 2018
 GPGPU-Sim uArch: Shader 1 finished CTA #0 (2416,6642), 0 CTAs running
 GPGPU-Sim uArch: Shader 1 empty (last released kernel 2 '_Z6KernelP4NodePiPbS2_S1_S2_i').
+GPGPU-Sim uArch: cycles simulated: 9642  inst.: 222503 (ipc=37.2) sim_rate=37083 (inst/sec) elapsed = 0:0:00:06 / Thu Apr 12 15:47:55 2018
 GPGPU-Sim uArch: Shader 10 finished CTA #0 (3046,6642), 0 CTAs running
 GPGPU-Sim uArch: Shader 10 empty (last released kernel 2 '_Z6KernelP4NodePiPbS2_S1_S2_i').
 GPGPU-Sim uArch: Shader 6 finished CTA #0 (3091,6642), 0 CTAs running
@@ -3914,7 +3915,7 @@ gpu_tot_issued_cta = 32
 max_total_param_size = 0
 gpu_stall_dramfull = 361
 gpu_stall_icnt2sh    = 208
-gpu_total_sim_rate=55768
+gpu_total_sim_rate=37179
 
 ========= Core RFC stats =========
 	Total RFC Accesses     = 13660
@@ -4319,9 +4320,9 @@ Hops average = -nan (10 samples)
 ----------------------------END-of-Interconnect-DETAILS-------------------------
 
 
-gpgpu_simulation_time = 0 days, 0 hrs, 0 min, 4 sec (4 sec)
-gpgpu_simulation_rate = 55768 (inst/sec)
-gpgpu_simulation_rate = 2751 (cycle/sec)
+gpgpu_simulation_time = 0 days, 0 hrs, 0 min, 6 sec (6 sec)
+gpgpu_simulation_rate = 37179 (inst/sec)
+gpgpu_simulation_rate = 1834 (cycle/sec)
 GPGPU-Sim: detected inactive GPU simulation thread
 kernel_name = 
 kernel_launch_uid = 
@@ -4335,7 +4336,7 @@ gpu_tot_issued_cta = 32
 max_total_param_size = 0
 gpu_stall_dramfull = 361
 gpu_stall_icnt2sh    = 208
-gpu_total_sim_rate=55768
+gpu_total_sim_rate=31867
 
 ========= Core RFC stats =========
 	Total RFC Accesses     = 13660
@@ -4738,9 +4739,6 @@ Injected packet size average = -nan (11 samples)
 Accepted packet size average = -nan (11 samples)
 Hops average = -nan (11 samples)
 ----------------------------END-of-Interconnect-DETAILS-------------------------
-
-GPGPU-Sim PTX: cudaLaunch for 0x0x403f40 (mode=performance simulation) on stream 0
-GPGPU-Sim PTX: pushing kernel '_Z6KernelP4NodePiPbS2_S1_S2_i' to stream 0, gridDim= (16,1,1) blockDim = (256,1,1) 
 kernel_name = 
 kernel_launch_uid = 
 gpu_sim_cycle = 0
@@ -4753,7 +4751,7 @@ gpu_tot_issued_cta = 32
 max_total_param_size = 0
 gpu_stall_dramfull = 361
 gpu_stall_icnt2sh    = 208
-gpu_total_sim_rate=44615
+gpu_total_sim_rate=31867
 
 ========= Core RFC stats =========
 	Total RFC Accesses     = 13660
@@ -5156,6 +5154,9 @@ Injected packet size average = -nan (12 samples)
 Accepted packet size average = -nan (12 samples)
 Hops average = -nan (12 samples)
 ----------------------------END-of-Interconnect-DETAILS-------------------------
+
+GPGPU-Sim PTX: cudaLaunch for 0x0x403f40 (mode=performance simulation) on stream 0
+GPGPU-Sim PTX: pushing kernel '_Z6KernelP4NodePiPbS2_S1_S2_i' to stream 0, gridDim= (16,1,1) blockDim = (256,1,1) 
 GPGPU-Sim uArch: Shader 3 bind to kernel 3 '_Z6KernelP4NodePiPbS2_S1_S2_i'
 GPGPU-Sim uArch: core:  3, cta: 0, start_tid:   0, end_tid: 256, initialized @(1,11005)
 GPGPU-Sim uArch: Shader 4 bind to kernel 3 '_Z6KernelP4NodePiPbS2_S1_S2_i'
@@ -5188,15 +5189,15 @@ GPGPU-Sim uArch: Shader 2 bind to kernel 3 '_Z6KernelP4NodePiPbS2_S1_S2_i'
 GPGPU-Sim uArch: core:  2, cta: 0, start_tid:   0, end_tid: 256, initialized @(1,11005)
 GPGPU-Sim uArch: core:  3, cta: 1, start_tid: 256, end_tid: 512, initialized @(2,11005)
 GPGPU-Sim PTX: 300000 instructions simulated : ctaid=(1,0,0) tid=(213,0,0)
-GPGPU-Sim uArch: cycles simulated: 11505  inst.: 332459 (ipc=218.8) sim_rate=66491 (inst/sec) elapsed = 0:0:00:05 / Thu Apr 12 15:16:49 2018
-GPGPU-Sim uArch: cycles simulated: 12505  inst.: 334283 (ipc=74.1) sim_rate=55713 (inst/sec) elapsed = 0:0:00:06 / Thu Apr 12 15:16:50 2018
+GPGPU-Sim uArch: cycles simulated: 11505  inst.: 332459 (ipc=218.8) sim_rate=47494 (inst/sec) elapsed = 0:0:00:07 / Thu Apr 12 15:47:56 2018
+GPGPU-Sim uArch: cycles simulated: 12505  inst.: 334283 (ipc=74.1) sim_rate=41785 (inst/sec) elapsed = 0:0:00:08 / Thu Apr 12 15:47:57 2018
 GPGPU-Sim uArch: Shader 7 finished CTA #0 (2667,11005), 0 CTAs running
 GPGPU-Sim uArch: Shader 7 empty (last released kernel 3 '_Z6KernelP4NodePiPbS2_S1_S2_i').
 GPGPU-Sim uArch: Shader 2 finished CTA #0 (2890,11005), 0 CTAs running
 GPGPU-Sim uArch: Shader 2 empty (last released kernel 3 '_Z6KernelP4NodePiPbS2_S1_S2_i').
 GPGPU-Sim uArch: Shader 1 finished CTA #0 (2899,11005), 0 CTAs running
 GPGPU-Sim uArch: Shader 1 empty (last released kernel 3 '_Z6KernelP4NodePiPbS2_S1_S2_i').
-GPGPU-Sim uArch: cycles simulated: 14005  inst.: 342220 (ipc=39.7) sim_rate=48888 (inst/sec) elapsed = 0:0:00:07 / Thu Apr 12 15:16:51 2018
+GPGPU-Sim uArch: cycles simulated: 14005  inst.: 342220 (ipc=39.7) sim_rate=38024 (inst/sec) elapsed = 0:0:00:09 / Thu Apr 12 15:47:58 2018
 GPGPU-Sim uArch: Shader 11 finished CTA #0 (3135,11005), 0 CTAs running
 GPGPU-Sim uArch: Shader 11 empty (last released kernel 3 '_Z6KernelP4NodePiPbS2_S1_S2_i').
 GPGPU-Sim uArch: Shader 6 finished CTA #0 (3151,11005), 0 CTAs running
@@ -5224,8 +5225,6 @@ GPGPU-Sim uArch: Shader 10 finished CTA #0 (4308,11005), 0 CTAs running
 GPGPU-Sim uArch: Shader 10 empty (last released kernel 3 '_Z6KernelP4NodePiPbS2_S1_S2_i').
 GPGPU-Sim uArch: GPU detected kernel 3 '_Z6KernelP4NodePiPbS2_S1_S2_i' finished on shader 10.
 Destroy streams for kernel 3: size 0
-GPGPU-Sim: synchronize waiting for inactive GPU simulation
-GPGPU-Sim API: Stream Manager State
 kernel_name = _Z6KernelP4NodePiPbS2_S1_S2_i 
 kernel_launch_uid = 3 
 gpu_sim_cycle = 4309
@@ -5238,7 +5237,7 @@ gpu_tot_issued_cta = 48
 max_total_param_size = 0
 gpu_stall_dramfull = 361
 gpu_stall_icnt2sh    = 240
-gpu_total_sim_rate=34346
+gpu_total_sim_rate=38162
 
 ========= Core RFC stats =========
 	Total RFC Accesses     = 35493
@@ -5643,9 +5642,11 @@ Hops average = -nan (13 samples)
 ----------------------------END-of-Interconnect-DETAILS-------------------------
 
 
-gpgpu_simulation_time = 0 days, 0 hrs, 0 min, 10 sec (10 sec)
-gpgpu_simulation_rate = 34346 (inst/sec)
-gpgpu_simulation_rate = 1531 (cycle/sec)
+gpgpu_simulation_time = 0 days, 0 hrs, 0 min, 9 sec (9 sec)
+gpgpu_simulation_rate = 38162 (inst/sec)
+gpgpu_simulation_rate = 1701 (cycle/sec)
+GPGPU-Sim: synchronize waiting for inactive GPU simulation
+GPGPU-Sim API: Stream Manager State
 GPGPU-Sim: detected inactive GPU simulation thread
 kernel_name = 
 kernel_launch_uid = 
@@ -5659,7 +5660,7 @@ gpu_tot_issued_cta = 48
 max_total_param_size = 0
 gpu_stall_dramfull = 361
 gpu_stall_icnt2sh    = 240
-gpu_total_sim_rate=34346
+gpu_total_sim_rate=38162
 
 ========= Core RFC stats =========
 	Total RFC Accesses     = 35493
@@ -6077,7 +6078,7 @@ gpu_tot_issued_cta = 48
 max_total_param_size = 0
 gpu_stall_dramfull = 361
 gpu_stall_icnt2sh    = 240
-gpu_total_sim_rate=34346
+gpu_total_sim_rate=38162
 
 ========= Core RFC stats =========
 	Total RFC Accesses     = 35493
@@ -6512,13 +6513,13 @@ GPGPU-Sim uArch: Shader 3 bind to kernel 4 '_Z6KernelP4NodePiPbS2_S1_S2_i'
 GPGPU-Sim uArch: core:  3, cta: 0, start_tid:   0, end_tid: 256, initialized @(1,15314)
 GPGPU-Sim uArch: core:  4, cta: 1, start_tid: 256, end_tid: 512, initialized @(2,15314)
 GPGPU-Sim PTX: 400000 instructions simulated : ctaid=(13,0,0) tid=(125,0,0)
-GPGPU-Sim uArch: cycles simulated: 15814  inst.: 452240 (ipc=217.6) sim_rate=41112 (inst/sec) elapsed = 0:0:00:11 / Thu Apr 12 15:16:55 2018
-GPGPU-Sim uArch: cycles simulated: 16814  inst.: 463872 (ipc=80.3) sim_rate=38656 (inst/sec) elapsed = 0:0:00:12 / Thu Apr 12 15:16:56 2018
+GPGPU-Sim uArch: cycles simulated: 15814  inst.: 452240 (ipc=217.6) sim_rate=45224 (inst/sec) elapsed = 0:0:00:10 / Thu Apr 12 15:47:59 2018
+GPGPU-Sim uArch: cycles simulated: 17314  inst.: 470080 (ipc=63.3) sim_rate=42734 (inst/sec) elapsed = 0:0:00:11 / Thu Apr 12 15:48:00 2018
 GPGPU-Sim PTX: 500000 instructions simulated : ctaid=(12,0,0) tid=(43,0,0)
-GPGPU-Sim uArch: cycles simulated: 18314  inst.: 484066 (ipc=46.9) sim_rate=37235 (inst/sec) elapsed = 0:0:00:13 / Thu Apr 12 15:16:57 2018
-GPGPU-Sim uArch: cycles simulated: 18814  inst.: 490316 (ipc=42.0) sim_rate=35022 (inst/sec) elapsed = 0:0:00:14 / Thu Apr 12 15:16:58 2018
+GPGPU-Sim uArch: cycles simulated: 18314  inst.: 484066 (ipc=46.9) sim_rate=40338 (inst/sec) elapsed = 0:0:00:12 / Thu Apr 12 15:48:01 2018
 GPGPU-Sim uArch: Shader 1 finished CTA #0 (4428,15314), 0 CTAs running
 GPGPU-Sim uArch: Shader 1 empty (last released kernel 4 '_Z6KernelP4NodePiPbS2_S1_S2_i').
+GPGPU-Sim uArch: cycles simulated: 19814  inst.: 500942 (ipc=35.0) sim_rate=38534 (inst/sec) elapsed = 0:0:00:13 / Thu Apr 12 15:48:02 2018
 GPGPU-Sim uArch: Shader 0 finished CTA #0 (4512,15314), 0 CTAs running
 GPGPU-Sim uArch: Shader 0 empty (last released kernel 4 '_Z6KernelP4NodePiPbS2_S1_S2_i').
 GPGPU-Sim uArch: Shader 12 finished CTA #0 (4623,15314), 0 CTAs running
@@ -6531,7 +6532,6 @@ GPGPU-Sim uArch: Shader 5 finished CTA #0 (4961,15314), 0 CTAs running
 GPGPU-Sim uArch: Shader 5 empty (last released kernel 4 '_Z6KernelP4NodePiPbS2_S1_S2_i').
 GPGPU-Sim uArch: Shader 9 finished CTA #0 (4978,15314), 0 CTAs running
 GPGPU-Sim uArch: Shader 9 empty (last released kernel 4 '_Z6KernelP4NodePiPbS2_S1_S2_i').
-GPGPU-Sim uArch: cycles simulated: 20314  inst.: 504700 (ipc=32.2) sim_rate=33646 (inst/sec) elapsed = 0:0:00:15 / Thu Apr 12 15:16:59 2018
 GPGPU-Sim uArch: Shader 11 finished CTA #0 (5070,15314), 0 CTAs running
 GPGPU-Sim uArch: Shader 11 empty (last released kernel 4 '_Z6KernelP4NodePiPbS2_S1_S2_i').
 GPGPU-Sim uArch: Shader 13 finished CTA #0 (5077,15314), 0 CTAs running
@@ -6563,7 +6563,7 @@ gpu_tot_issued_cta = 64
 max_total_param_size = 0
 gpu_stall_dramfull = 361
 gpu_stall_icnt2sh    = 1833
-gpu_total_sim_rate=33856
+gpu_total_sim_rate=39065
 
 ========= Core RFC stats =========
 	Total RFC Accesses     = 90452
@@ -6971,9 +6971,9 @@ Hops average = -nan (16 samples)
 ----------------------------END-of-Interconnect-DETAILS-------------------------
 
 
-gpgpu_simulation_time = 0 days, 0 hrs, 0 min, 15 sec (15 sec)
-gpgpu_simulation_rate = 33856 (inst/sec)
-gpgpu_simulation_rate = 1446 (cycle/sec)
+gpgpu_simulation_time = 0 days, 0 hrs, 0 min, 13 sec (13 sec)
+gpgpu_simulation_rate = 39065 (inst/sec)
+gpgpu_simulation_rate = 1668 (cycle/sec)
 GPGPU-Sim: synchronize waiting for inactive GPU simulation
 GPGPU-Sim API: Stream Manager State
 GPGPU-Sim: detected inactive GPU simulation thread
@@ -6989,7 +6989,7 @@ gpu_tot_issued_cta = 64
 max_total_param_size = 0
 gpu_stall_dramfull = 361
 gpu_stall_icnt2sh    = 1833
-gpu_total_sim_rate=33856
+gpu_total_sim_rate=39065
 
 ========= Core RFC stats =========
 	Total RFC Accesses     = 90452
@@ -7410,7 +7410,7 @@ gpu_tot_issued_cta = 64
 max_total_param_size = 0
 gpu_stall_dramfull = 361
 gpu_stall_icnt2sh    = 1833
-gpu_total_sim_rate=33856
+gpu_total_sim_rate=39065
 
 ========= Core RFC stats =========
 	Total RFC Accesses     = 90452
@@ -7848,23 +7848,23 @@ GPGPU-Sim uArch: Shader 4 bind to kernel 5 '_Z6KernelP4NodePiPbS2_S1_S2_i'
 GPGPU-Sim uArch: core:  4, cta: 0, start_tid:   0, end_tid: 256, initialized @(1,21695)
 GPGPU-Sim uArch: core:  5, cta: 1, start_tid: 256, end_tid: 512, initialized @(2,21695)
 GPGPU-Sim PTX: 600000 instructions simulated : ctaid=(2,0,0) tid=(61,0,0)
-GPGPU-Sim uArch: cycles simulated: 22195  inst.: 624185 (ipc=232.7) sim_rate=39011 (inst/sec) elapsed = 0:0:00:16 / Thu Apr 12 15:17:00 2018
-GPGPU-Sim uArch: cycles simulated: 23195  inst.: 651741 (ipc=95.9) sim_rate=38337 (inst/sec) elapsed = 0:0:00:17 / Thu Apr 12 15:17:01 2018
+GPGPU-Sim uArch: cycles simulated: 22195  inst.: 624185 (ipc=232.7) sim_rate=44584 (inst/sec) elapsed = 0:0:00:14 / Thu Apr 12 15:48:03 2018
+GPGPU-Sim uArch: cycles simulated: 22695  inst.: 635981 (ipc=128.1) sim_rate=42398 (inst/sec) elapsed = 0:0:00:15 / Thu Apr 12 15:48:04 2018
 GPGPU-Sim PTX: 700000 instructions simulated : ctaid=(9,0,0) tid=(212,0,0)
-GPGPU-Sim uArch: cycles simulated: 24195  inst.: 683097 (ipc=70.1) sim_rate=37949 (inst/sec) elapsed = 0:0:00:18 / Thu Apr 12 15:17:02 2018
-GPGPU-Sim uArch: cycles simulated: 25195  inst.: 716819 (ipc=59.7) sim_rate=37727 (inst/sec) elapsed = 0:0:00:19 / Thu Apr 12 15:17:03 2018
-GPGPU-Sim uArch: cycles simulated: 26195  inst.: 745663 (ipc=52.8) sim_rate=37283 (inst/sec) elapsed = 0:0:00:20 / Thu Apr 12 15:17:04 2018
+GPGPU-Sim uArch: cycles simulated: 24195  inst.: 683097 (ipc=70.1) sim_rate=42693 (inst/sec) elapsed = 0:0:00:16 / Thu Apr 12 15:48:05 2018
+GPGPU-Sim uArch: cycles simulated: 25195  inst.: 716819 (ipc=59.7) sim_rate=42165 (inst/sec) elapsed = 0:0:00:17 / Thu Apr 12 15:48:06 2018
+GPGPU-Sim uArch: cycles simulated: 26195  inst.: 745663 (ipc=52.8) sim_rate=41425 (inst/sec) elapsed = 0:0:00:18 / Thu Apr 12 15:48:07 2018
 GPGPU-Sim PTX: 800000 instructions simulated : ctaid=(11,0,0) tid=(244,0,0)
-GPGPU-Sim uArch: cycles simulated: 27195  inst.: 770659 (ipc=47.8) sim_rate=36698 (inst/sec) elapsed = 0:0:00:21 / Thu Apr 12 15:17:05 2018
+GPGPU-Sim uArch: cycles simulated: 27195  inst.: 770659 (ipc=47.8) sim_rate=40561 (inst/sec) elapsed = 0:0:00:19 / Thu Apr 12 15:48:08 2018
 GPGPU-Sim uArch: Shader 11 finished CTA #0 (6232,21695), 0 CTAs running
 GPGPU-Sim uArch: Shader 11 empty (last released kernel 5 '_Z6KernelP4NodePiPbS2_S1_S2_i').
-GPGPU-Sim uArch: cycles simulated: 28195  inst.: 791807 (ipc=43.7) sim_rate=35991 (inst/sec) elapsed = 0:0:00:22 / Thu Apr 12 15:17:06 2018
 GPGPU-Sim uArch: Shader 0 finished CTA #0 (6683,21695), 0 CTAs running
 GPGPU-Sim uArch: Shader 0 empty (last released kernel 5 '_Z6KernelP4NodePiPbS2_S1_S2_i').
 GPGPU-Sim uArch: Shader 4 finished CTA #0 (6695,21695), 0 CTAs running
 GPGPU-Sim uArch: Shader 4 empty (last released kernel 5 '_Z6KernelP4NodePiPbS2_S1_S2_i').
 GPGPU-Sim uArch: Shader 14 finished CTA #0 (6756,21695), 0 CTAs running
 GPGPU-Sim uArch: Shader 14 empty (last released kernel 5 '_Z6KernelP4NodePiPbS2_S1_S2_i').
+GPGPU-Sim uArch: cycles simulated: 28695  inst.: 799369 (ipc=41.6) sim_rate=39968 (inst/sec) elapsed = 0:0:00:20 / Thu Apr 12 15:48:09 2018
 GPGPU-Sim uArch: Shader 2 finished CTA #0 (7065,21695), 0 CTAs running
 GPGPU-Sim uArch: Shader 2 empty (last released kernel 5 '_Z6KernelP4NodePiPbS2_S1_S2_i').
 GPGPU-Sim uArch: Shader 3 finished CTA #0 (7339,21695), 0 CTAs running
@@ -7873,7 +7873,6 @@ GPGPU-Sim uArch: Shader 7 finished CTA #0 (7761,21695), 0 CTAs running
 GPGPU-Sim uArch: Shader 7 empty (last released kernel 5 '_Z6KernelP4NodePiPbS2_S1_S2_i').
 GPGPU-Sim uArch: Shader 10 finished CTA #0 (7943,21695), 0 CTAs running
 GPGPU-Sim uArch: Shader 10 empty (last released kernel 5 '_Z6KernelP4NodePiPbS2_S1_S2_i').
-GPGPU-Sim uArch: cycles simulated: 29695  inst.: 809886 (ipc=37.8) sim_rate=35212 (inst/sec) elapsed = 0:0:00:23 / Thu Apr 12 15:17:07 2018
 GPGPU-Sim uArch: Shader 8 finished CTA #0 (8029,21695), 0 CTAs running
 GPGPU-Sim uArch: Shader 8 empty (last released kernel 5 '_Z6KernelP4NodePiPbS2_S1_S2_i').
 GPGPU-Sim uArch: Shader 6 finished CTA #0 (8089,21695), 0 CTAs running
@@ -7886,6 +7885,7 @@ GPGPU-Sim uArch: Shader 9 finished CTA #0 (8770,21695), 0 CTAs running
 GPGPU-Sim uArch: Shader 9 empty (last released kernel 5 '_Z6KernelP4NodePiPbS2_S1_S2_i').
 GPGPU-Sim uArch: Shader 12 finished CTA #0 (9118,21695), 0 CTAs running
 GPGPU-Sim uArch: Shader 12 empty (last released kernel 5 '_Z6KernelP4NodePiPbS2_S1_S2_i').
+GPGPU-Sim uArch: cycles simulated: 31195  inst.: 815446 (ipc=32.4) sim_rate=38830 (inst/sec) elapsed = 0:0:00:21 / Thu Apr 12 15:48:10 2018
 GPGPU-Sim uArch: Shader 5 finished CTA #0 (11733,21695), 1 CTAs running
 GPGPU-Sim uArch: Shader 5 finished CTA #1 (12167,21695), 0 CTAs running
 GPGPU-Sim uArch: Shader 5 empty (last released kernel 5 '_Z6KernelP4NodePiPbS2_S1_S2_i').
@@ -7903,7 +7903,7 @@ gpu_tot_issued_cta = 80
 max_total_param_size = 0
 gpu_stall_dramfull = 1483
 gpu_stall_icnt2sh    = 10582
-gpu_total_sim_rate=35686
+gpu_total_sim_rate=39085
 
 ========= Core RFC stats =========
 	Total RFC Accesses     = 162602
@@ -8311,9 +8311,9 @@ Hops average = -nan (19 samples)
 ----------------------------END-of-Interconnect-DETAILS-------------------------
 
 
-gpgpu_simulation_time = 0 days, 0 hrs, 0 min, 23 sec (23 sec)
-gpgpu_simulation_rate = 35686 (inst/sec)
-gpgpu_simulation_rate = 1472 (cycle/sec)
+gpgpu_simulation_time = 0 days, 0 hrs, 0 min, 21 sec (21 sec)
+gpgpu_simulation_rate = 39085 (inst/sec)
+gpgpu_simulation_rate = 1612 (cycle/sec)
 GPGPU-Sim: synchronize waiting for inactive GPU simulation
 GPGPU-Sim API: Stream Manager State
 GPGPU-Sim: detected inactive GPU simulation thread
@@ -8329,7 +8329,7 @@ gpu_tot_issued_cta = 80
 max_total_param_size = 0
 gpu_stall_dramfull = 1483
 gpu_stall_icnt2sh    = 10582
-gpu_total_sim_rate=35686
+gpu_total_sim_rate=39085
 
 ========= Core RFC stats =========
 	Total RFC Accesses     = 162602
@@ -8750,7 +8750,7 @@ gpu_tot_issued_cta = 80
 max_total_param_size = 0
 gpu_stall_dramfull = 1483
 gpu_stall_icnt2sh    = 10582
-gpu_total_sim_rate=35686
+gpu_total_sim_rate=39085
 
 ========= Core RFC stats =========
 	Total RFC Accesses     = 162602
@@ -9188,12 +9188,11 @@ GPGPU-Sim uArch: Shader 5 bind to kernel 6 '_Z6KernelP4NodePiPbS2_S1_S2_i'
 GPGPU-Sim uArch: core:  5, cta: 0, start_tid:   0, end_tid: 256, initialized @(1,33863)
 GPGPU-Sim uArch: core:  6, cta: 1, start_tid: 256, end_tid: 512, initialized @(2,33863)
 GPGPU-Sim PTX: 900000 instructions simulated : ctaid=(4,0,0) tid=(197,0,0)
-GPGPU-Sim uArch: cycles simulated: 34363  inst.: 940803 (ipc=240.0) sim_rate=39200 (inst/sec) elapsed = 0:0:00:24 / Thu Apr 12 15:17:08 2018
+GPGPU-Sim uArch: cycles simulated: 34363  inst.: 940803 (ipc=240.0) sim_rate=42763 (inst/sec) elapsed = 0:0:00:22 / Thu Apr 12 15:48:11 2018
 GPGPU-Sim PTX: 1000000 instructions simulated : ctaid=(7,0,0) tid=(113,0,0)
-GPGPU-Sim uArch: cycles simulated: 34863  inst.: 957390 (ipc=136.6) sim_rate=38295 (inst/sec) elapsed = 0:0:00:25 / Thu Apr 12 15:17:09 2018
-GPGPU-Sim uArch: cycles simulated: 35863  inst.: 1031430 (ipc=105.3) sim_rate=39670 (inst/sec) elapsed = 0:0:00:26 / Thu Apr 12 15:17:10 2018
+GPGPU-Sim uArch: cycles simulated: 35363  inst.: 981666 (ipc=107.2) sim_rate=42681 (inst/sec) elapsed = 0:0:00:23 / Thu Apr 12 15:48:12 2018
 GPGPU-Sim PTX: 1100000 instructions simulated : ctaid=(9,0,0) tid=(92,0,0)
-GPGPU-Sim uArch: cycles simulated: 36863  inst.: 1098697 (ipc=92.6) sim_rate=40692 (inst/sec) elapsed = 0:0:00:27 / Thu Apr 12 15:17:11 2018
+GPGPU-Sim uArch: cycles simulated: 36363  inst.: 1071540 (ipc=100.3) sim_rate=44647 (inst/sec) elapsed = 0:0:00:24 / Thu Apr 12 15:48:13 2018
 GPGPU-Sim uArch: Shader 11 finished CTA #0 (3139,33863), 0 CTAs running
 GPGPU-Sim uArch: Shader 11 empty (last released kernel 6 '_Z6KernelP4NodePiPbS2_S1_S2_i').
 GPGPU-Sim uArch: Shader 7 finished CTA #0 (3226,33863), 0 CTAs running
@@ -9204,13 +9203,13 @@ GPGPU-Sim uArch: Shader 0 finished CTA #0 (3429,33863), 0 CTAs running
 GPGPU-Sim uArch: Shader 0 empty (last released kernel 6 '_Z6KernelP4NodePiPbS2_S1_S2_i').
 GPGPU-Sim uArch: Shader 4 finished CTA #0 (3454,33863), 0 CTAs running
 GPGPU-Sim uArch: Shader 4 empty (last released kernel 6 '_Z6KernelP4NodePiPbS2_S1_S2_i').
+GPGPU-Sim uArch: cycles simulated: 37363  inst.: 1115798 (ipc=84.3) sim_rate=44631 (inst/sec) elapsed = 0:0:00:25 / Thu Apr 12 15:48:14 2018
 GPGPU-Sim uArch: Shader 1 finished CTA #0 (3518,33863), 0 CTAs running
 GPGPU-Sim uArch: Shader 1 empty (last released kernel 6 '_Z6KernelP4NodePiPbS2_S1_S2_i').
 GPGPU-Sim uArch: Shader 8 finished CTA #0 (3750,33863), 0 CTAs running
 GPGPU-Sim uArch: Shader 8 empty (last released kernel 6 '_Z6KernelP4NodePiPbS2_S1_S2_i').
 GPGPU-Sim uArch: Shader 5 finished CTA #0 (3914,33863), 0 CTAs running
 GPGPU-Sim uArch: Shader 5 empty (last released kernel 6 '_Z6KernelP4NodePiPbS2_S1_S2_i').
-GPGPU-Sim uArch: cycles simulated: 37863  inst.: 1123113 (ipc=75.6) sim_rate=40111 (inst/sec) elapsed = 0:0:00:28 / Thu Apr 12 15:17:12 2018
 GPGPU-Sim uArch: Shader 2 finished CTA #0 (4076,33863), 0 CTAs running
 GPGPU-Sim uArch: Shader 2 empty (last released kernel 6 '_Z6KernelP4NodePiPbS2_S1_S2_i').
 GPGPU-Sim uArch: Shader 10 finished CTA #0 (4301,33863), 0 CTAs running
@@ -9223,13 +9222,12 @@ GPGPU-Sim uArch: Shader 3 finished CTA #0 (4815,33863), 0 CTAs running
 GPGPU-Sim uArch: Shader 3 empty (last released kernel 6 '_Z6KernelP4NodePiPbS2_S1_S2_i').
 GPGPU-Sim uArch: Shader 9 finished CTA #0 (5054,33863), 0 CTAs running
 GPGPU-Sim uArch: Shader 9 empty (last released kernel 6 '_Z6KernelP4NodePiPbS2_S1_S2_i').
+GPGPU-Sim uArch: cycles simulated: 40363  inst.: 1137194 (ipc=48.7) sim_rate=43738 (inst/sec) elapsed = 0:0:00:26 / Thu Apr 12 15:48:15 2018
 GPGPU-Sim uArch: Shader 6 finished CTA #0 (7289,33863), 1 CTAs running
 GPGPU-Sim uArch: Shader 6 finished CTA #1 (8010,33863), 0 CTAs running
 GPGPU-Sim uArch: Shader 6 empty (last released kernel 6 '_Z6KernelP4NodePiPbS2_S1_S2_i').
 GPGPU-Sim uArch: GPU detected kernel 6 '_Z6KernelP4NodePiPbS2_S1_S2_i' finished on shader 6.
 Destroy streams for kernel 6: size 0
-GPGPU-Sim: synchronize waiting for inactive GPU simulation
-GPGPU-Sim API: Stream Manager State
 kernel_name = _Z6KernelP4NodePiPbS2_S1_S2_i 
 kernel_launch_uid = 6 
 gpu_sim_cycle = 8011
@@ -9242,7 +9240,7 @@ gpu_tot_issued_cta = 96
 max_total_param_size = 0
 gpu_stall_dramfull = 4415
 gpu_stall_icnt2sh    = 20970
-gpu_total_sim_rate=40682
+gpu_total_sim_rate=43812
 
 ========= Core RFC stats =========
 	Total RFC Accesses     = 218347
@@ -9650,9 +9648,11 @@ Hops average = -nan (22 samples)
 ----------------------------END-of-Interconnect-DETAILS-------------------------
 
 
-gpgpu_simulation_time = 0 days, 0 hrs, 0 min, 28 sec (28 sec)
-gpgpu_simulation_rate = 40682 (inst/sec)
-gpgpu_simulation_rate = 1495 (cycle/sec)
+gpgpu_simulation_time = 0 days, 0 hrs, 0 min, 26 sec (26 sec)
+gpgpu_simulation_rate = 43812 (inst/sec)
+gpgpu_simulation_rate = 1610 (cycle/sec)
+GPGPU-Sim: synchronize waiting for inactive GPU simulation
+GPGPU-Sim API: Stream Manager State
 GPGPU-Sim: detected inactive GPU simulation thread
 kernel_name = 
 kernel_launch_uid = 
@@ -9666,7 +9666,7 @@ gpu_tot_issued_cta = 96
 max_total_param_size = 0
 gpu_stall_dramfull = 4415
 gpu_stall_icnt2sh    = 20970
-gpu_total_sim_rate=40682
+gpu_total_sim_rate=43812
 
 ========= Core RFC stats =========
 	Total RFC Accesses     = 218347
@@ -10074,6 +10074,7 @@ Hops average = -nan (23 samples)
 ----------------------------END-of-Interconnect-DETAILS-------------------------
 
 GPGPU-Sim PTX: cudaLaunch for 0x0x403f40 (mode=performance simulation) on stream 0
+GPGPU-Sim PTX: pushing kernel '_Z6KernelP4NodePiPbS2_S1_S2_i' to stream 0, gridDim= (16,1,1) blockDim = (256,1,1) 
 kernel_name = 
 kernel_launch_uid = 
 gpu_sim_cycle = 0
@@ -10086,7 +10087,7 @@ gpu_tot_issued_cta = 96
 max_total_param_size = 0
 gpu_stall_dramfull = 4415
 gpu_stall_icnt2sh    = 20970
-gpu_total_sim_rate=40682
+gpu_total_sim_rate=43812
 
 ========= Core RFC stats =========
 	Total RFC Accesses     = 218347
@@ -10113,7 +10114,6 @@ L1D_cache:
 	L1D_cache_core[7]: Access = 4672, Miss = 1448, Miss_rate = 0.310, Pending_hits = 118, Reservation_fails = 5493
 	L1D_cache_core[8]: Access = 4572, Miss = 1457, Miss_rate = 0.319, Pending_hits = 148, Reservation_fails = 4997
 	L1D_cache_core[9]: Access = 4906, Miss = 1683, Miss_rate = 0.343, Pending_hits = 172, Reservation_fails = 5473
-GPGPU-Sim PTX: pushing kernel '_Z6KernelP4NodePiPbS2_S1_S2_i' to stream 0, gridDim= (16,1,1) blockDim = (256,1,1) 
 	L1D_cache_core[10]: Access = 4789, Miss = 1517, Miss_rate = 0.317, Pending_hits = 144, Reservation_fails = 5579
 	L1D_cache_core[11]: Access = 4646, Miss = 1410, Miss_rate = 0.303, Pending_hits = 135, Reservation_fails = 4194
 	L1D_cache_core[12]: Access = 4538, Miss = 1463, Miss_rate = 0.322, Pending_hits = 151, Reservation_fails = 5551
@@ -10525,9 +10525,8 @@ GPGPU-Sim uArch: Shader 6 bind to kernel 7 '_Z6KernelP4NodePiPbS2_S1_S2_i'
 GPGPU-Sim uArch: core:  6, cta: 0, start_tid:   0, end_tid: 256, initialized @(1,41874)
 GPGPU-Sim uArch: core:  7, cta: 1, start_tid: 256, end_tid: 512, initialized @(2,41874)
 GPGPU-Sim PTX: 1200000 instructions simulated : ctaid=(3,0,0) tid=(105,0,0)
-GPGPU-Sim uArch: cycles simulated: 42374  inst.: 1248071 (ipc=217.9) sim_rate=43036 (inst/sec) elapsed = 0:0:00:29 / Thu Apr 12 15:17:13 2018
 GPGPU-Sim PTX: 1300000 instructions simulated : ctaid=(8,0,0) tid=(147,0,0)
-GPGPU-Sim uArch: cycles simulated: 42874  inst.: 1257322 (ipc=118.2) sim_rate=41910 (inst/sec) elapsed = 0:0:00:30 / Thu Apr 12 15:17:14 2018
+GPGPU-Sim uArch: cycles simulated: 42874  inst.: 1257322 (ipc=118.2) sim_rate=46567 (inst/sec) elapsed = 0:0:00:27 / Thu Apr 12 15:48:16 2018
 GPGPU-Sim uArch: Shader 12 finished CTA #0 (1153,41874), 0 CTAs running
 GPGPU-Sim uArch: Shader 12 empty (last released kernel 7 '_Z6KernelP4NodePiPbS2_S1_S2_i').
 GPGPU-Sim uArch: Shader 9 finished CTA #0 (1232,41874), 0 CTAs running
@@ -10573,7 +10572,7 @@ gpu_tot_issued_cta = 112
 max_total_param_size = 0
 gpu_stall_dramfull = 4415
 gpu_stall_icnt2sh    = 22302
-gpu_total_sim_rate=42206
+gpu_total_sim_rate=46895
 
 ========= Core RFC stats =========
 	Total RFC Accesses     = 240157
@@ -10981,9 +10980,9 @@ Hops average = -nan (25 samples)
 ----------------------------END-of-Interconnect-DETAILS-------------------------
 
 
-gpgpu_simulation_time = 0 days, 0 hrs, 0 min, 30 sec (30 sec)
-gpgpu_simulation_rate = 42206 (inst/sec)
-gpgpu_simulation_rate = 1461 (cycle/sec)
+gpgpu_simulation_time = 0 days, 0 hrs, 0 min, 27 sec (27 sec)
+gpgpu_simulation_rate = 46895 (inst/sec)
+gpgpu_simulation_rate = 1624 (cycle/sec)
 GPGPU-Sim: synchronize waiting for inactive GPU simulation
 GPGPU-Sim API: Stream Manager State
 GPGPU-Sim: detected inactive GPU simulation thread
@@ -10999,7 +10998,7 @@ gpu_tot_issued_cta = 112
 max_total_param_size = 0
 gpu_stall_dramfull = 4415
 gpu_stall_icnt2sh    = 22302
-gpu_total_sim_rate=42206
+gpu_total_sim_rate=46895
 
 ========= Core RFC stats =========
 	Total RFC Accesses     = 240157
@@ -11420,7 +11419,7 @@ gpu_tot_issued_cta = 112
 max_total_param_size = 0
 gpu_stall_dramfull = 4415
 gpu_stall_icnt2sh    = 22302
-gpu_total_sim_rate=42206
+gpu_total_sim_rate=46895
 
 ========= Core RFC stats =========
 	Total RFC Accesses     = 240157
@@ -11885,13 +11884,15 @@ GPGPU-Sim uArch: Shader 10 empty (last released kernel 8 '_Z6KernelP4NodePiPbS2_
 GPGPU-Sim uArch: Shader 8 finished CTA #0 (306,43853), 1 CTAs running
 GPGPU-Sim uArch: Shader 8 finished CTA #1 (383,43853), 0 CTAs running
 GPGPU-Sim uArch: Shader 8 empty (last released kernel 8 '_Z6KernelP4NodePiPbS2_S1_S2_i').
-GPGPU-Sim uArch: cycles simulated: 44353  inst.: 1376744 (ipc=221.1) sim_rate=44411 (inst/sec) elapsed = 0:0:00:31 / Thu Apr 12 15:17:15 2018
+GPGPU-Sim uArch: cycles simulated: 44353  inst.: 1376744 (ipc=221.1) sim_rate=49169 (inst/sec) elapsed = 0:0:00:28 / Thu Apr 12 15:48:17 2018
 GPGPU-Sim uArch: Shader 2 finished CTA #0 (697,43853), 0 CTAs running
 GPGPU-Sim uArch: Shader 2 empty (last released kernel 8 '_Z6KernelP4NodePiPbS2_S1_S2_i').
 GPGPU-Sim uArch: Shader 3 finished CTA #0 (811,43853), 0 CTAs running
 GPGPU-Sim uArch: Shader 3 empty (last released kernel 8 '_Z6KernelP4NodePiPbS2_S1_S2_i').
 GPGPU-Sim uArch: GPU detected kernel 8 '_Z6KernelP4NodePiPbS2_S1_S2_i' finished on shader 3.
 Destroy streams for kernel 8: size 0
+GPGPU-Sim: synchronize waiting for inactive GPU simulation
+GPGPU-Sim API: Stream Manager State
 kernel_name = _Z6KernelP4NodePiPbS2_S1_S2_i 
 kernel_launch_uid = 8 
 gpu_sim_cycle = 812
@@ -11904,7 +11905,7 @@ gpu_tot_issued_cta = 128
 max_total_param_size = 0
 gpu_stall_dramfull = 4415
 gpu_stall_icnt2sh    = 22302
-gpu_total_sim_rate=44414
+gpu_total_sim_rate=49173
 
 ========= Core RFC stats =========
 	Total RFC Accesses     = 244973
@@ -12312,11 +12313,9 @@ Hops average = -nan (28 samples)
 ----------------------------END-of-Interconnect-DETAILS-------------------------
 
 
-gpgpu_simulation_time = 0 days, 0 hrs, 0 min, 31 sec (31 sec)
-gpgpu_simulation_rate = 44414 (inst/sec)
-gpgpu_simulation_rate = 1440 (cycle/sec)
-GPGPU-Sim: synchronize waiting for inactive GPU simulation
-GPGPU-Sim API: Stream Manager State
+gpgpu_simulation_time = 0 days, 0 hrs, 0 min, 28 sec (28 sec)
+gpgpu_simulation_rate = 49173 (inst/sec)
+gpgpu_simulation_rate = 1595 (cycle/sec)
 GPGPU-Sim: detected inactive GPU simulation thread
 Kernel Executed 8 times
 kernel_name = 
@@ -12331,7 +12330,7 @@ gpu_tot_issued_cta = 128
 max_total_param_size = 0
 gpu_stall_dramfull = 4415
 gpu_stall_icnt2sh    = 22302
-gpu_total_sim_rate=44414
+gpu_total_sim_rate=49173
 
 ========= Core RFC stats =========
 	Total RFC Accesses     = 244973
@@ -12737,7 +12736,7 @@ Injected packet size average = -nan (29 samples)
 Accepted packet size average = -nan (29 samples)
 Hops average = -nan (29 samples)
 ----------------------------END-of-Interconnect-DETAILS-------------------------
-Processing time: 29895.490234 (ms)
+Processing time: 26885.644531 (ms)
 kernel_name = 
 kernel_launch_uid = 
 gpu_sim_cycle = 0
@@ -12750,7 +12749,7 @@ gpu_tot_issued_cta = 128
 max_total_param_size = 0
 gpu_stall_dramfull = 4415
 gpu_stall_icnt2sh    = 22302
-gpu_total_sim_rate=44414
+gpu_total_sim_rate=49173
 
 ========= Core RFC stats =========
 	Total RFC Accesses     = 244973
